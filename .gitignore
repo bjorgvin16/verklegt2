@@ -1,2 +1,3 @@
+*.pyc
 captain_console/*.pyc
 captain_console/venv/
