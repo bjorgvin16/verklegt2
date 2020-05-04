@@ -1,0 +1,14 @@
+.consoles {
+    background-color: pink;
+    border: solid 2px rgba(155, 155, 155, .5);
+}
+
+.games {
+    background-color: deepskyblue;
+    border: solid 2px rgba(155, 155, 155, .5);
+}
+
+.accessories {
+    background-color: mediumpurple;
+    border: solid 2px rgba(155, 155, 155, .5);
+}
