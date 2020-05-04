@@ -1,5 +1,6 @@
 from django.apps import AppConfig
 
 
-class CaptainConfig(AppConfig):
+class GamesConfig(AppConfig):
     name = 'games'
+    verbose_name = "Games"
