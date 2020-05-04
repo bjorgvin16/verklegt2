@@ -14,9 +14,9 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        <li><a href="http://127.0.0.1:8000/games/">Games <span class="sr-only">(current)</span></a></li>
-          <li><a href="http://127.0.0.1:8000/consoles/">Consoles</a></li>
-        <li><a href="http://127.0.0.1:8000/accessories/">Accessories</a></li>
+        <li><a href="{% url "games-index" %}">Games <span class="sr-only">(current)</span></a></li>
+          <li><a href="{% url "consoles-index" %}">Consoles</a></li>
+        <li><a href="{% url "accessories-index" %}">Accessories</a></li>
       </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
