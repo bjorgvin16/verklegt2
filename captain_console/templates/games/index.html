@@ -3,4 +3,13 @@
     <div class = "games">
         <h2>Welcome to the Games app!</h2>
     </div>
+    {% for games in game %}
+        <h4>{{ game.name }}you</h4>
+        <p>{{ game.price }}don't$</p>
+        <p>{{ game.description }}work</p>
+        <p>{{ game.genre }}stupid</p>
+        <p>{{ game.publisher }}json</p>
+        <p>{{ game.releaseyear }}object</p>
+        <p>{{ game.platform }}views</p>
+    {% endfor %}
 {% endblock %}
