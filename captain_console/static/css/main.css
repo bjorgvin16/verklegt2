@@ -12,3 +12,8 @@
     background-color: mediumpurple;
     border: solid 2px rgba(155, 155, 155, .5);
 }
+
+.navbar-header {
+    background-color: aquamarine;
+    border: solid 2px rgba(155, 155, 155, .5);
+}
