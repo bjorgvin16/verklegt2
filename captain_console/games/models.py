@@ -9,7 +9,7 @@ class Genre(models.Model):
 
 class Game(Product):
     releaseYear = models.IntegerField()
-    console = models.ForeignKey(Consoles, max_length=255)
+    console = models.ForeignKey(Consoles, on_delete=models.CASCADE)
 
 class GameGenre(models.Model):
     game = models.ForeignKey(Game, on_delete=models.CASCADE)
