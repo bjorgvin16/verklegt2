@@ -1,3 +1,4 @@
+*.iml
 captain_console/*/__pycache__/
 *.pyc
 captain_console/*.pyc
