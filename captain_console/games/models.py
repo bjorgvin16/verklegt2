@@ -8,6 +8,7 @@ class Game(models.Model):
     name = models.CharField(max_length=255)
     description = models.CharField(max_length=999)
     publisher = models.CharField(max_length=255)
+    releaseYear = models.IntegerField()
     price = models.IntegerField()
     display = models.BooleanField()
     leftInStock = models.IntegerField()
