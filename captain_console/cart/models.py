@@ -15,6 +15,9 @@ class Country(models.Model):
     name = models.CharField(max_length=255)
 
 class Order(models.Model):
+    cart = models.ForeignKey(Cart, on_delete=models.CASCADE)
+    orderDate = models.DateField()
+    claimType = models.CharField(max_length=255)
     firstname = models.CharField(max_length=255)
     lastname = models.CharField(max_length=255)
     email = models.CharField(max_length=255)
