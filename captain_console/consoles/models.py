@@ -3,7 +3,7 @@ from django.db import models
 # Create your models here.
 class Consoles(models.Model):
     name = models.CharField(max_length=255)
-    descirption = models.CharField(max_length=999)
+    description = models.CharField(max_length=999)
     manufacturer = models.CharField(max_length=999)
     price = models.IntegerField()
     display = models.BooleanField()
