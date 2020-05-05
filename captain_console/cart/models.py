@@ -4,5 +4,5 @@ from django.db import models
 class Cart(models.Model):
     totalPrice = models.IntegerField()
     itemNum = models.IntegerField()
-    customerId = models.ForeignKey(User, on_delete=models.CASCADE) #NEED TO MAKE THIS TABLE
+    customerId = models.ForeignKey(userprofile, on_delete=models.CASCADE) #NEED TO MAKE THIS TABLE
 
