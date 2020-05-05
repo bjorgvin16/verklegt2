@@ -1,6 +1,6 @@
 from django.shortcuts import render
 
-game = [
+games = [
     {'name': 'Super Mario Bros 2',
      'price': 4000,
      'description': 'Mario is back and better than ever in a new Super Mario Bros 2 full of exiting new levels.',
@@ -21,5 +21,5 @@ game = [
 
 def index(request):
     return render(request, 'games/index.html', context={
-        'game': game
+        'games': games
     })
