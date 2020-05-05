@@ -1,22 +1,25 @@
 from django.db import models
 
+from consoles.models import Consoles
 # Create your models here.
-class Genre(models.Model):
+
+class Genres(models.Model):
     name = models.CharField(max_length=255)
 
-class Game(models.Model):
+class Games(models.Model):
     name = models.CharField(max_length=255)
     description = models.CharField(max_length=999)
     publisher = models.CharField(max_length=255)
     price = models.IntegerField()
     display = models.BooleanField()
     leftInStock = models.IntegerField()
+    console = models.ForeignKey(Consoles, on_delete=models.CASCADE)
 
 class GameGenre(models.Model):
-    game = models.ForeignKey(Game, on_delete=models.CASCADE)
-    genre = models.ForeignKey(Genre, on_delete=models.CASCADE)
+    game = models.ForeignKey(Games, on_delete=models.CASCADE)
+    genre = models.ForeignKey(Genres, on_delete=models.CASCADE)
 
 class GameImage(models.Model):
     image = models.CharField(max_length=999)
-    game = models.ForeignKey(Game, on_delete=models.CASCADE)
+    game = models.ForeignKey(Games, on_delete=models.CASCADE)
 
