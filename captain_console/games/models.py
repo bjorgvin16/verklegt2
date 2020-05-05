@@ -5,7 +5,7 @@ class Genre(models.Model):
     name = models.CharField(max_length=255)
 
 class Game(models.Model):
-    name = models.Charfield(max_length=255)
+    name = models.CharField(max_length=255)
     description = models.CharField(max_length=999)
     publisher = models.CharField(max_length=255)
     price = models.IntegerField()
@@ -18,5 +18,5 @@ class GameGenre(models.Model):
 
 class GameImage(models.Model):
     image = models.CharField(max_length=999)
-    game = models.ForeignKey(max_length=999)
+    game = models.ForeignKey(Game, on_delete=models.CASCADE)
 
