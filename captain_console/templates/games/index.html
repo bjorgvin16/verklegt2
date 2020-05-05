@@ -3,10 +3,9 @@
     <div class = "games">
         <h2>Welcome to the Games app!</h2>
     </div>
-    <div class = "box_game">
-    {% for game in games %}
-        {% include 'games/single_game.html' with games=games %}
-    {% endfor %}
+    <div class = "game">
+        {% for game in games %}
+            {% include 'games/single_game.html' with games=games %}
+        {% endfor %}
     </div>
-    
 {% endblock %}
