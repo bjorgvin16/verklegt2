@@ -1,5 +1,4 @@
 captain_console/*/__pycache__/
 *.pyc
 captain_console/*.pyc
-captain_console/*/*.pyc
 captain_console/venv/
