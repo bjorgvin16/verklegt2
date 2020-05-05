@@ -10,3 +10,16 @@ class CartItem(models.Model):
     product = models.ForeignKey(Product, on_delete=models.CASCADE)
     cart = models.ForeignKey(Cart, on_delete=models.CASCADE)
     quantity = models.IntegerField()
+
+class Country(models.Model):
+    name = models.CharField(max_length=255)
+
+class Order(models.Model):
+    firstname = models.CharField(max_length=255)
+    lastname = models.CharField(max_length=255)
+    email = models.CharField(max_length=255)
+    streetname = models.CharField(max_length=255)
+    housenumber = models.IntegerField()
+    zipcode = models.IntegerField()
+    city = models.CharField(max_length=255)
+    country = models.ForeignKey(Country, on_delete=models.CASCADE)
