@@ -4,3 +4,6 @@ from django.db import models
 class Game(models.Model):
     name = models.Charfield(max_length=255)
     description = models.CharField(max_length=999)
+
+class GameGenre(models.Model):
+    name = models.CharField(max_length=255)
