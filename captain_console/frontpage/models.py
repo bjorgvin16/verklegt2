@@ -1,3 +1,16 @@
 from django.db import models
 
-# Create your models here.
+class Manufacturer(models.Model):
+    name = models.CharField(max_length=255)
+
+class Product(models.Model):
+    name = models.CharField(max_length=255)
+    description = models.CharField(max_length=999)
+    manufacturer = models.ForeignKey(Manufacturer, on_delete=models.CASCADE)
+    price = models.IntegerField()
+    display = models.BooleanField()
+    leftInStock = models.IntegerField()
+
+class ProductImage(models.Model):
+    image = models.CharField(max_length=999)
+    product = models.ForeignKey(Product, on_delete=models.CASCADE)

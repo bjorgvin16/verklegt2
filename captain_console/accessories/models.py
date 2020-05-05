@@ -1,3 +1,5 @@
 from django.db import models
+from frontpage.models import Product, Manufacturer, ProductImage
 
-# Create your models here.
+class Accessory(Product):
+    pass
