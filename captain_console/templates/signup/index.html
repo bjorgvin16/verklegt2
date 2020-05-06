@@ -1,6 +1,37 @@
 {% extends "base.html" %}
 {% block content %}
     <div class = "signup">
-        <h2>Welcome to the sign up page of the app!</h2>
+    <h1>Register Now!</h1>
+        <div class="creationForm">
+            <form method="POST" action="">
+                {% csrf_token %}
+
+                <div id="userCreationFirstNameField">
+                    {{ form.first_name }}
+                </div>
+
+                <div id="userCreationLastNameField">
+                    {{ form.last_name }}
+                </div>
+
+                <div id="userCreationUsernameField">
+                    {{ form.username }}
+                </div>
+
+                <div id="userCreationEmailField">
+                    {{ form.email }}
+                </div>
+
+                <div id="userCreationPassword1Field">
+                    {{ form.password1 }}
+                </div>
+
+                <div id="userCreationPassword2Field">
+                    {{ form.password2 }}
+                </div>
+
+                <input type="submit" name="Create User">
+            </form>
+        </div>
     </div>
 {% endblock %}
