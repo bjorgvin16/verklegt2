@@ -44,3 +44,7 @@
     text-transform: uppercase;
     text-shadow: 1px 1px 15px #000;
 }
+
+.col-md-4 {
+    display: inline-block;
+}
