@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block content %}
+    <img class="website-img" src="{{ game.productimage_set.first.image }}" />
+    <h1>{{ game.name }}</h1>
+    <p>{{ game.description }}</p>
+    <p>Publisher: {{ game.manufacturer.name }}</p>
+    <p>{{ game.price }}</p>
+    <p>Left in stock: {{ game.leftInStock }}</p>
+    <p>Release year: {{ game.releaseYear }}</p>
+    <p>Console: {{ game.gameConsole }}</p>
+{% endblock %}

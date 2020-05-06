@@ -1,9 +1,12 @@
 {% extends "base.html" %}
 {% block content %}
-    <img class="website-img" src="{{ console.image }}" />
     <h1>{{ console.name }}</h1>
     <p>{{ console.description }}</p>
-    <p>Publisher: {{ console.manufacturer.name }}</p>
+    <p>Manufacturer: {{ console.manufacturer.name }}</p>
     <p>{{ console.price }}</p>
     <p>Left in stock: {{ console.leftInStock }}</p>
+    {% for console_image in console.productimage_set.all %}
+        <img src = {{ console_image.image }} class = "website-img">
+    {% endfor %}
+
 {% endblock %}
