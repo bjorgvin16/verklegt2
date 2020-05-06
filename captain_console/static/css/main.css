@@ -18,7 +18,9 @@
 
 .navbar-collapse {
     background-color: #9EA8F9;
-    padding: 3em;
+    width: 100%;
+    padding: 1em;
+    font-size: 1.5em;
 }
 
 .all-games {
@@ -44,6 +46,7 @@
     font-size: 400%;
     text-transform: uppercase;
     text-shadow: 1px 1px 15px #000;
+    padding-bottom: .7em;
 }
 
 .btn-primary {
@@ -55,6 +58,7 @@
 }
 
 footer {
-  background-color: #9EA8F9;
-  padding-top: 2rem;
+    background-color: #9EA8F9;
+    padding-top: 2rem;
 }
+
