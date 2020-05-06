@@ -6,7 +6,7 @@
     <p>{{ console.price }}</p>
     <p>Left in stock: {{ console.leftInStock }}</p>
     {% for console_image in console.productimage_set.all %}
-        <img src = {{ console_image.image }} class = "website-img">
+        <img src = {{ console_image.image }} class="website-img">
     {% endfor %}
 
 {% endblock %}

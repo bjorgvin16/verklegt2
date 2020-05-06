@@ -1,6 +1,8 @@
 {% extends "base.html" %}
 {% block content %}
-    <img class="website-img" src="{{ game.productimage_set.first.image }}" />
+    {% for game_image in game.productimage_set.all %}
+        <img src = {{ game_image.image }} class="website-img">
+    {% endfor %}
     <h1>{{ game.name }}</h1>
     <p>{{ game.description }}</p>
     <p>Publisher: {{ game.manufacturer.name }}</p>

@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block content %}
+    <h1>{{ accessory.name }}</h1>
+    <p>{{ accessory.description }}</p>
+    <p>Manufacturer: {{ accessory.manufacturer.name }}</p>
+    <p>{{ accessory.price }}</p>
+    <p>Left in stock: {{ accessory.leftInStock }}</p>
+    {% for accessory_image in accessory.productimage_set.all %}
+        <img src = {{ accessory_image.image }} class="website-img">
+    {% endfor %}
+
+{% endblock %}
