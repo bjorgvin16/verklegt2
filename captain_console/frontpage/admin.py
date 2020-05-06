@@ -1,3 +1,4 @@
 from django.contrib import admin
+from frontpage.models import Manufacturer
 
-# Register your models here.
+admin.site.register(Manufacturer)
