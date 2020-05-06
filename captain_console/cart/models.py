@@ -3,7 +3,7 @@ from userprofile.models import User
 from frontpage.models import Product
 
 class Cart(models.Model):
-    customerId = models.ForeignKey(User, on_delete=models.CASCADE)
+    customer = models.ForeignKey(User, on_delete=models.CASCADE)
     active = models.BooleanField()
 
 class CartItem(models.Model):
@@ -18,7 +18,7 @@ class Order(models.Model):
     cart = models.ForeignKey(Cart, on_delete=models.CASCADE)
     orderDate = models.DateField()
     claimType = models.CharField(max_length=255)
-    firsNname = models.CharField(max_length=255)
+    firstName = models.CharField(max_length=255)
     lastName = models.CharField(max_length=255)
     email = models.CharField(max_length=255)
     streetName = models.CharField(max_length=255)
