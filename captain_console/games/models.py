@@ -14,6 +14,3 @@ class Game(Product):
     releaseYear = models.IntegerField()
     gameConsole = models.ForeignKey(Console, on_delete=models.CASCADE)
     genre = models.ManyToManyField(Genre)
-
-    def __str__(self):
-        return self.name
