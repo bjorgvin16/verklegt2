@@ -1,12 +1,20 @@
 {% extends "base.html" %}
 
 {% block content %}
-    <div class = "accessories">
-        <h2>Welcome to the Accessory app!</h2>
+    <div class = "container-fluid padding">
+        <div class = "row welcome text-center"></div>
+            <div class = "col-12">
+            <h1>Accessories</h1>
+            </div>
+        </div>
+        <hr>
+
+    <div class = "container-fluid padding">
+        <div class = "row padding">
+            {% for accessory in accessories %}
+                {% include 'accessories/single_accessory.html' with accessory=accessory %}
+            {% endfor %}
+        </div>
     </div>
-    <div class = "all-accessories">
-        {% for accessory in accessories %}
-            {% include 'accessories/single_accessory.html' with accessory=accessory %}
-        {% endfor %}
-    </div>
+
 {% endblock %}

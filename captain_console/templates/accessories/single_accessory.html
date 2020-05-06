@@ -1,8 +1,10 @@
-<div class = "one-accessory">
-    <a href = "#">
-        <img class="accessory-img" src="{{ accessory.image }}" />
-        <h4>{{ accessory.name }}</h4>
-        <p>{{ accessory.price }} kr.</p>
-        <p>{{ accessory.description }}</p>
-    </a>
+<div class = "col-md-4">
+    <div class = "card">
+        <img class="card-img-top website-img" src="{{ accessory.image }}" />
+        <div class = "card-body">
+            <h4 class = card-title>{{ accessory.name }}</h4>
+            <p class = "card-text">{{ accessory.price }} kr.</p>
+            <a href=# class = "btn btn-outline secondary">Click here to view</a>
+        </div>
+    </div>
 </div>
