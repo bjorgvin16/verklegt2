@@ -1,6 +1,12 @@
 {% extends "base.html" %}
+
 {% block content %}
     <div class = "accessories">
-        <h2>Welcome to the Accessories app!</h2>
+        <h2>Welcome to the Accessory app!</h2>
+    </div>
+    <div class = "all-accessories">
+        {% for accessory in accessories %}
+            {% include 'accessories/single_accessory.html' with accessory=accessory %}
+        {% endfor %}
     </div>
 {% endblock %}
