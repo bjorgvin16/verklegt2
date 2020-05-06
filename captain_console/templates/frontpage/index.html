@@ -1,26 +1,37 @@
 {% extends "base.html" %}
 {% block content %}
 
-<div class = "frontpage">
 
 <!--- Image Slider -->
-    <div id="slides" class="carousel slide" data-ride="carousel">
+<div id="myCarousel" class="carousel slide" data-ride="carousel">
     <ul class="carousel-indicators">
-        <li data-target="#slides" data-slide-to="0" class="active"></li>
-        <li data-target="#slides" data-slide-to="1"></li>
-        <li data-target="#slides" data-slide-to="2"></li>
+        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+        <li data-target="#myCarousel" data-slide-to="1"></li>
     </ul>
+
     <div class="carousel-inner">
-        <div class="carousel-item active">
+        <div class="item active">
             <img src="static/images/supermariobg.png">
             <div class="carousel-caption">
                 <h1 class="display-2">IT'S A ME MARIO!</h1>
-                <button type="button" class="btn btn-outline-light btn-lg">SHOP NOW</button>
+                <button type="button" class="btn btn-primary btn-lg">SHOP NOW</button>
+            </div>
+        </div>
+        <div class="item">
+            <img src="static/images/zeldabg.png">
+            <div class="carousel-caption">
+                <h1 class="display-2">EHV ZELDA PUN!</h1>
+                <button type="button" class="btn btn-primary btn-lg">SHOP NOW</button>
             </div>
         </div>
     </div>
-    </div>
+</div>
 
+
+<!--- Trending --->
+
+<div class="trending">
+    <h2><b>TRENDING NOW...<b></b></h2>
 </div>
 
 {% endblock %}
