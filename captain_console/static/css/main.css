@@ -17,3 +17,11 @@
     background-color: aquamarine;
     border: solid 2px rgba(155, 155, 155, .5);
 }
+
+.all-games {
+    background-color: aquamarine;
+}
+
+.one-game {
+    border: 2px solid black;
+}
