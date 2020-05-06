@@ -1,32 +1,39 @@
 {% extends "base.html" %}
 {% block content %}
+
     <div class = "signup">
     <h1>Register Now!</h1>
-        <div class="creationForm">
+        <div class="signUpBox">
             <form method="POST" action="">
                 {% csrf_token %}
 
                 <div id="userCreationFirstNameField">
+                    {{ form.first_name.label }}
                     {{ form.first_name }}
                 </div>
 
                 <div id="userCreationLastNameField">
+                    {{ form.last_name.label }}
                     {{ form.last_name }}
                 </div>
 
                 <div id="userCreationUsernameField">
+                    {{ form.username.label}}
                     {{ form.username }}
                 </div>
 
                 <div id="userCreationEmailField">
+                    {{ form.email.label }}
                     {{ form.email }}
                 </div>
 
                 <div id="userCreationPassword1Field">
+                    {{ form.password1.label }}
                     {{ form.password1 }}
                 </div>
 
                 <div id="userCreationPassword2Field">
+                    {{ form.password2.label }}
                     {{ form.password2 }}
                 </div>
 
@@ -34,4 +41,14 @@
             </form>
         </div>
     </div>
+
+
+
+    <hr>
+    <!--- Footer --->
+
+
+
+
 {% endblock %}
+
