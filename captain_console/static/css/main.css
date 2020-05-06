@@ -7,9 +7,9 @@
 }
 
 .console-img {
-    max-height: 200px;
-    max-width: 200px;
-    border: 1px solid black;
+    height: 300px;
+    width: 300px;
+    border: 2px solid black;
 }
 
 .accessories {
