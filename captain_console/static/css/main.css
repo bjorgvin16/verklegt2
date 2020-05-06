@@ -16,6 +16,11 @@
     height: 3%;
 }
 
+.container {
+    width: 100%;
+    padding: 0;
+}
+
 .all-games {
     background-color: snow;
 }
@@ -30,9 +35,9 @@
 }
 
 .carousel-caption {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
 }
 
 .carousel-caption h1 {

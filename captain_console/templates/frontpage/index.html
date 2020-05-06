@@ -1,26 +1,26 @@
 {% extends "base.html" %}
 {% block content %}
-    <div class = "frontpage">
-        <h2>Welcome to the front page of the app!</h2>
-    </div>
 
+<div class = "frontpage">
 
 <!--- Image Slider -->
-<div id="slides" class="carousel slide" data-ride="carousel">
-<ul class="carousel-indicators">
-	<li data-target="#slides" data-slide-to="0" class="active"></li>
-	<li data-target="#slides" data-slide-to="1"></li>
-	<li data-target="#slides" data-slide-to="2"></li>
-</ul>
-<div class="carousel-inner">
-	<div class="carousel-item active">
-		<img src="static/images/supermariobg.png">
-		<div class="carousel-caption">
-			<h1 class="display-2">IT'S A ME MARIO!</h1>
-			<button type="button" class="btn btn-outline-light btn-lg">SHOP NOW</button>
-		</div>
-	</div>
-</div>
+    <div id="slides" class="carousel slide" data-ride="carousel">
+    <ul class="carousel-indicators">
+        <li data-target="#slides" data-slide-to="0" class="active"></li>
+        <li data-target="#slides" data-slide-to="1"></li>
+        <li data-target="#slides" data-slide-to="2"></li>
+    </ul>
+    <div class="carousel-inner">
+        <div class="carousel-item active">
+            <img src="static/images/supermariobg.png">
+            <div class="carousel-caption">
+                <h1 class="display-2">IT'S A ME MARIO!</h1>
+                <button type="button" class="btn btn-outline-light btn-lg">SHOP NOW</button>
+            </div>
+        </div>
+    </div>
+    </div>
+
 </div>
 
 {% endblock %}
