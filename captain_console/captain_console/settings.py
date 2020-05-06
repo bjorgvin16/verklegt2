@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'games.apps.GamesConfig',
     'consoles.apps.ConsolesConfig',
+    'accessories.apps.AccessoriesConfig',
     'cart.apps.CartConfig',
     'frontpage.apps.FrontpageConfig',
     'login.apps.LoginConfig',
