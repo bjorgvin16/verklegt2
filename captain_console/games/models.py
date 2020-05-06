@@ -1,7 +1,7 @@
 from django.db import models
 
 from frontpage.models import Product
-from consoles.models import Consoles
+from consoles.models import Console
 # Create your models here.
 
 class Genre(models.Model):
@@ -9,7 +9,7 @@ class Genre(models.Model):
 
 class Game(Product):
     releaseYear = models.IntegerField()
-    console = models.ForeignKey(Consoles, on_delete=models.CASCADE)
+    gameConsole = models.ForeignKey(Console, on_delete=models.CASCADE)
 
 class GameGenre(models.Model):
     game = models.ForeignKey(Game, on_delete=models.CASCADE)

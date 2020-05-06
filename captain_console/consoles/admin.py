@@ -1,4 +1,4 @@
 from django.contrib import admin
-from consoles.models import Consoles
+from consoles.models import Console
 
-admin.site.register(Consoles)
+admin.site.register(Console)
