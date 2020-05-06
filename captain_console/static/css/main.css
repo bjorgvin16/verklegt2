@@ -16,6 +16,11 @@
     height: 3%;
 }
 
+.container-fluid {
+    background-color: #E6E6FA;
+    padding: 2em;
+}
+
 .container {
     width: 100%;
     padding: 0;
