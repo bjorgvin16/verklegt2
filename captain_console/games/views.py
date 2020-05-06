@@ -1,4 +1,6 @@
 from django.shortcuts import render
+from games.models import Game
 
 def index(request):
-    return render(request, 'games/index.html')
+    context = { 'games': Game.objects.all().order_by('name') }
+    return render(request, 'games/index.html', context)
