@@ -10,7 +10,4 @@ class Product(models.Model):
     price = models.IntegerField()
     display = models.BooleanField()
     leftInStock = models.IntegerField()
-
-class ProductImage(models.Model):
     image = models.CharField(max_length=999)
-    product = models.ForeignKey(Product, on_delete=models.CASCADE)
