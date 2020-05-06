@@ -77,3 +77,13 @@ footer {
     margin: 0;
 }
 
+#header {
+    margin: 0;
+}
+
+#gamesdiv, #consolesdiv, #accessoriesdiv, #gamestitle, #consolestitle, #accessoriestitle {
+    margin-left: 12%;
+    margin-right: 12%;
+
+}
+

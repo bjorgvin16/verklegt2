@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 
 {% block content %}
-    <div class = "accessories container-fluid padding">
+    <div class = "accessories container-fluid padding", id = "accessoriestitle">
         <div class = "row welcome text-center"></div>
             <div class = "col-12">
             <h1>Accessories</h1>
@@ -9,7 +9,7 @@
         </div>
         <hr>
 
-    <div class = "container-fluid padding">
+    <div class = "container-fluid padding" id = "accessoriesdiv">
         <div class = "row padding">
             {% for accessory in accessories %}
                 {% include 'accessories/single_accessory.html' with accessory=accessory %}

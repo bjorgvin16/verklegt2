@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 
 {% block content %}
-    <div class = "consoles container-fluid padding">
+    <div class = "consoles container-fluid padding", id = "consolestitle">
         <div class = "one_console row welcome text-center"></div>
             <div class = "col-12">
             <h1>Consoles</h1>
@@ -9,7 +9,7 @@
         </div>
         <hr>
 
-    <div class = "container-fluid padding">
+    <div class = "container-fluid padding" id = "consolesdiv">
         <div class = "row padding">
             {% for console in consoles %}
                 {% include 'consoles/single_console.html' with console=console %}
