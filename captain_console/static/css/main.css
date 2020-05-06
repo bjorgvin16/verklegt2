@@ -5,6 +5,12 @@
     object-fit: contain;
 }
 
+#header {
+    background-color: #9EA8F9;
+    padding-bottom: 5rem;
+    font-size: 1.5rem;
+}
+
 #logo {
     max-width: 100%;
     object-fit: contain;
@@ -17,7 +23,6 @@
 }
 
 .navbar-collapse{
-    background-color: #9EA8F9;
     width: 100%;
     padding: 1em;
     font-size: 1.5em;
@@ -29,6 +34,10 @@
 
 .one-game {
     border: 2px solid black;
+}
+
+#myCarousel img {
+    height: 32em;
 }
 
 .carousel-inner img {
