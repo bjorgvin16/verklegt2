@@ -8,6 +8,12 @@
     border: solid 2px rgba(155, 155, 155, .5);
 }
 
+.console-img {
+    max-height: 200px;
+    max-width: 200px;
+    border: 1px solid black;
+}
+
 .accessories {
     background-color: mediumpurple;
     border: solid 2px rgba(155, 155, 155, .5);
