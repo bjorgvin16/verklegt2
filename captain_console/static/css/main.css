@@ -16,8 +16,9 @@
     height: 5%;
 }
 
-.container-fluid{
-    padding: 2em;
+.navbar-collapse {
+    background-color: #9EA8F9;
+    padding: 3em;
 }
 
 .all-games {
@@ -53,4 +54,7 @@
     display: inline-block;
 }
 
-
+footer {
+  background-color: #9EA8F9;
+  padding-top: 2rem;
+}
