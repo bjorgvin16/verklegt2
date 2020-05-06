@@ -21,6 +21,12 @@
     padding: 0;
 }
 
+.row {
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+}
+
 .all-games {
     background-color: snow;
 }
@@ -44,4 +50,8 @@
     font-size: 400%;
     text-transform: uppercase;
     text-shadow: 1px 1px 15px #000;
+}
+
+.col-md-4 {
+    display: inline-block;
 }
