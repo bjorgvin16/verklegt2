@@ -9,25 +9,14 @@ class Migration(migrations.Migration):
     initial = True
 
     dependencies = [
-        ('consoles', '0001_initial'),
         ('frontpage', '0001_initial'),
     ]
 
     operations = [
         migrations.CreateModel(
-            name='Genre',
-            fields=[
-                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('name', models.CharField(max_length=255)),
-            ],
-        ),
-        migrations.CreateModel(
-            name='Game',
+            name='Accessory',
             fields=[
                 ('product_ptr', models.OneToOneField(auto_created=True, on_delete=django.db.models.deletion.CASCADE, parent_link=True, primary_key=True, serialize=False, to='frontpage.Product')),
-                ('releaseYear', models.IntegerField()),
-                ('gameConsole', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='consoles.Console')),
-                ('genre', models.ManyToManyField(to='games.Genre')),
             ],
             bases=('frontpage.product',),
         ),
