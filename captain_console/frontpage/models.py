@@ -13,7 +13,13 @@ class Product(models.Model):
     price = models.IntegerField()
     display = models.BooleanField()
     leftInStock = models.IntegerField()
-    image = models.CharField(max_length=999)
 
     def __str__(self):
         return self.name
+
+class ProductImage(models.Model):
+    image = models.CharField(max_length=999)
+    product = models.ForeignKey(Product, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.product.name + " image"
