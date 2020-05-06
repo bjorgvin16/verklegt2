@@ -7,4 +7,4 @@ from django import forms
 class CreateUserForm(UserCreationForm): #inherits the normal django user creation form but is costomized within this class
     class Meta:
         model = User
-        fields = ['username', 'email', 'email', 'password1', 'password2']
+        fields = ['first_name','last_name','username', 'email', 'email', 'password1', 'password2']
