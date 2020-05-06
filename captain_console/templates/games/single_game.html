@@ -1,9 +1,10 @@
-<div class = "one-game">
-    <a href = "#">
-        <img class="game-img" src="{{ game.image }}" />
-        <h4>{{ game.name }}</h4>
-        <p>{{ game.price }}kr.</p>
-        <p>{{ game.description }}</p>
-        <p>{{ game.releaseYear }}</p>
-    </a>
+<div class = "col-md-4">
+    <div class = "card">
+        <img class="card-img-top website-img" src="{{ game.image }}" />
+        <div class = "card-body">
+            <h4 class = card-title>{{ game.name }}</h4>
+            <p class = "card-text">{{ game.price }} kr.</p>
+            <a href=# class = "btn btn-outline secondary">Click here to view</a>
+        </div>
+    </div>
 </div>

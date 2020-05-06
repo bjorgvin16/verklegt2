@@ -1,12 +1,20 @@
 {% extends "base.html" %}
 
 {% block content %}
-    <div class = "games">
-        <h2>Welcome to the Games app!</h2>
+    <div class = "container-fluid padding">
+        <div class = "row welcome text-center"></div>
+            <div class = "col-12">
+            <h1>Games</h1>
+            </div>
+        </div>
+        <hr>
+
+    <div class = "container-fluid padding">
+        <div class = "row padding">
+            {% for game in games %}
+                {% include 'games/single_game.html' with game=game %}
+            {% endfor %}
+        </div>
     </div>
-    <div class = "all-games">
-        {% for game in games %}
-            {% include 'games/single_game.html' with game=game %}
-        {% endfor %}
-    </div>
+
 {% endblock %}
