@@ -9,9 +9,15 @@
     object-fit: contain;
 }
 
-.navbar-header {
-    background-color: aquamarine;
-    border: solid 2px rgba(155, 155, 155, .5);
+#logo {
+    max-width: 100%;
+    object-fit: contain;
+    max-height: 10%;
+}
+
+#logodiv {
+    width:8%;
+    height: 3%;
 }
 
 .all-games {
