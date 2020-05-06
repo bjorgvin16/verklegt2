@@ -10,6 +10,17 @@
     border: solid 2px rgba(155, 155, 155, .5);
 }
 
+#logo {
+    max-width: 100%;
+    object-fit: contain;
+    max-height: 10%;
+}
+
+#logodiv {
+    width:8%;
+    height: 4%;
+}
+
 .all-games {
     background-color: snow;
 }
