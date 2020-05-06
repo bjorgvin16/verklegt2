@@ -10,9 +10,6 @@ class Genre(models.Model):
 class Game(Product):
     releaseYear = models.IntegerField()
     gameConsole = models.ForeignKey(Console, on_delete=models.CASCADE)
-
-class GameGenre(models.Model):
-    game = models.ForeignKey(Game, on_delete=models.CASCADE)
-    genre = models.ForeignKey(Genre, on_delete=models.CASCADE)
+    genre = models.ManyToManyField(Genre)
 
 
