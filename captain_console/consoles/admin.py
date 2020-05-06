@@ -1,3 +1,4 @@
 from django.contrib import admin
+from consoles.models import Consoles
 
-# Register your models here.
+admin.site.register(Consoles)
