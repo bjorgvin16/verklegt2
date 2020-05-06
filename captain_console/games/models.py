@@ -12,5 +12,5 @@ class Genre(models.Model):
 
 class Game(Product):
     releaseYear = models.IntegerField()
-    gameConsole = models.ForeignKey(Console, on_delete=models.CASCADE)
+    gameConsole = models.ForeignKey(Console, on_delete=models.SET_NULL)
     genre = models.ManyToManyField(Genre)
