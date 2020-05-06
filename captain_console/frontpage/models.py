@@ -14,3 +14,6 @@ class Product(models.Model):
     display = models.BooleanField()
     leftInStock = models.IntegerField()
     image = models.CharField(max_length=999)
+
+    def __str__(self):
+        return self.name
