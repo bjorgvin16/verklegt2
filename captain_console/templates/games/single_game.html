@@ -1,10 +1,10 @@
 <div class = "col-md-4">
     <div class = "card">
-        <img class="card-img-top website-img" src="{{ game.image }}" />
+        <img class="card-img-top website-img" src="{{ game.ProductImage_set.first.image }}" />
         <div class = "card-body">
             <h4 class = "card-title">{{ game.name }}</h4>
             <p class = "card-text">{{ game.price }} kr.</p>
-            <a href=# class = "btn btn-outline-secondary">Click here to view</a>
+            <a href="/games/{{ game.id }}" class = "btn btn-outline-secondary">Click here to view</a>
             <a href=# class = "btn btn-outline-secondary">Add to cart</a>
         </div>
     </div>
