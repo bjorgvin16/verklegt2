@@ -31,3 +31,8 @@
 .one-game {
     border: 2px solid black;
 }
+
+.accessory-img {
+    height: 100px;
+    width: 100px;
+}
