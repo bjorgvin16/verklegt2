@@ -12,18 +12,12 @@
 }
 
 #logodiv {
-    width:8%;
-    height: 3%;
+    width:10%;
+    height: 5%;
 }
 
-.container-fluid {
-    background-color: #E6E6FA;
+.container-fluid{
     padding: 2em;
-}
-
-.container {
-    width: 100%;
-    padding: 0;
 }
 
 .all-games {
