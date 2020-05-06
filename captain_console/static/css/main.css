@@ -21,3 +21,13 @@
 .one-game {
     border: 2px solid black;
 }
+
+.col-md-4 {
+    display: inline-block;
+}
+
+#accessory-container {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
