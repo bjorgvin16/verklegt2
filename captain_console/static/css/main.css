@@ -62,3 +62,9 @@ footer {
     padding-top: 2rem;
 }
 
+#mycontent {
+    width: 100%;
+    padding: 0;
+    margin: 0;
+}
+
