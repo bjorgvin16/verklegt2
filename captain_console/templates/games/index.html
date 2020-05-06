@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 
 {% block content %}
-    <div class = "games container-fluid padding">
+    <div class = "games container-fluid padding", id = "gamestitle">
         <div class = "row welcome text-center"></div>
             <div class = "col-12">
             <h1>Games</h1>
@@ -9,7 +9,7 @@
         </div>
         <hr>
 
-    <div class = "container-fluid padding">
+    <div class = "container-fluid padding" id = "gamesdiv">
         <div class = "row padding">
             {% for game in games %}
                 {% include 'games/single_game.html' with game=game %}
