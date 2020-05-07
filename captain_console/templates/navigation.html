@@ -1,4 +1,4 @@
-{% load static %}
+ {% load static %}
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <div class="navbar navbar-expand-sm" id = "header">
         <div class="container-fluid">
@@ -39,6 +39,8 @@
                                 </ul>
                             </li>
                         </ul>
+                            <span id="hello-msg">Hello, {{ request.user }}</span>
+                            <span><a href="{% url 'login-index' %}">Logout</a></span>
                     </div>
                 </div>
             </div>
