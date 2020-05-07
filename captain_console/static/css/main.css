@@ -127,3 +127,10 @@ footer {
 }
 
 .addtocart:link, .addtocart:visited, .addtocart:active  {color: white; text-decoration: none; }
+
+.cards {
+    border: 1px solid lightgrey;
+    padding-bottom: 4%;
+    padding-top: 20px;
+
+}
