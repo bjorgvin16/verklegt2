@@ -11,7 +11,7 @@
                     </div>
 
                     <div class="navbar-collapse collapse" id="mobile_menu">
-                        <ul class="nav navbar-nav">
+                        <ul class="nav navbar-nav" id="left-menu">
                             <li><a href="{% url "games-index" %}">Games</a></li>
                             <li><a href="{% url "consoles-index" %}">Consoles</a></li>
                             <li><a href="{% url "accessories-index" %}">Accessories</a></li>
@@ -29,8 +29,8 @@
                             </li>
                         </ul>
 
-                        <ul class="nav navbar-nav navbar-right">
-                            <li><a href="{% url "cart-index" %}">Cart</a></li>
+                        <ul class="nav navbar-nav navbar-right" id="right-menu">
+                            <li><a href="{% url "cart-index" %}"><span class="glyphicon glyphicon-shopping-cart"></span>Cart</a></li>
                             <li><a href="#"><span class="glyphicon glyphicon-user"></span>Profile</a></li>
                             <li><a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-log-in"></span> Login / Sign Up <span class="caret"></span></a>
                                 <ul class="dropdown-menu">
