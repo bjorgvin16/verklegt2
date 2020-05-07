@@ -1,12 +1,14 @@
 {% extends "base.html" %}
 {% block content %}
+    <div class="details">
+    {% for console_image in console.productimage_set.all %}
+        <img src = {{ console_image.image }} class="website-img">
+    {% endfor %}
     <h1>{{ console.name }}</h1>
     <p>{{ console.description }}</p>
     <p>Manufacturer: {{ console.manufacturer.name }}</p>
     <p>{{ console.price }}</p>
     <p>Left in stock: {{ console.leftInStock }}</p>
-    {% for console_image in console.productimage_set.all %}
-        <img src = {{ console_image.image }} class="website-img">
-    {% endfor %}
-
+    <a href=# class = "btn btn-secondary">Add to cart</a>
+    </div>
 {% endblock %}

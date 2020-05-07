@@ -103,3 +103,8 @@ footer {
     margin-right: 12%;
 }
 
+.details, #details {
+    padding-top: 3%;
+    padding-left: 12%;
+    padding-right: 12%;
+}

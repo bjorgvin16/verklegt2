@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% block content %}
+    <div class="details">
     {% for game_image in game.productimage_set.all %}
         <img src = {{ game_image.image }} class="website-img">
     {% endfor %}
@@ -10,4 +11,5 @@
     <p>Left in stock: {{ game.leftInStock }}</p>
     <p>Release year: {{ game.releaseYear }}</p>
     <p>Console: {{ game.gameConsole }}</p>
+    </div>
 {% endblock %}
