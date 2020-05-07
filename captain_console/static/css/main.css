@@ -12,6 +12,15 @@
 
 #header {
     margin: 0;
+    background-color: #9EA8F9;
+}
+
+#header a {
+    color: #282828;
+}
+
+#left-menu {
+    font-size: 1.5em;
 }
 
 .all-games {
