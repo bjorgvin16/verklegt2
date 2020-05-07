@@ -58,10 +58,10 @@
 }
 
 .carousel-caption h1 {
-    color: #9EA8F9;
+    color: #282828;
     font-size: 400%;
     text-transform: uppercase;
-    text-shadow: 1px 1px 15px #000;
+    text-shadow: 1px 1px 5px #000;
     padding-bottom: .7em;
 }
 
