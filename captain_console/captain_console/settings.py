@@ -46,7 +46,7 @@ INSTALLED_APPS = [
     'frontpage.apps.FrontpageConfig',
     'login.apps.LoginConfig',
     'signup.apps.SignupConfig',
-    'userprofile.apps.UserprofileConfig',
+    'users.apps.UserprofileConfig',
 ]
 
 MIDDLEWARE = [
