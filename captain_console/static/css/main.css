@@ -1,3 +1,4 @@
+
 .website-img {
     height: 250px;
     width: 250px;
@@ -9,6 +10,11 @@
     background-color: #9EA8F9;
     padding-bottom: 4rem;
     font-size: 1.5rem;
+}
+
+#header a {
+    font-family: 'Rubik Mono One', sans-serif;
+    color:	#282828;
 }
 
 #logo {
@@ -46,20 +52,27 @@
 }
 
 .carousel-caption {
+    font-family: 'Rubik Mono One', sans-serif;
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
 }
 
 .carousel-caption h1 {
+    color: #9EA8F9;
     font-size: 400%;
     text-transform: uppercase;
     text-shadow: 1px 1px 15px #000;
     padding-bottom: .7em;
 }
 
-.btn-primary {
-    background-color: #E6E6FA;
+#shop-now {
+    background-color: #9EA8F9;
+    color: #282828;
+}
+
+#shop-now:hover {
+    background-color: mediumpurple;
 }
 
 .col-md-4 {
