@@ -94,9 +94,12 @@ footer {
     margin: 0;
 }
 
+ #gamestitle, #consolestitle, #accessoriestitle, #trending {
+     font-family: 'Rubik Mono One', sans-serif;
+ }
+
 #gamesdiv, #consolesdiv, #accessoriesdiv, #gamestitle, #consolestitle, #accessoriestitle {
     margin-left: 12%;
     margin-right: 12%;
-
 }
 
