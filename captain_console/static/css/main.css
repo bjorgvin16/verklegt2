@@ -5,32 +5,14 @@
     object-fit: contain;
 }
 
-#header {
-    background-color: #9EA8F9;
-    padding-bottom: 4rem;
-    font-size: 1.5rem;
-}
-
-#header a {
-    font-family: 'Rubik Mono One', sans-serif;
-    color:	#282828;
-}
-
 #logo {
-    max-width: 100%;
-    object-fit: contain;
-    max-height: 10%;
+    width: 80px;
+    height: 40px;
 }
 
-#logodiv {
-    width:10%;
-    height: 5%;
-}
-
-.navbar-collapse {
-    width: 100%;
-    padding: 1em;
-    font-size: 1.5em;
+#header {
+    height: 5em;
+    margin: 0;
 }
 
 .all-games {
@@ -85,9 +67,9 @@ footer {
 }
 
 #mycontent {
-    width: 100%;
-    padding: 0;
-    margin: 0;
+    width: 100% !important;;
+    padding: 0 !important;;
+    margin: 0 !important;
 }
 
 #top {
@@ -108,3 +90,5 @@ footer {
     padding-left: 12%;
     padding-right: 12%;
 }
+
+/*fyrir header*/
