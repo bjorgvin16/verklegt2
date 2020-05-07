@@ -7,7 +7,7 @@
 
 #header {
     background-color: #9EA8F9;
-    padding-bottom: 5rem;
+    padding-bottom: 1rem;
     font-size: 1.5rem;
 }
 
@@ -78,7 +78,7 @@ footer {
     margin: 0;
 }
 
-#header {
+#top {
     margin: 0;
 }
 
