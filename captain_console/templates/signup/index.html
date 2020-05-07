@@ -1,59 +1,28 @@
 {% extends "base.html" %}
 {% block content %}
 
-    <div class = "signup">
-    <h1>Register Now!</h1>
-        <div class="signUpBox">
-            <form method="POST" action="">
-                {% csrf_token %}
-
-                <div id="userCreationFirstNameField">
-                    {{ form.first_name.label }}
-                    {{ form.first_name }}
-                </div>
-
-                <div id="userCreationLastNameField">
-                    {{ form.last_name.label }}
-                    {{ form.last_name }}
-                </div>
-
-                <div id="userCreationUsernameField">
-                    {{ form.username.label}}
-                    {{ form.username }}
-                </div>
-
-                <div id="userCreationEmailField">
-                    {{ form.email.label }}
-                    {{ form.email }}
-                </div>
-
-                <div id="userCreationPassword1Field">
-                    {{ form.password1.label }}
-                    {{ form.password1 }}
-                </div>
-
-                <div id="userCreationPassword2Field">
-                    {{ form.password2.label }}
-                    {{ form.password2 }}
-                </div>
-
-                <input type="submit" name="Create User">
-
-                {{ form.errors }}
-
-                <p>Already have an account? <a href="{% url "login-index" %}" class="loginRedirectLink">Log in</a></p>
-
-            </form>
+<div class="content-section">
+    <form method="POST" action="">
+        {% csrf_token %}
+        <fieldset class="form-group">
+            <legend class = "border-bottom mb-4">Join today!</legend>
+            {{ form }}
+        </fieldset>
+        <div class = "form-group">
+            <button class="btn btn-outline-info" type = "submit">Sign up</button>
         </div>
-    </div>
+    </form>
+        <div class="border-top pt-3">
+            <small class="text-muted">
+                Already have an account? <a class = "ml-2 loginRedirectLink" href="{% url "login-index" %}">Log in</a>
+            </small>
+        </div>
+</div>
 
-
+        {{ form.errors }}
 
     <hr>
     <!--- Footer --->
-
-
-
 
 {% endblock %}
 
