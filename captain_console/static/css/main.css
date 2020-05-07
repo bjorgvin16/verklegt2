@@ -2,7 +2,6 @@
 .website-img {
     height: 250px;
     width: 250px;
-    border: 2px solid black;
     object-fit: contain;
 }
 
@@ -28,7 +27,7 @@
     height: 5%;
 }
 
-.navbar-collapse{
+.navbar-collapse {
     width: 100%;
     padding: 1em;
     font-size: 1.5em;
