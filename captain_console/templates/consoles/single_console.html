@@ -1,11 +1,12 @@
 <div class = "col-md-4">
     <div class = "card">
+        <a href="/consoles/{{ console.id }}" class = "btn btn-outline-secondary">
         <img class="card-img-top website-img" src="{{ console.productimage_set.first.image }}" />
+        </a>
         <div class = "card-body">
             <h4 class = "card-title">{{ console.name }}</h4>
             <p class = "card-text">{{ console.price }} kr.</p>
-            <a href="/consoles/{{ console.id }}" class = "btn btn-outline-secondary">Click here to view</a>
-            <a href=# class = "btn btn-outline-secondary">Add to cart</a>
+            <a href="#" class="addtocart">Add to cart</a>
         </div>
     </div>
 </div>
