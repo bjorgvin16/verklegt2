@@ -9,25 +9,25 @@
         </div>
         <hr>
 
-    <div class = "container-fluid padding" id = "gamesdiv">
+    <div class = "container-fluid padding" id = "productsdiv">
         <div class = "row padding">
             {% for product in products %}
 
                 {% for temp_game in games %}
                     {% if product.name == temp_game.name %}
-                        {% include 'games/single_game.html' with product=game %}
+                        {% include 'games/single_game.html' with game=product %}
                     {% endif %}
                 {% endfor %}
 
                 {% for temp_console in consoles %}
                     {% if product.name == temp_console.name %}
-                        {% include 'consoles/single_console.html' with product=console %}
+                        {% include 'consoles/single_console.html' with console=product %}
                     {% endif %}
                 {% endfor %}
 
                 {% for temp_accessory in accessories %}
                     {% if product.name == temp_accessory.name %}
-                        {% include 'consoles/single_console.html' with product=accessory %}
+                        {% include 'consoles/single_console.html' with accessory=product %}
                     {% endif %}
                 {% endfor %}
 
