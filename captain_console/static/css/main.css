@@ -8,11 +8,13 @@
 #logo {
     width:55px;
     height: 25px;
+    padding-bottom: 2px;
 }
 
 #header {
     margin: 0;
     background-color: #9EA8F9;
+
 }
 
 #header a {
