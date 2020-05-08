@@ -39,8 +39,10 @@
                                 </ul>
                             </li>
                         </ul>
+                            {% if user.is_authenticated %}
                             <span id="hello-msg">Hello, {{ request.user }}</span>
-                            <span><a href="{% url 'login-index' %}">Logout</a></span>
+                            <span><a href="/login">Logout</a></span>
+                            {% endif %}
                     </div>
                 </div>
             </div>

@@ -22,9 +22,6 @@ def index(request):
     return render(request, 'login/index.html', context)
 
 
-
-
-
 def logoutUser(request):
 	logout(request)
-	return render(request, 'login/index.html', context)
+	return redirect('login/index.html')
