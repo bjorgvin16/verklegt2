@@ -90,7 +90,7 @@ footer {
      font-family: 'Rubik Mono One', sans-serif;
  }
 
-#gamesdiv, #consolesdiv, #accessoriesdiv, #gamestitle, #consolestitle, #accessoriestitle {
+#gamesdiv, #consolesdiv, #accessoriesdiv, #gamestitle, #consolestitle, #accessoriestitle #productsdiv{
     margin-left: 12%;
     margin-right: 12%;
 }
