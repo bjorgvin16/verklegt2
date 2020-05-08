@@ -13,9 +13,9 @@
         <button class="dropbtn">Order by</button>
         <div class="dropdown-content">
             <a href="{% url "accessories-index" %}">A-Z</a>
-            <a href="{% url "filter_desc" %}">Z-A</a>
-            <a href="{% url "lowest_highest" %}"><b>Price:</b> Lowest-Highest</a>
-            <a href="{% url "highest_lowest" %}"><b>Price:</b> Highest-Lowest</a>
+            <a href="{% url "accessories-filter_desc" %}">Z-A</a>
+            <a href="{% url "accessories-lowest_highest" %}"><b>Price:</b> Lowest-Highest</a>
+            <a href="{% url "accessories-highest_lowest" %}"><b>Price:</b> Highest-Lowest</a>
         </div>
     </div>
 
