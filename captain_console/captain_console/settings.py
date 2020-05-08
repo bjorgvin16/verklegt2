@@ -44,8 +44,6 @@ INSTALLED_APPS = [
     'accessories.apps.AccessoriesConfig',
     'cart.apps.CartConfig',
     'frontpage.apps.FrontpageConfig',
-    'login.apps.LoginConfig',
-    'signup.apps.SignupConfig',
     'users.apps.UserprofileConfig',
 ]
 
