@@ -1,1 +1,29 @@
 {% extends "base.html" %}
+
+{% block content %}
+    <div class = "products container-fluid padding", id = "productstitle">
+        <div class = "row welcome text-center"></div>
+            <div class = "col-12">
+            <h1>Searching...</h1>
+            </div>
+        </div>
+        <hr>
+
+    <div class = "container-fluid padding" id = "gamesdiv">
+        <div class = "row padding">
+            {% for product in products %}
+                {% if product in games %}
+                    {% include 'games/single_game.html' with product=game %}
+
+                {% elif product in consoles %}
+                    {% include 'consoles/single_console.html' with product=console %}
+
+                {% elif product in accessories %}
+                    {% include 'accessories/single_accessory.html' with product=accessory %}
+
+                {% endif %}
+            {% endfor %}
+        </div>
+    </div>
+
+{% endblock %}

@@ -22,10 +22,7 @@ urlpatterns = [
     path('consoles/', include('consoles.urls')),
     path('accessories/', include('accessories.urls')),
     path('cart/', include('cart.urls')),
-    path('signup/', include('users.urls')),
-    path('login/', include('users.urls')),
-    path('logout/', include('users.urls')),
-    path('logout/', include('users.urls')),
-    path('produtctsearch/', include('productsearch.urls')),
+    path('users/', include('users.urls')),
+    path('productsearch/', include('productsearch.urls')),
     path('', include('frontpage.urls'))
 ]
