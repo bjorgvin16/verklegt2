@@ -1,6 +1,8 @@
 {% extends "base.html" %}
 
 {% block content %}
+
+
     <div class = "games container-fluid padding", id = "gamestitle">
         <div class = "row welcome text-center"></div>
             <div class = "col-12">
@@ -9,6 +11,16 @@
         </div>
         <hr>
 
+    <div class="dropdown">
+        <button class="dropbtn">Dropdown</button>
+        <div class="dropdown-content">
+            <a href="{% url "games-index" %}">A-Z</a>
+            <a href="{% url "filter_desc" %}">Z-A</a>
+            <a href="{% url "lowest_highest" %}"><b>Price:</b> Lowest-Highest</a>
+            <a href="{% url "highest_lowest" %}"><b>Price:</b> Highest-Lowest</a>
+        </div>
+    </div>
+
     <div class = "container-fluid padding" id = "gamesdiv">
         <div class = "row padding">
             {% for game in games %}
@@ -16,5 +28,7 @@
             {% endfor %}
         </div>
     </div>
+
+
 
 {% endblock %}
