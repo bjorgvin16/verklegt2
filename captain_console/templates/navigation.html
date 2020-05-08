@@ -33,18 +33,22 @@
 
                         <ul class="nav navbar-nav navbar-right" id="right-menu">
                             <li><a href="{% url "cart-index" %}"><span class="glyphicon glyphicon-shopping-cart"></span>Cart</a></li>
-                            <li><a href="#"><span class="glyphicon glyphicon-user"></span>Profile</a></li>
-                            <li><a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-log-in"></span> Login / Sign Up <span class="caret"></span></a>
-                                <ul class="dropdown-menu">
-                                    <li><a href="{% url "users-login" %}">Login</a></li>
-                                    <li><a href="{% url "users-signup" %}">Sign Up</a></li>
-                                </ul>
-                            </li>
-                        </ul>
                             {% if user.is_authenticated %}
-                            <span id="hello-msg">Hello, {{ request.user }}</span>
-                            <span><a href="{% url "users-logout" %}">Logout</a></span>
+                                <li><a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-user"></span> My Profile <span class="caret"></span></a>
+                                    <ul class="dropdown-menu">
+                                        <li><a href=#>View Profile</a></li>
+                                        <li><a href="{% url "users-logout" %}">Log out</a></li>
+                                    </ul>
+                                </li>
+                            {% else %}
+                               <li><a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-log-in"></span> Login / Sign Up <span class="caret"></span></a>
+                                    <ul class="dropdown-menu">
+                                        <li><a href="{% url "users-login" %}">Login</a></li>
+                                        <li><a href="{% url "users-signup" %}">Sign Up</a></li>
+                                    </ul>
+                                </li>
                             {% endif %}
+                        </ul>
                     </div>
                 </div>
             </div>
