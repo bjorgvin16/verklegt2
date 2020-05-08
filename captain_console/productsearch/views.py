@@ -26,5 +26,6 @@ def index(request):
         "games": Game.objects.all(),
         "accessories": Accessory.objects.all(),
         "consoles": Console.objects.all(),
+        "search": search
     }
     return render(request, 'productsearch/index.html', context)

@@ -4,7 +4,7 @@
     <div class = "products container-fluid padding", id = "productstitle">
         <div class = "row welcome text-center"></div>
             <div class = "col-12">
-            <h1>Searching...</h1>
+            <h1>Products containing... </h1>
             </div>
         </div>
         <hr>
@@ -27,7 +27,7 @@
 
                 {% for temp_accessory in accessories %}
                     {% if product.name == temp_accessory.name %}
-                        {% include 'consoles/single_console.html' with accessory=product %}
+                        {% include 'accessories/single_accessory.html' with accessory=product %}
                     {% endif %}
                 {% endfor %}
 
