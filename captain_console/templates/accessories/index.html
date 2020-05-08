@@ -9,17 +9,16 @@
         </div>
         <hr>
 
-    <div class="dropdown">
-        <button class="dropbtn">Order by</button>
-        <div class="dropdown-content">
-            <a href="{% url "accessories-index" %}">A-Z</a>
-            <a href="{% url "accessories-filter_desc" %}">Z-A</a>
-            <a href="{% url "accessories-lowest_highest" %}"><b>Price:</b> Lowest-Highest</a>
-            <a href="{% url "accessories-highest_lowest" %}"><b>Price:</b> Highest-Lowest</a>
-        </div>
-    </div>
-
     <div class = "container-fluid padding" id = "accessoriesdiv">
+    <div class="w3-dropdown-hover filterby">
+      <button class="w3-button">Filter By</button>
+      <div class="w3-dropdown-content w3-bar-block w3-border">
+        <a class="w3-bar-item w3-button" href="{% url "accessories-index" %}">A-Z</a>
+        <a class="w3-bar-item w3-button" href="{% url "accessories-filter_desc" %}">Z-A</a>
+        <a class="w3-bar-item w3-button" href="{% url "accessories-lowest_highest" %}"><b>Price:</b> Lowest-Highest</a>
+        <a class="w3-bar-item w3-button" href="{% url "accessories-highest_lowest" %}"><b>Price:</b> Highest-Lowest</a>
+      </div>
+    </div>
         <div class = "row padding">
             {% for accessory in accessories %}
                 {% include 'accessories/single_accessory.html' with accessory=accessory %}
