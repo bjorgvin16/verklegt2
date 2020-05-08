@@ -1,5 +1,4 @@
 from django.shortcuts import render, redirect
-from django.contrib.auth.forms import UserCreationForm
 from django.contrib import messages
 from .forms import CreateUserForm
 
@@ -12,7 +11,7 @@ def index(request):
             form.save() #creates the within django
 
             user = form.cleaned_data.get('username')
-            messages.success(request, 'Account was created for ' + user)
+            messages.success(request, f'Account was created for {user}!')
 
             return redirect('login-index')
 
