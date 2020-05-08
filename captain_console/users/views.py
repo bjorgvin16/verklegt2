@@ -4,7 +4,6 @@ from .forms import CreateUserForm
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import authenticate, login, logout
 
-
 def index(request):
     return render(request, 'userprofile/index.html')
 
@@ -25,8 +24,9 @@ def signup(request):
     context = {'form' : form}
     return render(request, 'signup/index.html', context)
 
+# Fallið hennar Möggu
 
-def loginUser(request):
+''' def loginUser(request):
 
     if request.method == 'POST':
         username = request.POST.get('username')
@@ -41,8 +41,7 @@ def loginUser(request):
             messages.info(request, 'Username OR password is incorrect')
 
     context = {}
-    return render(request, 'login/index.html', context)
-
+    return render(request, 'login/index.html', context) '''
 
 def logoutUser(request):
 	logout(request)
