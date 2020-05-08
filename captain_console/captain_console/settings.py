@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     'frontpage.apps.FrontpageConfig',
     'users.apps.UserprofileConfig',
     'crispy_forms',
+    'productsearch.apps.ProductsearchConfig',
 ]
 
 MIDDLEWARE = [
