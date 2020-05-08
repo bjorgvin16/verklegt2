@@ -1,5 +1,29 @@
 {% extends "base.html" %}
+{% load crispy_forms_tags %}
 {% block content %}
+<div class="content-section webpage">
+    <form method="POST" action="">
+        {% csrf_token %}
+        <fieldset class="form-group">
+            <legend class = "border-bottom mb-4">Log In</legend>
+            {{ form|crispy }}
+        </fieldset>
+        <div class="form-group">
+            <button class="btn btn-outline-info addtocart" type = "submit">Log In</button>
+        </div>
+    </form>
+        <div class="border-top pt-3">
+            <small class="text-muted">
+                Need An Account? <a class = "ml-2 loginRedirectLink" href="{% url "users-signup" %}">Sign Up Now</a>
+            </small>
+        </div>
+</div>
+
+        {{ form.errors }}
+
+    <hr>
+
+    <!--
     <div class = "login webpage">
         <h2>Log in</h2>
         <div class="loginForm">
@@ -17,7 +41,7 @@
 
                 {{ form.errors }}
 
-                {% for messgae in messages %}
+                {% for message in messages %}
                     <p>{{ message }}</p>
                 {% endfor %}
 
@@ -25,9 +49,5 @@
 
 
             </form>
-
-        </div>
-
-
-
+    -->
 {% endblock %}
