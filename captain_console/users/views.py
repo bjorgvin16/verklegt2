@@ -1,12 +1,8 @@
 from django.shortcuts import render, redirect
 from django.contrib import messages
 from .forms import CreateUserForm
-from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth import authenticate, login, logout
-
-def index(request):
-    return render(request, 'userprofile/index.html')
-
 
 def signup(request):
     form = CreateUserForm()
@@ -26,23 +22,26 @@ def signup(request):
 
 # Fallið hennar Möggu
 
-''' def loginUser(request):
-
+def login_user(request):
     if request.method == 'POST':
-        username = request.POST.get('username')
-        password = request.POST.get('password')
-
-        user = authenticate(request, username=username, password=password)
-
-        if user is not None:
-            login(request, user)
-            return redirect('frontpage-index')
+        form = AuthenticationForm(request=request, data=request.POST)
+        if form.is_valid():
+            username = form.cleaned_data.get('username')
+            password = form.cleaned_data.get('password')
+            user = authenticate(username=username, password=password)
+            if user is not None:
+                login(request, user)
+                messages.info(request, f"You are now logged in as {username}")
+                return redirect('frontpage-index')
+            else:
+                messages.error(request, "Invalid username or password.")
         else:
-            messages.info(request, 'Username OR password is incorrect')
-
-    context = {}
-    return render(request, 'login/index.html', context) '''
+            messages.error(request, "Invalid username or password.")
+    form = AuthenticationForm()
+    return render(request=request, template_name="login/index.html", context={"form":form})
 
 def logoutUser(request):
-	logout(request)
-	return render(request,'login/index.html')
+    logout(request)
+    messages.info(request, "Logged out successfully!")
+
+    return redirect("frontpage-index")

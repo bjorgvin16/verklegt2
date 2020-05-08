@@ -18,36 +18,7 @@
             </small>
         </div>
 </div>
-
         {{ form.errors }}
 
     <hr>
-
-    <!--
-    <div class = "login webpage">
-        <h2>Log in</h2>
-        <div class="loginForm">
-            <form method="POST" action="">
-                {% csrf_token %}
-                <div id="loginUsernameField">
-					<input type="text" name="username" placeholder="Username..." class="login">
-                </div>
-
-                <div id="loginPasswordField" >
-					<input type="password" name="password" placeholder="Password..." class="login">
-                </div>
-
-                <input type="submit" name="Log in">
-
-                {{ form.errors }}
-
-                {% for message in messages %}
-                    <p>{{ message }}</p>
-                {% endfor %}
-
-                 <p>Don't have an account? <a href="{% url "users-signup" %}" class="singupRedirectText">Sign Up</a></p>
-
-
-            </form>
-    -->
 {% endblock %}
