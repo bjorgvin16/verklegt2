@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'cart.apps.CartConfig',
     'frontpage.apps.FrontpageConfig',
     'users.apps.UserprofileConfig',
+    'crispy_forms',
 ]
 
 MIDDLEWARE = [
@@ -131,6 +132,10 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
 STATIC_URL = '/static/'
+
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static')
 ]
+
+CRISPY_TEMPLATE_PACK = "bootstrap4"
+
