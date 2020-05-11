@@ -5,6 +5,10 @@ from .models import Product
 def index(request):
     return render(request, 'frontpage/index.html')
 
+def filter_products(request):
+    context = {"product": Product.objects.all().order_by("name")}
+    return render(request, "navigation.html", context)
+
 def product_list(request):
     object_list = Product.objects.all()
     filtered_orders = Order.objects.filter(owner=request.user.profile, is_ordered = True)
