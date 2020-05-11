@@ -90,7 +90,7 @@ footer {
      font-family: 'Rubik Mono One', sans-serif;
  }
 
-#gamesdiv, #consolesdiv, #accessoriesdiv, #gamestitle, #consolestitle, #accessoriestitle #productsdiv{
+#gamesdiv, #consolesdiv, #accessoriesdiv, #gamestitle, #consolestitle, #accessoriestitle, #productsdiv {
     margin-left: 12%;
     margin-right: 12%;
 }
@@ -116,16 +116,18 @@ footer {
 	text-decoration:none;
 	text-shadow:0px 1px 24px #ffffff;
 }
+
 .addtocart:hover {
 	background:linear-gradient(to bottom, #ffffff 5%, #d6d6d6 100%);
 	background-color:#ffffff;
 }
+
 .addtocart:active {
 	position:relative;
 	top:1px;
 }
 
-.addtocart:link, .addtocart:visited, .addtocart:active  {color: white; text-decoration: none; }
+.addtocart:link, .addtocart:visited, .addtocart:active  {text-decoration: none; }
 
 .cards {
     border: 1px solid lightgrey;
@@ -138,4 +140,8 @@ footer {
     margin-left: 30%;
     margin-right: 30%;
     margin-top: 2%;
+}
+
+.container-fluid .filterby {
+    margin-bottom: 2%;
 }
