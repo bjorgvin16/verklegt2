@@ -2,7 +2,7 @@
 {% block content %}
     <div class="details">
         {% for game_image in game.productimage_set.all %}
-            <img src="{{ game_image.image }}" class="website-img">
+            <img src="{{ game_image.image }}" class="website-img" alt="Game Image">
         {% endfor %}
     </div>
 
