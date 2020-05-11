@@ -1,16 +1,19 @@
 {% extends "base.html" %}
 {% block content %}
     <div class="details">
-    {% for game_image in game.productimage_set.all %}
-        <img src = {{ game_image.image }} class="website-img">
-    {% endfor %}
-    <h1>{{ game.name }}</h1>
-    <p>{{ game.description }}</p>
-    <p>Publisher: {{ game.manufacturer.name }}</p>
-    <p>{{ game.price }}</p>
-    <p>Left in stock: {{ game.leftInStock }}</p>
-    <p>Release year: {{ game.releaseYear }}</p>
-    <p>Console: {{ game.gameConsole }}</p>
-    <a href="#" class="addtocart">Add to cart</a>
+        {% for game_image in game.productimage_set.all %}
+            <img src="{{ game_image.image }}" class="website-img">
+        {% endfor %}
+    </div>
+
+    <div class="details">
+        <h1>{{ game.name }}</h1>
+        <p>{{ game.description }}</p>
+        <p>Publisher: {{ game.manufacturer.name }}</p>
+        <p>{{ game.price }}</p>
+        <p>Left in stock: {{ game.leftInStock }}</p>
+        <p>Release year: {{ game.releaseYear }}</p>
+        <p>Console: {{ game.gameConsole }}</p>
+        <a href="#" class="addtocart">Add to cart</a>
     </div>
 {% endblock %}
