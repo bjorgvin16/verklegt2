@@ -1,6 +1,7 @@
 {% extends "base.html" %}
+{% load crispy_forms_tags %}
 {% block content %}
-    <div class = "profile">
-        <h2>Welcome to your user profile!</h2>
+    <div class="details">
+        <h1>{{ user.username }}</h1>
     </div>
 {% endblock %}

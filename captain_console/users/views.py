@@ -3,10 +3,9 @@ from django.contrib import messages
 from .forms import CreateUserForm
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.decorators import login_required
 #from cart.models import Order
 from .models import Profile
-
-
 
 def signup(request):
     form = CreateUserForm()
@@ -40,7 +39,8 @@ def login_user(request):
                 if request.user.is_superuser:
                     return redirect('/admin')
                 else:
-                    return redirect('frontpage-index')
+                    return redirect('users-profile')
+                
             else:
                 messages.error(request, "Invalid username or password.")
         else:
@@ -62,3 +62,6 @@ def my_profile(request):
     }
     return render(request, "userprofile/test.html", context)
 
+@login_required()
+def profile(request):
+    return render(request, 'userprofile/index.html')
