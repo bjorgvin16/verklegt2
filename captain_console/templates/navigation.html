@@ -34,9 +34,9 @@
                         <ul class="nav navbar-nav navbar-right" id="right-menu">
                             <li><a href="{% url "cart-index" %}"><span class="glyphicon glyphicon-shopping-cart"></span>Cart</a></li>
                             {% if user.is_authenticated %}
-                                <li><a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-user"></span> My Profile <span class="caret"></span></a>
+                                <li><a href=# class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-user"></span> My Profile <span class="caret"></span></a>
                                     <ul class="dropdown-menu">
-                                        <li><a href=#>View Profile</a></li>
+                                        <li><a href={% url 'users-profile' %}>View Profile</a></li>
                                         <li><a href="{% url "users-logout" %}">Log out</a></li>
                                     </ul>
                                 </li>
@@ -53,4 +53,4 @@
                 </div>
             </div>
         </div>
-    </div>
+</div>
