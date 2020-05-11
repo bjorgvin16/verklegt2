@@ -87,7 +87,7 @@ footer {
 }
 
  #gamestitle, #consolestitle, #accessoriestitle, #trending {
-     font-family: 'Rubik Mono One', sans-serif;
+     font-family: 'Rubik Mono One', sans-serif !important;
  }
 
 #gamesdiv, #consolesdiv, #accessoriesdiv, #gamestitle, #consolestitle, #accessoriestitle, #productsdiv {
