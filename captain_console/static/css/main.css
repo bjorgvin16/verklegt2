@@ -130,3 +130,15 @@ footer {
 .container-fluid .filterby {
     margin-bottom: 2%;
 }
+
+.image_div {
+    height: 10em;
+    width: 10em;
+    margin-right: 2em;
+}
+
+.account-img {
+    width:100%;
+    margin-right: 2em;
+    height:100%;
+}

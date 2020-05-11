@@ -1,9 +1,11 @@
 {% extends "base.html" %}
 {% load crispy_forms_tags %}
 {% block content %}
-    <div class="content-section">
+    <div class="content-section webpage">
       <div class="media">
-        <img class="rounded-circle account-img website-img" src="{{ user.profile.image.url }}">
+        <div class="image_div">
+        <img class="rounded-circle account-img" src="{{ user.profile.image.url }}">
+      </div>
         <div class="media-body">
           <h2 class="account-heading">{{ user.username }}</h2>
           <p class="text-secondary">{{ user.email }}</p>
