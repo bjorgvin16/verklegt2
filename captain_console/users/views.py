@@ -36,7 +36,11 @@ def login_user(request):
             if user is not None:
                 login(request, user)
                 messages.info(request, f"You are now logged in as {username}")
-                return redirect('frontpage-index')
+
+                if request.user.is_superuser:
+                    return redirect('/admin')
+                else:
+                    return redirect('frontpage-index')
             else:
                 messages.error(request, "Invalid username or password.")
         else:
