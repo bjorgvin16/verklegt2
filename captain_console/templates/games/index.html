@@ -1,9 +1,7 @@
 {% extends "base.html" %}
-
 {% block content %}
 
-
-    <div class = "games container-fluid padding", id = "gamestitle">
+    <div class = "container-fluid padding title">
         <div class = "row welcome text-center"></div>
             <div class = "col-12">
             <h1>Games</h1>
@@ -11,8 +9,7 @@
         </div>
         <hr>
 
-
-    <div class = "container-fluid padding" id = "gamesdiv">
+    <div class = "container-fluid padding">
     <div class="w3-dropdown-hover filterby">
       <button class="w3-button">Filter By</button>
       <div class="w3-dropdown-content w3-bar-block w3-border">
@@ -28,7 +25,5 @@
             {% endfor %}
         </div>
     </div>
-
-
 
 {% endblock %}
