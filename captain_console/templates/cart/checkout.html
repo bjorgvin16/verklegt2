@@ -12,8 +12,20 @@
   <li><a href="#">Menu 3</a></li>
 </ul>
 -->
-    {{ contactform|crispy }}
+    <fieldset>
+        {{ contactform|crispy }}
+        <select>
+            <option value="" disabled selected>Select a country...</option>
+            {% for country in countries %}
+                <option value="{{ country.code }}">{{ country.name }}</option>
+            {% endfor %}
+        </select>
+    </fieldset>
+
     <p>---------------</p>
-    {{ paymentform|crispy }}
+    <fieldset>
+        {{ paymentform }}
+    </fieldset>
+
 
 {% endblock %}

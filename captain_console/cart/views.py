@@ -5,7 +5,7 @@ from django.utils import timezone
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from .forms import ContactInfoForm, PaymentInfoForm
-
+from django_countries import Countries
 
 @login_required
 def delete_cart_item(request, product_id):
@@ -44,6 +44,7 @@ def checkout(request):
     context = {
         'contactform': ContactInfoForm,
         'paymentform': PaymentInfoForm,
+        'countries': Countries
     }
     return render(request, 'cart/checkout.html', context)
 
