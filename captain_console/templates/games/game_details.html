@@ -2,6 +2,7 @@
 {% block content %}
 
     <div class="details">
+
         <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
           <div class="carousel-inner">
               <div class="carousel-item active">
@@ -15,14 +16,17 @@
                 {% endfor %}
             {% endif %}
           </div>
-        <h1>{{ game.name }}</h1>
-        <p>{{ game.description }}</p>
-        <p>Publisher: {{ game.manufacturer.name }}</p>
-        <p>Price: {{ game.price }}</p>
-        <p>Left in stock: {{ game.leftInStock }}</p>
-        <p>Release year: {{ game.releaseYear }}</p>
-        <p>Console: {{ game.gameConsole }}</p>
-        <a href="#" class="addtocart">Add to cart</a>
+
+            <div>
+                <h1>{{ game.name }}</h1>
+                <h4>Price: {{ game.price }} kr.</h4>
+                <p>{{ game.description }}</p>
+                <p>Publisher: {{ game.manufacturer.name }}</p>
+                <p>Left in stock: {{ game.leftInStock }}</p>
+                <p>Release year: {{ game.releaseYear }}</p>
+                <p>Console: {{ game.gameConsole }}</p>
+                <a href="#" class="addtocart">Add to cart</a>
+            </div>
         </div>
     </div>
 {% endblock %}
