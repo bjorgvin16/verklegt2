@@ -4,7 +4,7 @@ from django.shortcuts import redirect, render, get_object_or_404
 from django.utils import timezone
 from django.contrib.auth.decorators import login_required
 
-def get_user_pending_order():
+def get_user_pending_order(request):
     ''' getting the order that a user has and hasn't payed for'''
     pass
 

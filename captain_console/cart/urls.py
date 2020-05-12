@@ -12,6 +12,7 @@ from .views import (
 
 
 urlpatterns = [
+    path('', views.get_user_pending_order, name="cart-index"),
     path(r'^add-to-cart/(?P<item_id>[-\w]+)/$', add_item_to_cart, name="add_to_cart"),
     path(r'^order-summary/$', get_order_details, name="order_summary"),
     path(r'^success/$', success, name='purchase_success'),
