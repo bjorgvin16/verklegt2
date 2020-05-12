@@ -14,8 +14,8 @@
                             <li><a href="{% url "games-index" %}">Games</a></li>
                             <li><a href="{% url "consoles-index" %}">Consoles</a></li>
                             <li><a href="{% url "accessories-index" %}">Accessories</a></li>
-                            {% for man in manufacturer %}
-                                <li><a href="#" {{ man.name }}>
+                            {% for manuf in manufacturers %}
+                                <li><a href="#">{{ manuf.name }}</a></li>
                             {% endfor %}
                         </ul>
                         <ul class="nav navbar-nav">
