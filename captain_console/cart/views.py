@@ -34,10 +34,11 @@ def get_cart_items(request, **kwargs):
         return render(request, 'cart/empty.html')
 
 @login_required
-def checkout():
+def checkout(request):
     '''let's go boys'''
     print('are you a product?')
     print("cause I'd like to check you out")
+    return render(request, 'cart/checkout.html')
 
 
 @login_required
