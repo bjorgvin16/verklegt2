@@ -7,8 +7,8 @@ from helpers.views import buildContext
 
 def index(request):
     context = buildContext()
-    context = { "games": Game.objects.all().order_by("name") }
-    context["manufacturer"] = Manufacturer.objects.all().order_by("name")
+    #context = { "games": Game.objects.all().order_by("name") }
+    context["games"] = Game.objects.all().order_by("name")
     return render(request, "games/index.html", context)
 
 def get_game_by_id(request, id):
