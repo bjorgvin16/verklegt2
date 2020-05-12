@@ -26,10 +26,9 @@ def process_payment():
 
 @login_required()
 def get_cart_items(request, **kwargs):
-    cart = Cart.objects.filter(pk=request.user.id)
+    cart = Cart.objects.filter(user=request.user)
     if cart.exists():
         #get all the items for this cart
-        print('wow, you have a cart already!')
         return render(request, 'cart/index.html')
     else:
         return render(request, 'cart/empty.html')
@@ -42,7 +41,7 @@ def checkout():
 
 
 @login_required
-def success():
+def success(request):
     print('wow, so much success')
     print('this is so amazing')
     return render(request, 'cart/index.html')
