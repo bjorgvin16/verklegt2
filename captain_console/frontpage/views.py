@@ -6,14 +6,8 @@ from helpers.views import buildContext
 def index(request):
     context = buildContext()
     context["manufacturer"] = Manufacturer.objects.all().order_by("name")
-    return render(request, 'frontpage/index.html')
+    return render(request, 'frontpage/index.html', context)
 
-def filter_products(request):
-    context = {
-        "product": Product.objects.all().order_by("name"),
-        "manufacturers": Manufacturer.objects.all()
-    }
-    return render(request, "navigation.html", context)
 
 def product_list(request):
     object_list = Product.objects.all()

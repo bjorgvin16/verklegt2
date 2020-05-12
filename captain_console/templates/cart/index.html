@@ -1,6 +1,19 @@
 {% extends "base.html" %}
 {% block content %}
-    <div class = "cart">
-        <h2>Welcome to the Cart app!</h2>
+
+    <div class = "container-fluid padding title">
+        <div class = "row welcome text-center"></div>
+            <div class = "col-12">
+            <h1>Cart</h1>
+            </div>
+        </div>
+        <hr>
+
+        <div class = "row padding">
+            {% for product in cart %}
+                {% include 'cart/order_summary.html' with product=cart.product %}
+            {% endfor %}
+        </div>
     </div>
-{%  endblock %}
+
+{% endblock %}
