@@ -8,6 +8,10 @@
     object-fit: contain;
 }
 
+#left-menu {
+    font-size: 1.3em;
+}
+
 #logo {
     max-width:55px;
     max-height: 25px;
@@ -16,7 +20,7 @@
 
 #header {
     margin: 0;
-    background-color: black;
+    background-color: #9EA8F9;
 }
 
 #header a {
@@ -135,6 +139,14 @@ footer {
     height:100%;
 }
 
-.container-fluid, #cart {
+.container-fluid {
     padding: 0;
+}
+
+.glyphicon-shopping-cart {
+    font-size: 1.4em;
+}
+
+.dropdown {
+    font-size: 1.1em;
 }

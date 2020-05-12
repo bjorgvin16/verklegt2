@@ -1,0 +1,140 @@
+.row, .navbar-collapse, .collapse, .col-lg-12 {
+    width: 100%;
+}
+
+.website-img {
+    height: 250px;
+    width: 250px;
+    object-fit: contain;
+}
+
+#logo {
+    max-width:55px;
+    max-height: 25px;
+    padding-bottom: 2px;
+}
+
+#header {
+    margin: 0;
+    background-color: #9EA8F9;
+}
+
+#header a {
+    color: #282828;
+}
+
+#myCarousel img {
+    height: 40em;
+}
+
+.carousel-inner img {
+  width: 100%;
+  height: 100%;
+}
+
+.carousel-caption {
+    font-family: 'Rubik Mono One', sans-serif;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.carousel-caption h1 {
+    color: #282828;
+    font-size: 400%;
+    text-transform: uppercase;
+    text-shadow: 1px 1px 8px #ffff;
+    padding-bottom: .7em;
+}
+
+#shop-now {
+    background-color: #9EA8F9;
+    color: #282828;
+}
+
+#shop-now:hover {
+    background-color: mediumpurple;
+}
+
+.col-md-4 {
+    display: inline-block;
+    padding: 0;
+}
+
+footer {
+    background-color: #9EA8F9;
+    padding-top: 2rem;
+    margin-top: 5rem;
+}
+
+#top {
+    margin: 0;
+}
+
+ .title, #trending {
+     font-family: 'Rubik Mono One', sans-serif !important;
+ }
+
+.details {
+    padding-top: 3%;
+    padding-left: 25%;
+    padding-right: 25%;
+}
+
+.addtocart {
+	box-shadow:inset 0px 1px 0px 0px #ffffff;
+	background:linear-gradient(to bottom, #d6d6d6 5%, #ffffff 100%);
+	background-color:#d6d6d6;
+	border-radius:2px;
+	border:1px solid #000000;
+	display:inline-block;
+	cursor:pointer;
+	color:#3d3d3d;
+	font-family:Arial;
+	font-size:15px;
+	padding:6px 16px;
+	text-decoration:none;
+	text-shadow:0px 1px 24px #ffffff;
+}
+
+.addtocart:hover {
+	background:linear-gradient(to bottom, #ffffff 5%, #d6d6d6 100%);
+	background-color:#ffffff;
+}
+
+.addtocart:active {
+	position:relative;
+	top:1px;
+}
+
+.addtocart:link, .addtocart:visited, .addtocart:active  {text-decoration: none; }
+
+.webpage {
+    margin-left: 30%;
+    margin-right: 30%;
+    margin-top: 2%;
+}
+
+.filterby {
+    float: right;
+}
+
+.container-fluid .filterby {
+    margin-bottom: 2%;
+}
+
+.image_div {
+    height: 10em;
+    width: 10em;
+    margin-right: 2em;
+}
+
+.account-img {
+    width:100%;
+    margin-right: 2em;
+    height:100%;
+}
+
+.container-fluid, #cart {
+    padding: 0;
+}
