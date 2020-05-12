@@ -187,10 +187,11 @@ footer {
   position: absolute;
   background-color: #ffffff;
   z-index: 1;
+  font-size: .8em;
 }
 
 .dropdown-content a {
-  color: black;
+  color: #282828;
   padding: 12px 16px;
   display: block;
 }
