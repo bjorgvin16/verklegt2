@@ -4,7 +4,6 @@ from .forms import CreateUserForm, UserUpdateForm, ProfileUpdateForm
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
-#from cart.models import Order
 from .models import Profile
 
 def signup(request):
