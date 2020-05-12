@@ -1,9 +1,7 @@
 from __future__ import unicode_literals
 from django.db import models
-
 from users.models import Profile
 from frontpage.models import Product
-
 
 class OrderItem(models.Model):
     product = models.OneToOneField(Product, on_delete=models.SET_NULL, null=True)
@@ -12,10 +10,8 @@ class OrderItem(models.Model):
     date_ordered = models.DateTimeField(null=True)
     quantity = models.IntegerField(default=1)
 
-
     def __str__(self):
         return self.product.name
-
 
 class Order(models.Model):
     ref_code = models.CharField(max_length=15)

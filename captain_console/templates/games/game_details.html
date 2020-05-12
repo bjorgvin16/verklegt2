@@ -1,16 +1,25 @@
 {% extends "base.html" %}
 {% block content %}
-    <div class="details">
-        {% for game_image in game.productimage_set.all %}
-            <img src="{{ game_image.image }}" class="website-img" alt="Game Image">
-        {% endfor %}
-    </div>
 
     <div class="details">
+        <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+          <div class="carousel-inner">
+              <div class="carousel-item active">
+                    <img class="d-block w-100 website-img" src="{{ game.productimage_set.all.0.image }}" alt="First slide">
+              </div>
+            {% if game.productimage_set.all|length > 1 %}
+                {% for game_image in game.productimage_set.all|slice:"1:" %}
+                    <div class="carousel-item">
+                      <img class="d-block w-100 website-img" src="{{ game_image.image }}" alt="Other slides">
+                    </div>
+                {% endfor %}
+            {% endif %}
+          </div>
+        </div>
         <h1>{{ game.name }}</h1>
         <p>{{ game.description }}</p>
         <p>Publisher: {{ game.manufacturer.name }}</p>
-        <p>{{ game.price }}</p>
+        <p>Price: {{ game.price }}</p>
         <p>Left in stock: {{ game.leftInStock }}</p>
         <p>Release year: {{ game.releaseYear }}</p>
         <p>Console: {{ game.gameConsole }}</p>
