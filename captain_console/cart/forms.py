@@ -8,10 +8,10 @@ class ContactInfoForm(forms.Form):
     house_number = forms.IntegerField(label="House Number:")
     city = forms.CharField(max_length=255, label="City:")
     zip = forms.IntegerField(label="ZIP-code/Postal code:")
-    country = CountryField(blank_label="Select country...")
+    country = CountryField()
 
 class PaymentInfoForm(forms.Form):
-    cardholder = forms.CharField(max_length=255, label="Card Holder Name as Appears on Card:")
+    cardholder = forms.CharField(max_length=255, label="Cardholder full name:")
     card_number = CardNumberField(label="Credit Card Number:")
     exp_date = CardExpiryField(label="Card Expiry Date:")
     cvc_code = SecurityCodeField(label="CVC/CVV Code:")

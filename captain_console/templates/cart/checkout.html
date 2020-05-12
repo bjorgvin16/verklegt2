@@ -1,14 +1,31 @@
 {% extends "base.html" %}
+{% load crispy_forms_tags %}
 {% block content %}
     <div class = "cart">
         <h2>Welcome to the Checkout site!!!!!!!!11</h2>
     </div>
-
+<!--
 <ul class="nav nav-pills nav-st">
   <li class="active"><a href="#">Home</a></li>
   <li><a href="#">Menu 1</a></li>
   <li><a href="#">Menu 2</a></li>
   <li><a href="#">Menu 3</a></li>
 </ul>
+-->
+    <fieldset>
+        {{ contactform|crispy }}
+        <select>
+            <option value="" disabled selected>Select a country...</option>
+            {% for country in countries %}
+                <option value="{{ country.code }}">{{ country.name }}</option>
+            {% endfor %}
+        </select>
+    </fieldset>
+
+    <p>---------------</p>
+    <fieldset>
+        {{ paymentform }}
+    </fieldset>
+
 
 {% endblock %}

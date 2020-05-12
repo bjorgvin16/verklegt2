@@ -7,5 +7,6 @@ urlpatterns = [
     path('<int:id>', views.get_console_by_id, name="consoles-details"),
     path('desc/', views.order_by_desc, name="consoles-filter_desc"),
     path('lowhigh/', views.order_by_lowest_highest, name="consoles-lowest_highest"),
-    path('highlow/', views.order_by_highest_lowest, name="consoles-highest_lowest")
+    path('highlow/', views.order_by_highest_lowest, name="consoles-highest_lowest"),
+    path('manufacturers/<int:manufacturerid>/', views.get_manufacturer_by_id, name="consoles-manufacturer")
 ]

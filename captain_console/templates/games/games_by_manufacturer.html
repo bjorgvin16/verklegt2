@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% block content %}
+
+    <div class = "container-fluid padding title">
+        <div class = "row welcome text-center"></div>
+            <div class = "col-12">
+            <h1>{{ manufacturer }}</h1>
+            </div>
+        </div>
+        <hr>
+
+    <!--
+    <div class = "container-fluid padding">
+    <div class="w3-dropdown-hover filterby">
+      <button class="w3-button">Filter By</button>
+      <div class="w3-dropdown-content w3-bar-block w3-border">
+        <a class="w3-bar-item w3-button" href="{% url "games-index" %}">A-Z</a>
+        <a class="w3-bar-item w3-button" href="{% url "games-filter_desc" %}">Z-A</a>
+        <a class="w3-bar-item w3-button" href="{% url "games-lowest_highest" %}"><b>Price:</b> Lowest-Highest</a>
+        <a class="w3-bar-item w3-button" href="{% url "games-highest_lowest" %}"><b>Price:</b> Highest-Lowest</a>
+      </div>
+    </div>
+    !-->
+
+        <div class = "row padding">
+            {% for game in games %}
+                {% include 'games/single_game.html' with game=game %}
+            {% endfor %}
+        </div>
+
+    </div>
+
+{% endblock %}

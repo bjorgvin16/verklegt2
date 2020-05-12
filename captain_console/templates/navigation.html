@@ -14,23 +14,23 @@
                             <div class="dropdown">
                                 <button class="dropbtn"><li><a href="{% url "games-index" %}"><b>Games</b></a></li></button>
                                 <div class="dropdown-content">
-                                    {% for manu in manufacturer %}
-                                        <li><a href="#"> {{ manu.name }}</a></li>
+                                    {% for manu in manufacturers %}
+                                        <li><a href="/games/manufacturers/{{ manu.id }}"> {{ manu.name }}</a></li>
                                     {% endfor %}
                                 </div>
                             </div>
                             <div class="dropdown">
                                 <button class="dropbtn"><li><a href="{% url "consoles-index" %}"><b>Consoles</b></a></li></button>
                                 <div class="dropdown-content">
-                                    {% for manu in manufacturer %}
-                                        <li><a href="#"> {{ manu.name }}</a></li>
+                                    {% for manu in manufacturers %}
+                                        <li><a href="/consoles/manufacturers/{{ manu.id }}"> {{ manu.name }}</a></li>
                                     {% endfor %}
                                 </div>
                             </div>
                             <div class="dropdown">
                                 <button class="dropbtn"><li><a href="{% url "accessories-index" %}"><b>Accessories</b></a></li></button>
                                 <div class="dropdown-content">
-                                    {% for manu in manufacturer %}
+                                    {% for manu in manufacturers %}
                                         <li><a href="#"> {{ manu.name }}</a></li>
                                     {% endfor %}
                                 </div>
@@ -67,12 +67,7 @@
                                         <li><a href="{% url "users-logout" %}">Log out</a></li>
                                     </div>
                                 </div>
-                                <!--<li><a href="#" class="dropdown" data-toggle="dropdown"><span class="glyphicon glyphicon-user"></span> <b>My Profile</b> <span class="caret"></span></a>
-                                    <ul class="dropdown-menu">
-                                        <li><a href={% url 'users-profile' %}>View Profile</a></li>
-                                        <li><a href="{% url "users-logout" %}">Log out</a></li>
-                                    </ul>
-                                </li>-->
+
                             {% else %}
                                <li><a href="#" class = "dropdown" data-toggle="dropdown"><span class="glyphicon glyphicon-log-in"></span> Login / Sign Up <span class="caret"></span></a>
                                     <ul class="dropdown-menu">
