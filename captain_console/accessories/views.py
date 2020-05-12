@@ -1,8 +1,13 @@
 from django.shortcuts import render, get_object_or_404
 from accessories.models import Accessory
 
+from frontpage.models import Manufacturer
+from helpers.views import buildContext
+
 def index(request):
+    context = buildContext()
     context = { "accessories": Accessory.objects.all().order_by("name") }
+    context["manufacturer"] = Manufacturer.objects.all().order_by("name")
     return render(request, "accessories/index.html", context)
 
 def get_console_by_id(request, id):
