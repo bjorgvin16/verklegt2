@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django_countries',
     'games.apps.GamesConfig',
     'consoles.apps.ConsolesConfig',
     'accessories.apps.AccessoriesConfig',
