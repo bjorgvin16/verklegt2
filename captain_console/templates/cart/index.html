@@ -10,8 +10,8 @@
         <hr>
 
         <div class = "row padding">
-            {% for product in products %}
-                {% include 'cart/order_summary.html' with product=product %}
+            {% for cart in carts %}
+                {% include 'cart/order_summary.html' with product=cart.product %}
             {% endfor %}
         </div>
     </div>

@@ -26,12 +26,11 @@ def process_payment():
     pass
 
 @login_required()
-def get_cart_items(request, **kwargs):
+def get_cart_items(request):
     cart = Cart.objects.filter(user=request.user)
     if cart.exists():
         #get all the items for this cart
-        print(Cart.product)
-        context = {"products": Cart.objects.all()}
+        context = {"carts": Cart.objects.all()}
         return render(request, 'cart/index.html', context)
     else:
         return render(request, 'cart/empty.html')
