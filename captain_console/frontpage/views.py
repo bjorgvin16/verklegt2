@@ -1,9 +1,11 @@
 from django.shortcuts import render
 #from cart import Order
 from .models import Product, Manufacturer
-
+from helpers.views import buildContext
 
 def index(request):
+    context = buildContext()
+    context["manufacturer"] = Manufacturer.objects.all().order_by("name")
     return render(request, 'frontpage/index.html')
 
 def filter_products(request):

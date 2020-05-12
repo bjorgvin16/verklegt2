@@ -150,3 +150,14 @@ footer {
 .dropdown {
     font-size: 1.1em;
 }
+
+.carousel-inner .carousel-item .d-block {
+    height: 250px;
+    width: 250px;
+    object-fit: contain;
+    border: 2px lightgrey;
+}
+
+#carouselExampleControls .carousel-control-next .carousel-control-next-icon, #carouselExampleControls .carousel-control-prev .carousel-control-prev-icon {
+    filter: invert(100%);
+}
