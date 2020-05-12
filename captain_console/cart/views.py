@@ -6,7 +6,7 @@ from django.contrib.auth.decorators import login_required
 
 def get_user_pending_order(request):
     ''' getting the order that a user has and hasn't payed for'''
-    pass
+    return render(request, "cart/index.html" ,{})
 
 @login_required
 def delete_cart_item(request, item_id):
@@ -37,7 +37,7 @@ def add_item_to_cart(request, product_id):
         order.date_ordered = ordered_date
         order.items.add(order_item)
 
-    context = {"item_id": product_id}
+    context = {"item_id": product_id} ## HELP!!!
     return 0 #render(request, "cart/index.html", context)
 
 @login_required
@@ -60,7 +60,7 @@ def checkout():
     pass
 
 @login_required
-def update_transaction_records():
+def update_order_records():
     pass
 
 
