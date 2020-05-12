@@ -67,7 +67,7 @@
 
 footer {
     background-color: #9EA8F9;
-    padding-top: 2rem;
+    padding-top: 3rem;
     margin-top: 5rem;
 }
 
@@ -83,22 +83,24 @@ footer {
     padding-top: 3%;
     padding-left: 25%;
     padding-right: 25%;
+    font-size: 1.1em;
 }
 
 .addtocart {
-	box-shadow:inset 0px 1px 0px 0px #ffffff;
-	background:linear-gradient(to bottom, #d6d6d6 5%, #ffffff 100%);
-	background-color:#d6d6d6;
-	border-radius:2px;
-	border:1px solid #000000;
-	display:inline-block;
-	cursor:pointer;
-	color:#3d3d3d;
-	font-family:Arial;
-	font-size:15px;
-	padding:6px 16px;
-	text-decoration:none;
-	text-shadow:0px 1px 24px #ffffff;
+    box-shadow: inset 0px 1px 0px 0px #ffffff;
+    background: linear-gradient(to bottom, #d6d6d6 5%, #ffffff 100%);
+    background-color: #d6d6d6;
+    border-radius: 2px;
+    border: 1px solid #000000;
+    display: inline-block;
+    cursor: pointer;
+    color: #3d3d3d;
+    font-family: Arial;
+    font-size: 15px;
+    padding: 6px 16px;
+    text-decoration: none;
+    text-shadow: 0px 1px 24px #ffffff;
+    margin-top: 1em;
 }
 
 .addtocart:hover {
@@ -160,4 +162,8 @@ footer {
 
 #carouselExampleControls .carousel-control-next .carousel-control-next-icon, #carouselExampleControls .carousel-control-prev .carousel-control-prev-icon {
     filter: invert(100%);
+}
+
+h2, h3 {
+    text-align: center;
 }
