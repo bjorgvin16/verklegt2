@@ -4,6 +4,7 @@ from django.shortcuts import redirect, render, get_object_or_404
 from django.utils import timezone
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
+from .forms import ContactInfoForm, PaymentInfoForm
 
 
 @login_required
@@ -40,7 +41,11 @@ def checkout(request):
     '''let's go boys'''
     print('are you a product?')
     print("cause I'd like to check you out")
-    return render(request, 'cart/checkout.html')
+    context = {
+        'contactform': ContactInfoForm,
+        'paymentform': PaymentInfoForm,
+    }
+    return render(request, 'cart/checkout.html', context)
 
 
 @login_required
