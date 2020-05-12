@@ -3,6 +3,7 @@ from frontpage.models import Product
 from django.shortcuts import redirect, render, get_object_or_404
 from django.utils import timezone
 from django.contrib.auth.decorators import login_required
+from django.contrib import messages
 
 
 @login_required
@@ -29,7 +30,9 @@ def get_cart_items(request, **kwargs):
     cart = Cart.objects.filter(user=request.user)
     if cart.exists():
         #get all the items for this cart
-        return render(request, 'cart/index.html')
+        print(Cart.product)
+        context = {"products": Cart.objects.all()}
+        return render(request, 'cart/index.html', context)
     else:
         return render(request, 'cart/empty.html')
 
