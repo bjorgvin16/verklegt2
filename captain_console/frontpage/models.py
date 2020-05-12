@@ -14,6 +14,11 @@ class Product(models.Model):
     display = models.BooleanField()
     leftInStock = models.IntegerField()
 
+    def get_add_to_cart_url(self):
+        return reverse("cart:add-to-cart", kwargs={
+            'item_id': self.id
+        })
+
     def __str__(self):
         return self.name
 

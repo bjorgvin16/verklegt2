@@ -3,5 +3,7 @@ from . import views
 urlpatterns = [
     # mun vísa á http://localhost:8000/frontpage
     path('', views.index, name="frontpage-index"),
-    path('search', views.index, name="search-index")
+    path('search', views.index, name="search-index"),
+    path('', views.filter_products, name="filter_products"),
+
 ]

@@ -10,6 +10,8 @@ class OrderItem(models.Model):
     is_ordered = models.BooleanField(default=False)
     date_added = models.DateTimeField(auto_now=True)
     date_ordered = models.DateTimeField(null=True)
+    quantity = models.IntegerField(default=1)
+
 
     def __str__(self):
         return self.product.name
@@ -30,6 +32,6 @@ class Order(models.Model):
         return sum([item.product.price for item in self.items.all()])
 
     def __str__(self):
-        return '{{self.owner}} {{self.ref_code}}'
+        return '{{self.owner}}  {{self.items}}'
 
 
