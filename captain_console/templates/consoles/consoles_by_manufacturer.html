@@ -2,7 +2,7 @@
 {% block content %}
 
     <div class = "container-fluid padding title">
-        <div class = "row welcome text-center"></div>
+        <div class = "row welcome text-center">
             <div class = "col-12">
             <h1>{{ manufacturer }}</h1>
             </div>
@@ -23,8 +23,8 @@
     !-->
 
         <div class = "row padding">
-            {% for accessory in accessories %}
-                {% include 'accessories/single_accessory.html' with accessory=accessory %}
+            {% for console in consoles %}
+                {% include 'consoles/single_console.html' with console=console %}
             {% endfor %}
         </div>
 
