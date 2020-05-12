@@ -9,15 +9,35 @@
                     <a class="navbar-brand" href="/"><img id = "logo" src="{% static "images/logo2.png" %}" alt="captain console logo"></a>
                     </div>
 
-                    <div class="navbar-collapse collapse">
+                    <div class="navbar-collapse collapse" id="left-menu">
+
                         <ul class="nav navbar-nav" id="left-menu">
-                            <li><a href="{% url "games-index" %}">Games</a></li>
-                            <li><a href="{% url "consoles-index" %}">Consoles</a></li>
-                            <li><a href="{% url "accessories-index" %}">Accessories</a></li>
-                            {% for manuf in manufacturers %}
-                                <li><a href="#">{{ manuf.name }}</a></li>
-                            {% endfor %}
+                            <div class="w3-dropdown-hover filterby">
+                                  <button class="w3-button"><li><a href="{% url "games-index" %}">Games</a></li></button>
+                                  <div class="w3-dropdown-content w3-bar-block w3-border">
+                                      {% for manu in manufacturer %}
+                                          <li><a href="#"> {{ manu.name }}</a></li>
+                                      {% endfor %}
+                                  </div>
+                            </div>
+                            <div class="w3-dropdown-hover filterby">
+                                  <button class="w3-button"><li><a href="{% url "consoles-index" %}">Consoles</a></li></button>
+                                  <div class="w3-dropdown-content w3-bar-block w3-border">
+                                      {% for manu in manufacturer %}
+                                          <li><a href="#"> {{ manu.name }}</a></li>
+                                      {% endfor %}
+                                  </div>
+                            </div>
+                            <div class="w3-dropdown-hover filterby">
+                                  <button class="w3-button"><li><a href="{% url "accessories-index" %}">Accessories</a></li></button>
+                                  <div class="w3-dropdown-content w3-bar-block w3-border">
+                                      {% for manu in manufacturer %}
+                                          <li><a href="#"> {{ manu.name }}</a></li>
+                                      {% endfor %}
+                                  </div>
+                            </div>
                         </ul>
+
                         <ul class="nav navbar-nav">
                             <li>
                                 <form action="{% url "productsearch-index" %}" class="navbar-form">

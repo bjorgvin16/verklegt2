@@ -27,13 +27,26 @@
           </a>
         </div>
 
-        <div>
-            <h2>{{ console.name }}</h2>
-            <h3>Price: {{ console.price }} kr.</h3>
-            <p>Manufacturer: {{ console.manufacturer.name }}</p>
-            <p>Left in stock: {{ console.leftInStock }}</p>
-            <p>{{ console.description }}</p>
-            <a href="#" class="addtocart">Add to cart</a>
+        <h2>{{ console.name }}</h2>
+        <h3>Price: {{ console.price }} kr.</h3>
+
+        <div class = "d-flex justify-content-between">
+
+            <div class = "description">
+                <h4>Description:</h4>
+                <p>{{ console.description }}</p>
+            </div>
+
+            <div class = "moredetails">
+                <h4>Details:</h4>
+                <p>Manufacturer: {{ console.manufacturer.name }}</p>
+                <p>Left in stock: {{ console.leftInStock }}</p>
+                <p>Release year: {{ console.releaseYear }}</p>
+            </div>
+
         </div>
+
+        <a href="#" class="addtocart">Add to cart</a>
     </div>
+
 {% endblock %}
