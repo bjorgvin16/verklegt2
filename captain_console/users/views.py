@@ -7,8 +7,6 @@ from django.contrib.auth.decorators import login_required
 #from cart.models import Order
 from .models import Profile
 
-
-
 def signup(request):
     form = CreateUserForm()
 
