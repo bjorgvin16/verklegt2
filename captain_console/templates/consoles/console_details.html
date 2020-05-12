@@ -15,22 +15,22 @@
                 {% endfor %}
             {% endif %}
           </div>
+
+          <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+          </a>
+          <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+          </a>
         </div>
 
-      <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="sr-only">Previous</span>
-      </a>
-      <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="sr-only">Next</span>
-      </a>
-
-    <h1>{{ console.name }}</h1>
-    <p>{{ console.description }}</p>
-    <p>Manufacturer: {{ console.manufacturer.name }}</p>
-    <p>Price: {{ console.price }}</p>
-    <p>Left in stock: {{ console.leftInStock }}</p>
-    <a href="#" class="addtocart">Add to cart</a>
+        <h1>{{ console.name }}</h1>
+        <p>{{ console.description }}</p>
+        <p>Manufacturer: {{ console.manufacturer.name }}</p>
+        <p>Price: {{ console.price }}</p>
+        <p>Left in stock: {{ console.leftInStock }}</p>
+        <a href="#" class="addtocart">Add to cart</a>
     </div>
 {% endblock %}
