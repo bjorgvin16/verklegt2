@@ -1,3 +1,6 @@
+.row, .navbar-collapse, .collapse, .col-lg-12 {
+    width: 100%;
+}
 
 .website-img {
     height: 250px;
@@ -6,31 +9,18 @@
 }
 
 #logo {
-    width:55px;
-    height: 25px;
+    max-width:55px;
+    max-height: 25px;
     padding-bottom: 2px;
 }
 
 #header {
     margin: 0;
-    background-color: #9EA8F9;
-
+    background-color: black;
 }
 
 #header a {
     color: #282828;
-}
-
-#left-menu {
-    font-size: 1.5em;
-}
-
-.all-games {
-    background-color: snow;
-}
-
-.one-game {
-    border: 2px solid black;
 }
 
 #myCarousel img {
@@ -68,6 +58,7 @@
 
 .col-md-4 {
     display: inline-block;
+    padding: 0;
 }
 
 footer {
@@ -76,29 +67,18 @@ footer {
     margin-top: 5rem;
 }
 
-#mycontent {
-    width: 100% !important;;
-    padding: 0 !important;;
-    margin: 0 !important;
-}
-
 #top {
     margin: 0;
 }
 
- #gamestitle, #consolestitle, #accessoriestitle, #trending {
+ .title, #trending {
      font-family: 'Rubik Mono One', sans-serif !important;
  }
 
-#gamesdiv, #consolesdiv, #accessoriesdiv, #gamestitle, #consolestitle, #accessoriestitle, #productsdiv {
-    margin-left: 12%;
-    margin-right: 12%;
-}
-
-.details, #details {
+.details {
     padding-top: 3%;
-    padding-left: 12%;
-    padding-right: 12%;
+    padding-left: 25%;
+    padding-right: 25%;
 }
 
 .addtocart {
@@ -129,19 +109,32 @@ footer {
 
 .addtocart:link, .addtocart:visited, .addtocart:active  {text-decoration: none; }
 
-.cards {
-    border: 1px solid lightgrey;
-    padding-bottom: 4%;
-    padding-top: 20px;
-
-}
-
 .webpage {
     margin-left: 30%;
     margin-right: 30%;
     margin-top: 2%;
 }
 
+.filterby {
+    float: right;
+}
+
 .container-fluid .filterby {
     margin-bottom: 2%;
+}
+
+.image_div {
+    height: 10em;
+    width: 10em;
+    margin-right: 2em;
+}
+
+.account-img {
+    width:100%;
+    margin-right: 2em;
+    height:100%;
+}
+
+.container-fluid, #cart {
+    padding: 0;
 }

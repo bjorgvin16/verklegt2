@@ -1,6 +1,5 @@
  {% load static %}
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-<div class="navbar navbar-expand-sm" id = "header">
+<div class="navbar navbar-expand-md" id = "header">
         <div class="container-fluid">
             <div class="row">
                 <div class="col-lg-12">
@@ -10,7 +9,7 @@
                     <a class="navbar-brand" href="/"><img id = "logo" src="{% static "images/logo2.png" %}" alt="captain console logo"></a>
                     </div>
 
-                    <div class="navbar-collapse collapse" id="mobile_menu">
+                    <div class="navbar-collapse collapse">
                         <ul class="nav navbar-nav" id="left-menu">
                             <li><a href="{% url "games-index" %}">Games</a></li>
                             <li><a href="{% url "consoles-index" %}">Consoles</a></li>
@@ -32,7 +31,12 @@
                         </ul>
 
                         <ul class="nav navbar-nav navbar-right" id="right-menu">
-                            <li><a href="#"><span class="glyphicon glyphicon-shopping-cart"></span>Cart</a></li>
+                            <li>
+                                <a href="{% url "cart-index" %}" id = "cart">
+                                    <span class="glyphicon glyphicon-shopping-cart"></span>
+                                </a>
+                            </li>
+
                             {% if user.is_authenticated %}
                                 <li><a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-user"></span> My Profile <span class="caret"></span></a>
                                     <ul class="dropdown-menu">
@@ -41,7 +45,7 @@
                                     </ul>
                                 </li>
                             {% else %}
-                               <li><a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-log-in"></span> Login / Sign Up <span class="caret"></span></a>
+                               <li><a href="#" data-toggle="dropdown"><span class="glyphicon glyphicon-log-in"></span> Login / Sign Up <span class="caret"></span></a>
                                     <ul class="dropdown-menu">
                                         <li><a href="{% url "users-login" %}">Login</a></li>
                                         <li><a href="{% url "users-signup" %}">Sign Up</a></li>
