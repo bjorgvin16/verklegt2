@@ -23,7 +23,7 @@
                                 <button class="dropbtn"><li><a href="{% url "consoles-index" %}"><b>Consoles</b></a></li></button>
                                 <div class="dropdown-content">
                                     {% for manu in manufacturer %}
-                                        <li><a href="#"> {{ manu.name }}</a></li>
+                                        <li><a href="/games/manufacturers/{{ manu.id }}"> {{ manu.name }}</a></li>
                                     {% endfor %}
                                 </div>
                             </div>
