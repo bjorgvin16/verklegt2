@@ -175,3 +175,26 @@ footer {
 .moredetails {
     width: 30%
 }
+
+.dropbtn {
+  background-color: #9EA8F9;
+  padding: 16px;
+  border: none;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #ffffff;
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  display: block;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}

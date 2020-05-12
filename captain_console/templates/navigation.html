@@ -10,31 +10,30 @@
                     </div>
 
                     <div class="navbar-collapse collapse" id="left-menu">
-
                         <ul class="nav navbar-nav" id="left-menu">
-                            <div class="w3-dropdown-hover filterby">
-                                  <button class="w3-button"><li><a href="{% url "games-index" %}">Games</a></li></button>
-                                  <div class="w3-dropdown-content w3-bar-block w3-border">
-                                      {% for manu in manufacturer %}
-                                          <li><a href="#"> {{ manu.name }}</a></li>
-                                      {% endfor %}
-                                  </div>
+                            <div class="dropdown">
+                                <button class="dropbtn"><li><a href="{% url "games-index" %}">Games</a></li></button>
+                                <div class="dropdown-content">
+                                    {% for manu in manufacturer %}
+                                        <li><a href="#"> {{ manu.name }}</a></li>
+                                    {% endfor %}
+                                </div>
                             </div>
-                            <div class="w3-dropdown-hover filterby">
-                                  <button class="w3-button"><li><a href="{% url "consoles-index" %}">Consoles</a></li></button>
-                                  <div class="w3-dropdown-content w3-bar-block w3-border">
-                                      {% for manu in manufacturer %}
-                                          <li><a href="#"> {{ manu.name }}</a></li>
-                                      {% endfor %}
-                                  </div>
+                            <div class="dropdown">
+                                <button class="dropbtn"><li><a href="{% url "consoles-index" %}">Consoles</a></li></button>
+                                <div class="dropdown-content">
+                                    {% for manu in manufacturer %}
+                                        <li><a href="#"> {{ manu.name }}</a></li>
+                                    {% endfor %}
+                                </div>
                             </div>
-                            <div class="w3-dropdown-hover filterby">
-                                  <button class="w3-button"><li><a href="{% url "accessories-index" %}">Accessories</a></li></button>
-                                  <div class="w3-dropdown-content w3-bar-block w3-border">
-                                      {% for manu in manufacturer %}
-                                          <li><a href="#"> {{ manu.name }}</a></li>
-                                      {% endfor %}
-                                  </div>
+                            <div class="dropdown">
+                                <button class="dropbtn"><li><a href="{% url "accessories-index" %}">Accessories</a></li></button>
+                                <div class="dropdown-content">
+                                    {% for manu in manufacturer %}
+                                        <li><a href="#"> {{ manu.name }}</a></li>
+                                    {% endfor %}
+                                </div>
                             </div>
                         </ul>
 
