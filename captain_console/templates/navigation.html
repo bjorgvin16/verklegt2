@@ -29,11 +29,6 @@
                             </div>
                             <div class="dropdown">
                                 <button class="dropbtn"><li><a href="{% url "accessories-index" %}"><b>Accessories</b></a></li></button>
-                                <div class="dropdown-content">
-                                    {% for manu in manufacturers %}
-                                        <li><a href="#"> {{ manu.name }}</a></li>
-                                    {% endfor %}
-                                </div>
                             </div>
                         </ul>
 
