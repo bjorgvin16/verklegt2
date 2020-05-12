@@ -26,14 +26,26 @@
             <span class="sr-only">Next</span>
           </a>
         </div>
+    
+        <h2>{{ accessory.name }}</h2>
+        <h3>Price: {{ accessory.price }} kr.</h3>
 
-    <h2>{{ accessory.name }}</h2>
-    <h3>Price: {{ accessory.price }} kr.</h3>
-    <p>Manufacturer: {{ accessory.manufacturer.name }}</p>
-    <p>{{ accessory.description }}</p>
-    <p>Left in stock: {{ accessory.leftInStock }}</p>
-    <a href="#" class="addtocart">Add to cart</a>
+        <div class = "d-flex justify-content-between">
 
+            <div class = "description">
+                <h4>Description:</h4>
+                <p>{{ accessory.description }}</p>
+            </div>
+
+            <div class = "moredetails">
+                <h4>Details:</h4>
+                <p>Manufacturer: {{ accessory.manufacturer.name }}</p>
+                <p>Left in stock: {{ accessory.leftInStock }}</p>
+            </div>
+
+        </div>
+
+        <a href="#" class="addtocart">Add to cart</a>
     </div>
 
 {% endblock %}
