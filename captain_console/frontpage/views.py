@@ -1,12 +1,18 @@
 from django.shortcuts import render
 #from cart import Order
-from .models import Product
+from .models import Product, Manufacturer
+from helpers.views import buildContext
 
 def index(request):
+    context = buildContext()
+    context["manufacturer"] = Manufacturer.objects.all().order_by("name")
     return render(request, 'frontpage/index.html')
 
 def filter_products(request):
-    context = {"product": Product.objects.all().order_by("name")}
+    context = {
+        "product": Product.objects.all().order_by("name"),
+        "manufacturers": Manufacturer.objects.all()
+    }
     return render(request, "navigation.html", context)
 
 def product_list(request):
@@ -20,7 +26,7 @@ def product_list(request):
 
         context = {
             'object_list': object_list,
-            'current_order_products' : current_order_products
+            'current_order_products': current_order_products
         }
 
         return render(request, 'products/product_list.html', context) # need to redirect this
