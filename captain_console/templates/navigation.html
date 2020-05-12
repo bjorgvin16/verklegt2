@@ -3,9 +3,10 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-lg-12">
+
                     <div class="navbar-header" id = "logodiv">
                         <button class="navbar-toggle" data-target="#mobile_menu" data-toggle="collapse"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>
-                    <a class="navbar-brand" href="/"><img id="logo" src="{% static "images/logo2.png" %}" alt="captain console logo"></a>
+                    <a class="navbar-brand" href="/"><img id = "logo" src="{% static "images/logo2.png" %}" alt="captain console logo"></a>
                     </div>
 
                     <div class="navbar-collapse collapse">
@@ -13,16 +14,14 @@
                             <li><a href="{% url "games-index" %}">Games</a></li>
                             <li><a href="{% url "consoles-index" %}">Consoles</a></li>
                             <li><a href="{% url "accessories-index" %}">Accessories</a></li>
-                            <p>{{ product.manufacturer }}</p>
                         </ul>
                         <ul class="nav navbar-nav">
                             <li>
                                 <form action="{% url "productsearch-index" %}" class="navbar-form">
                                     <div class="form-group">
                                         <div class="input-group">
-                                            <input type="search" name="search" id="searchbar" placeholder="Search Anything Here..." class="form-control">
-                                            <span class="input-group-addon btn">
-                                                <a href="{% url "productsearch-index" %}"></a>
+                                            <input type="search" name="search" id="" placeholder="Search Anything Here..." class="form-control">
+                                            <span class="input-group-addon btn" href="{% url "productsearch-index" %}">
                                                 <span class="glyphicon glyphicon-search"></span>
                                             </span>
                                         </div>
@@ -40,8 +39,9 @@
 
                             {% if user.is_authenticated %}
                                 <li><a href=# class="dropdown" data-toggle="dropdown"><span class="glyphicon glyphicon-user"></span> My Profile <span class="caret"></span></a>
+                                <li><a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-user"></span> My Profile <span class="caret"></span></a>
                                     <ul class="dropdown-menu">
-                                        <li><a href={% url 'users-profile' %}>View Profile</a></li>
+                                        <li><a href=#>View Profile</a></li>
                                         <li><a href="{% url "users-logout" %}">Log out</a></li>
                                     </ul>
                                 </li>
@@ -58,4 +58,4 @@
                 </div>
             </div>
         </div>
-</div>
+    </div>
