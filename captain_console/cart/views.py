@@ -8,18 +8,19 @@ from .forms import ContactInfoForm, PaymentInfoForm
 from django_countries import Countries
 
 @login_required
-def delete_cart_item(request, product_id):
+def delete_cart_item(request, cart_id):
     '''deletes the item with the item id in the cart'''
-    row = Cart.objects.get(request.user, product_id)
+    row = Cart.objects.get(id=cart_id)
     row.delete()
     return render(request, 'cart/index.html')
 
 @login_required
 def add_item_to_cart(request, product_id):
+    print('I was here')
     product = get_object_or_404(Product, pk=product_id)
     newrow = Cart(user=request.user, product=product)
     newrow.save()
-    return render(request, 'cart/index.html')
+    return render(request, 'frontpage/index.html')
 
 @login_required
 def process_payment():
@@ -28,10 +29,13 @@ def process_payment():
 
 @login_required()
 def get_cart_items(request):
-    cart = Cart.objects.filter(user=request.user)
-    if cart.exists():
+    carts = Cart.objects.filter(user=request.user)
+    if carts.exists():
+        for i in range(len(carts)):
+            print(carts[i].product.name)
         #get all the items for this cart
-        context = {"carts": Cart.objects.all()}
+
+        context = {"carts": carts}
         return render(request, 'cart/index.html', context)
     else:
         return render(request, 'cart/empty.html')
