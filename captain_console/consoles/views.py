@@ -25,3 +25,9 @@ def order_by_highest_lowest(request):
 def order_by_lowest_highest(request):
     context = {"consoles": Console.objects.all().order_by("price")}
     return render(request, "consoles/index.html", context)
+
+def get_manufacturer_by_id(request, manufacturerid):
+    consoles = Console.objects.filter(manufacturer_id=manufacturerid)
+    manufacturer = Manufacturer.objects.get(id=manufacturerid)
+    context = {"consoles":consoles, "manufacturer":manufacturer}
+    return render(request, 'consoles/consoles_by_manufacturer.html', context)

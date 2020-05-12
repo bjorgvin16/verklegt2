@@ -29,6 +29,6 @@ def order_by_lowest_highest(request):
 
 def get_manufacturer_by_id(request, manufacturerid):
     games = Game.objects.filter(manufacturer_id=manufacturerid)
-    manufacturer = Manufacturer.objects.filter(id = manufacturerid)
+    manufacturer = Manufacturer.objects.get(id=manufacturerid)
     context = {"games":games, "manufacturer":manufacturer}
     return render(request, 'games/games_by_manufacturer.html', context)
