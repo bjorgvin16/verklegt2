@@ -5,6 +5,7 @@ from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from .models import Profile
+from helpers.views import buildContext
 
 def signup(request):
     form = CreateUserForm()
@@ -19,7 +20,8 @@ def signup(request):
 
             return redirect('users-login')
 
-    context = {'form' : form}
+    context = buildContext()
+    context['form'] = form
     return render(request, 'signup/index.html', context)
 
 # Fallið hennar Möggu
@@ -40,7 +42,8 @@ def login_user(request):
         else:
             messages.error(request, "Invalid username or password.")
     form = AuthenticationForm()
-    return render(request=request, template_name="login/index.html", context={"form":form})
+
+    return render(request=request, template_name="login/index.html", context={"form": form})
 
 def logoutUser(request):
     logout(request)
@@ -51,9 +54,10 @@ def logoutUser(request):
 def my_profile(request):
     my_user_profile = Profile.objects.filter(user=request.user).first()
     my_orders = Order.objects.filter(is_ordered=True, owner=my_user_profile)
-    context = {
-        'my_orders': my_orders
-    }
+
+    context = buildContext()
+    context['my_orders'] = my_orders
+
     return render(request, "userprofile/test.html", context)
 
 @login_required()
