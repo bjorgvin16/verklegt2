@@ -23,3 +23,7 @@ def payment(request):
     }
     return render(request, 'checkout/payment.html', context)
 
+def review(request):
+    print('enter review pun here')
+    return render(request, 'checkout/review.html')
+

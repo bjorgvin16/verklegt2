@@ -19,7 +19,7 @@ $(document).ready(function() {
     $('#payment-next').on('click', function(e) {
         e.preventDefault();
         $.ajax({
-            url: 'checkout/payment',
+            url: 'checkout/review',
             type: 'POST',
             success: function(resp) {
 
@@ -36,7 +36,7 @@ $(document).ready(function() {
     $('#payment-prev').on('click', function(e) {
         e.preventDefault();
         $.ajax({
-            url: 'checkout/payment',
+            url: 'checkout/contact',
             type: 'POST',
             success: function(resp) {
 
@@ -50,11 +50,11 @@ $(document).ready(function() {
 });
 
 $(document).ready(function() {
-    $('#review-next').on('click', function(e) {
+    $('#review-prev').on('click', function(e) {
         e.preventDefault();
         $.ajax({
             url: 'checkout/payment',
-            type: 'POST',
+            type: 'GET',
             success: function(resp) {
 
             },
