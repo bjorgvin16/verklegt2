@@ -24,8 +24,6 @@ def signup(request):
     context['form'] = form
     return render(request, 'signup/index.html', context)
 
-# Fallið hennar Möggu
-
 def login_user(request):
     if request.method == 'POST':
         form = AuthenticationForm(request=request, data=request.POST)

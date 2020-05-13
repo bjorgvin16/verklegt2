@@ -1,6 +1,7 @@
+from datetime import datetime
 from django.shortcuts import render, get_object_or_404
 from consoles.models import Console
-
+from users.models import ProductView
 from frontpage.models import Manufacturer
 from helpers.views import buildContext
 
@@ -10,6 +11,15 @@ def index(request):
     return render(request, "consoles/index.html", context)
 
 def get_console_by_id(request, id):
+    if request.user.is_authenticated:
+        product = get_object_or_404(Console, pk=id)
+        productview = ProductView.objects.filter(user=request.user, product=product)
+        if not productview.exists():
+            newrow = ProductView(user=request.user, product=product, dateOfView=datetime.now())
+            newrow.save()
+        else:
+            productview.update(dateOfView=datetime.now())
+            print(datetime.now())
     context = buildContext()
     context["console"] = get_object_or_404(Console, pk=id)
     return render(request, "consoles/console_details.html", context)

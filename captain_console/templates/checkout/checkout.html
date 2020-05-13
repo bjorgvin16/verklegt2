@@ -12,7 +12,8 @@
   <li><a href="#">Menu 3</a></li>
 </ul>
 -->
-    <form method="post" action="payment.html">
+    <form method="post" action="{% url "checkout-payment" %}">
+    {% csrf_token %}
     <fieldset>
         {{ contactform|crispy }}
         <select>
