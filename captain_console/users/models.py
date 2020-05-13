@@ -1,5 +1,8 @@
 from django.db import models
+from django.conf import settings
+from django.contrib.auth import get_user_model
 from frontpage.models import Product
+from django.db.models.signals import post_save
 from django.contrib.auth.models import User
 from PIL import Image
 
@@ -20,6 +23,12 @@ class Profile(models.Model):
             output_size = (300, 300)
             img.thumbnail(output_size)
             img.save(self.image.path)
+
+    def post_save_profile_create(sender, instance, created, *args, **kwargs):
+        if created:
+            Profile.objects.get_or_create(user=instance)
+
+    post_save.connect(post_save_profile_create, sender=settings.AUTH_USER_MODEL)
 
 class ProductView(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
