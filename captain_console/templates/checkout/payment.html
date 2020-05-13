@@ -15,6 +15,7 @@
     <fieldset>
         {{ paymentform|crispy }}
     </fieldset>
-    <p>bull</p>
+    <a id="payment-prev" href="{% url "checkout-contact" %}">Back to Contact</a>
+    <a id="payment-next" href="{% url "checkout-review" %}">Review</a>
 
 {% endblock %}
