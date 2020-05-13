@@ -12,6 +12,7 @@
   <li><a href="#">Menu 3</a></li>
 </ul>
 -->
+    <form method="post" action="payment.html">
     <fieldset>
         {{ contactform|crispy }}
         <select>
@@ -20,12 +21,8 @@
                 <option value="{{ country.code }}">{{ country.name }}</option>
             {% endfor %}
         </select>
+        <button type="submit" id="contact-next">Next</button>
     </fieldset>
-
-    <p>---------------</p>
-    <fieldset>
-        {{ paymentform }}
-    </fieldset>
-
+    </form>
 
 {% endblock %}

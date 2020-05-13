@@ -42,19 +42,6 @@ def get_cart_items(request):
         return render(request, 'cart/empty.html')
 
 @login_required
-def checkout(request):
-    '''let's go boys'''
-    print('are you a product?')
-    print("cause I'd like to check you out")
-    context = {
-        'contactform': ContactInfoForm,
-        'paymentform': PaymentInfoForm,
-        'countries': Countries
-    }
-    return render(request, 'cart/checkout.html', context)
-
-
-@login_required
 def success(request):
     print('wow, so much success')
     print('this is so amazing')
