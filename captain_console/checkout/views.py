@@ -10,7 +10,16 @@ def checkout(request):
     print("cause I'd like to check you out")
     context = {
         'contactform': ContactInfoForm,
-        'paymentform': PaymentInfoForm,
         'countries': Countries
     }
     return render(request, 'checkout/checkout.html', context)
+
+def payment(request):
+    '''let's go boys'''
+    print('are you a payment product?')
+    print("cause I'd like to pay you out")
+    context = {
+        'paymentform': PaymentInfoForm,
+    }
+    return render(request, 'checkout/payment.html', context)
+
