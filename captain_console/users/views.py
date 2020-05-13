@@ -51,15 +51,6 @@ def logoutUser(request):
 
     return redirect("frontpage-index")
 
-def my_profile(request):
-    my_user_profile = Profile.objects.filter(user=request.user).first()
-    my_orders = Order.objects.filter(is_ordered=True, owner=my_user_profile)
-
-    context = buildContext()
-    context['my_orders'] = my_orders
-
-    return render(request, "userprofile/test.html", context)
-
 @login_required()
 def profile(request):
     if request.method == 'POST':
