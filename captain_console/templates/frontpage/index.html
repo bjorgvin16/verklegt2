@@ -39,11 +39,14 @@
 <!--- Trending --->
 
 <div class = "trending container-fluid padding" id="trending">
-    <div class = "col-12">
-        <h1><b>Recently Added Games<b></b></h1>
-        {% for game in games.all|slice:"0:3" %}
+    <div class = "col-8">
+        <h1><b>Recently Added Games</b></h1>
+        <hr>
+    <div class="recentproduct" id="recentproduct">
+        {% for game in games|slice:"0:3" %}
             {% include 'games/single_game.html' with game=game %}
         {% endfor %}
+    </div>
     </div>
 </div>
 
