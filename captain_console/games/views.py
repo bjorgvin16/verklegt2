@@ -14,14 +14,13 @@ def index(request):
 def get_game_by_id(request, id):
     if request.user.is_authenticated:
         product = get_object_or_404(Game, pk=id)
-        productview = ProductView.objects.filter(user=request.user, product=product, dateOfView=datetime.now())
+        productview = ProductView.objects.filter(user=request.user, product=product)
         if not productview.exists():
-            newrow = ProductView(user=request.user, product=product)
+            newrow = ProductView(user=request.user, product=product, dateOfView=datetime.now())
             newrow.save()
         else:
             productview.update(dateOfView=datetime.now())
-            print(productview[0].dateOfView)
-
+            print(datetime.now())
     context = buildContext()
     context["game"] = get_object_or_404(Game, pk=id)
     return render(request, "games/game_details.html", context)

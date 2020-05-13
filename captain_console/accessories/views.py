@@ -18,7 +18,6 @@ def get_console_by_id(request, id):
         if not productview.exists():
             newrow = ProductView(user=request.user, product=product, dateOfView=datetime.now())
             newrow.save()
-            print("hello")
         else:
             productview.update(dateOfView=datetime.now())
             print(datetime.now())
