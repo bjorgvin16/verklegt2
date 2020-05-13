@@ -1,9 +1,10 @@
+from datetime import date
 from django.shortcuts import render, get_object_or_404
 from games.models import Game
-
 from frontpage.models import Manufacturer
+from users.models import ProductView
 from helpers.views import buildContext
-
+from datetime import datetime
 
 def index(request):
     context = buildContext()
@@ -11,6 +12,16 @@ def index(request):
     return render(request, "games/index.html", context)
 
 def get_game_by_id(request, id):
+    if request.user.is_authenticated:
+        product = get_object_or_404(Game, pk=id)
+        productview = ProductView.objects.filter(user=request.user, product=product, dateOfView=datetime.now())
+        if not productview.exists():
+            newrow = ProductView(user=request.user, product=product)
+            newrow.save()
+        else:
+            productview.update(dateOfView=datetime.now())
+            print(productview[0].dateOfView)
+
     context = buildContext()
     context["game"] = get_object_or_404(Game, pk=id)
     return render(request, "games/game_details.html", context)

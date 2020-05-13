@@ -1,10 +1,13 @@
 from django.shortcuts import render
 #from cart import Order
+from users.models import ProductView
 from .models import Product, Manufacturer
 from helpers.views import buildContext
 
 def index(request):
     context = buildContext()
+    if request.user.is_authenticated:
+        context["views"] = ProductView.objects.filter(user=request.user)
     return render(request, 'frontpage/index.html', context)
 
 
