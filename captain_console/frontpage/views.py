@@ -7,8 +7,8 @@ from games.models import Game
 
 def index(request):
     context = buildContext()
-    context["consoles"] = Console.objects.all().order_by("-created_date")
-    context["game"] = Game.objects.all()
+    context["consoles"] = Console.objects.all()
+    context["games"] = Game.objects.all()
     return render(request, 'frontpage/index.html', context)
 
 def product_list(request):
