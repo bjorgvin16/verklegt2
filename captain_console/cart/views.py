@@ -18,6 +18,7 @@ def delete_cart_item(request, cart_id):
 @login_required
 def add_item_to_cart(request, product_id):
     print('I was here')
+    # if request.method == 'POST'
     product = get_object_or_404(Product, pk=product_id)
     newrow = Cart(user=request.user, product=product)
     newrow.save()
