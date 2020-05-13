@@ -44,3 +44,4 @@ def get_manufacturer_by_id(request, manufacturerid):
     context["consoles"] = Console.objects.filter(manufacturer_id=manufacturerid)
     context["manufacturer"] = Manufacturer.objects.get(id=manufacturerid)
     return render(request, 'consoles/consoles_by_manufacturer.html', context)
+
