@@ -44,3 +44,4 @@ def success(request):
     print('wow, so much success')
     print('this is so amazing')
     return render(request, 'cart/index.html')
+
