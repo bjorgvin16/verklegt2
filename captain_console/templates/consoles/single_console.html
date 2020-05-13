@@ -6,7 +6,8 @@
         <div class = "card-body">
             <h4 class = "card-title">{{ console.name }}</h4>
             <p class = "card-text">{{ console.price }} kr.</p>
-            <a href="/cart/add-to-cart/{{ console.id }}" class="addtocart" method="POST">Add to cart</a>
+            <div class="content-section webpage">
+            <a href="/cart/add-to-cart/{{ console.id }}" class="addtocart" method="GET">Add to cart</a>
         </div>
     </div>
 </div>
