@@ -19,7 +19,7 @@ def add_item_to_cart(request, product_id):
     print('I was here')
     product = get_object_or_404(Product, pk=product_id)
     newrow = Cart(user=request.user, product=product)
-    newrow.save()
+    newrow.savex()
     return render(request, 'frontpage/index.html')
 
 @login_required
