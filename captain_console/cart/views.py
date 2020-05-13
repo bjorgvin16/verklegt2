@@ -16,11 +16,14 @@ def delete_cart_item(request, cart_id):
 
 @login_required
 def add_item_to_cart(request, product_id):
-    print('I was here')
-    product = get_object_or_404(Product, pk=product_id)
-    newrow = Cart(user=request.user, product=product)
-    newrow.save()
-    return render(request, 'frontpage/index.html')
+    if request.method =='POST':
+        print('I was here')
+        product = get_object_or_404(Product, pk=product_id)
+        newrow = Cart(user=request.user, product=product)
+        newrow.save()
+        return render(request, 'frontpage/index.html')
+    else:
+        return render(request, 'frontpage/index.html')
 
 @login_required
 def process_payment():
@@ -31,10 +34,8 @@ def process_payment():
 def get_cart_items(request):
     carts = Cart.objects.filter(user=request.user)
     if carts.exists():
-        for i in range(len(carts)):
-            print(carts[i].product.name)
+        print('hellooooooo')
         #get all the items for this cart
-
         context = {"carts": carts}
         return render(request, 'cart/index.html', context)
     else:
