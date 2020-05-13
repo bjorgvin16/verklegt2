@@ -14,3 +14,54 @@ $(document).ready(function() {
         })
     });
 });
+
+$(document).ready(function() {
+    $('#payment-next').on('click', function(e) {
+        e.preventDefault();
+        $.ajax({
+            url: 'checkout/payment',
+            type: 'POST',
+            success: function(resp) {
+
+            },
+            error: function (xhr, status, error) {
+                //TODO:this? idfk
+                console.error(error);
+            }
+        })
+    });
+});
+
+$(document).ready(function() {
+    $('#payment-prev').on('click', function(e) {
+        e.preventDefault();
+        $.ajax({
+            url: 'checkout/payment',
+            type: 'POST',
+            success: function(resp) {
+
+            },
+            error: function (xhr, status, error) {
+                //TODO:this? idfk
+                console.error(error);
+            }
+        })
+    });
+});
+
+$(document).ready(function() {
+    $('#review-next').on('click', function(e) {
+        e.preventDefault();
+        $.ajax({
+            url: 'checkout/payment',
+            type: 'POST',
+            success: function(resp) {
+
+            },
+            error: function (xhr, status, error) {
+                //TODO:this? idfk
+                console.error(error);
+            }
+        })
+    });
+});
