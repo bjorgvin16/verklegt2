@@ -11,7 +11,7 @@ def index(request):
 
 def get_console_by_id(request, id):
     context = buildContext()
-    context["consoles"] = get_object_or_404(Console, pk=id)
+    context["console"] = get_object_or_404(Console, pk=id)
     return render(request, "consoles/console_details.html", context)
 
 def order_by_desc(request):
