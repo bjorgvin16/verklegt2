@@ -178,14 +178,13 @@ footer {
 
 .dropbtn {
   background-color: #9EA8F9;
-  padding: 16px;
   border: none;
 }
 
 .dropdown-content {
   display: none;
   position: absolute;
-  background-color: #ffffff;
+  background-color: #9EA8F9;
   z-index: 1;
   font-size: .8em;
 }
