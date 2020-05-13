@@ -2,11 +2,14 @@ from django.shortcuts import render
 #from cart import Order
 from .models import Product, Manufacturer
 from helpers.views import buildContext
+from consoles.models import Console
+from games.models import Game
 
 def index(request):
     context = buildContext()
+    context["consoles"] = Console.objects.all().order_by("-created_date")
+    context["game"] = Game.objects.all()
     return render(request, 'frontpage/index.html', context)
-
 
 def product_list(request):
     object_list = Product.objects.all()
