@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'consoles.apps.ConsolesConfig',
     'accessories.apps.AccessoriesConfig',
     'cart.apps.CartConfig',
+    'checkout.apps.CheckoutConfig',
     'frontpage.apps.FrontpageConfig',
     'users.apps.UserprofileConfig',
     'crispy_forms',
