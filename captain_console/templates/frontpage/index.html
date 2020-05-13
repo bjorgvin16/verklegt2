@@ -38,17 +38,25 @@
 
 <!--- Trending --->
 
-<div class = "trending container-fluid padding" id="trending">
-    <div class = "col-8">
-        <h1><b>Recently Added Games</b></h1>
-        <hr>
-    <div class="recentproduct" id="recentproduct">
-        {% for game in games|slice:"0:3" %}
-            {% include 'games/single_game.html' with game=game %}
-        {% endfor %}
+    <div class = "container-fluid padding">
+        <div class = "row padding">
+            <div class="recentproduct" id="recentproduct">
+                <h1><b>Recently Added Games</b></h1>
+                <hr>
+                {% for game in games|slice:"0:3" %}
+                    {% include 'games/single_game.html' with game=game %}
+                {% endfor %}
+                <button type="button" id="seemore"><a href="{% url "games-index" %}"> More Games... </a></button>
+
+                <h1><b>Recently Added Consoles</b></h1>
+                <hr>
+                {% for console in consoles|slice:"0:3" %}
+                    {% include 'consoles/single_console.html' with console=console %}
+                {% endfor %}
+                <button type="button" id="seemore"><a href="{% url "consoles-index" %}"> More Consoles... </a></button>
+            </div>
+        </div>
     </div>
-    </div>
-</div>
 
 
 {% endblock %}
