@@ -56,7 +56,7 @@
 
                             {% if user.is_authenticated %}
                                 <div class="dropdown">
-                                <button class="dropbtn"> <span class="glyphicon glyphicon-user"></span><b>My Profile</b></button>
+                                <button class="dropbtn"><span class="glyphicon glyphicon-user"></span><b> My Profile</b></button>
                                     <div class="dropdown-content">
                                         <li><a href={% url 'users-profile' %}>View Profile</a></li>
                                         <li><a href="{% url "users-logout" %}">Log out</a></li>
@@ -64,12 +64,13 @@
                                 </div>
 
                             {% else %}
-                               <li><a href="#" class = "dropdown" data-toggle="dropdown"><span class="glyphicon glyphicon-log-in"></span> Login / Sign Up <span class="caret"></span></a>
-                                    <ul class="dropdown-menu">
-                                        <li><a href="{% url "users-login" %}">Login</a></li>
+                                <div class="dropdown">
+                                <button class="dropbtn"> <span class="glyphicon glyphicon-log-in"></span><b> Login / Sign Up</b></button>
+                                    <div class="dropdown-content">
+                                        <li><a href={% url 'users-login' %}>Login</a></li>
                                         <li><a href="{% url "users-signup" %}">Sign Up</a></li>
-                                    </ul>
-                                </li>
+                                    </div>
+                                </div>
                             {% endif %}
                         </ul>
                     </div>

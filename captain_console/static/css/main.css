@@ -149,6 +149,10 @@ footer {
     font-size: 1.4em;
 }
 
+.glyphicon-shopping-cart:hover {
+    text-shadow: 1px 1px 2px #282828;
+}
+
 .dropdown {
     font-size: 1.1em;
 }
@@ -176,17 +180,30 @@ footer {
     width: 30%
 }
 
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropbtn:hover {
+    text-shadow: 1px 1px 2px #282828;
+}
+
 .dropbtn {
   background-color: #9EA8F9;
+  padding: 16px;
   border: none;
+  cursor: pointer;
 }
 
 .dropdown-content {
   display: none;
   position: absolute;
-  background-color: #9EA8F9;
+  background-color: #ffffff;
+  border: solid;
   z-index: 1;
   font-size: .8em;
+  min-width: 115px;
 }
 
 .dropdown-content a {
