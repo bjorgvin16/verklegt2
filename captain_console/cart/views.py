@@ -22,19 +22,22 @@ def clear_user_cart_data(request):
 @login_required
 def delete_cart_item(request, cart_id):
     '''deletes the item with the item id in the cart'''
-    row = Cart.objects.get(id=cart_id)
-    row.delete()
-    return render(request, 'cart/index.html')
+    carts = Cart.objects.filter(user=request.user)
+    if carts.exists():
+        row = Cart.objects.get(id=cart_id)
+        row.delete()
+    if carts.exists():
+        return get_cart_items(request)
+    else:
+        return render(request, 'cart/empty.html')
 
 @login_required
 def add_item_to_cart(request, product_id):
-    print('I was here')
     # if request.method == 'POST'
     product = get_object_or_404(Product, pk=product_id)
     newrow = Cart(user=request.user, product=product)
     newrow.save()
     return render(request, 'frontpage/index.html')
-
 
 @login_required()
 def get_cart_items(request):
@@ -42,6 +45,7 @@ def get_cart_items(request):
     total_price = get_total_cart_price(request)
     if carts.exists():
         #get all the items for this cart
+        print(total_price)
         context = {"carts": carts, "total_price": total_price}
         return render(request, 'cart/index.html', context)
     else:
@@ -57,6 +61,7 @@ def get_total_cart_price(request):
     print(total_sum)
 
     return total_sum
+
 ############           ORDER FUNCTIONS
 
 @login_required

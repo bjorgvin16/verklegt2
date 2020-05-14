@@ -58,10 +58,12 @@
 #shop-now {
     background-color: #9EA8F9;
     color: #282828;
+    text-decoration:none;
 }
 
 #shop-now:hover {
     background-color: mediumpurple;
+    text-decoration:none;
 }
 
 .col-md-4 {
@@ -116,7 +118,9 @@ footer {
 	top:1px;
 }
 
-.addtocart:link, .addtocart:visited, .addtocart:active  {text-decoration: none; }
+.addtocart:link, .addtocart:visited, .addtocart:active {
+    text-decoration: none;
+}
 
 .webpage {
     margin-left: 30%;
@@ -247,4 +251,12 @@ footer {
 
 .recenttext {
     font-family: 'Rubik Mono One', sans-serif;
+}
+
+.recentproduct {
+    margin-bottom: 8rem;
+}
+
+.item {
+    margin-bottom: 2%;
 }
