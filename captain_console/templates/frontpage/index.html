@@ -27,10 +27,12 @@
             </div>
         </div>
         <div class="item">
-             <img src="{% static "images/crashbandicootbg.jpg" %}">
+             <img src="{% static "images/pacman.jpg" %}">
             <div class="carousel-caption">
-                <h1 class="display-2">WARP INTO THE WORLD OF RETRO GAMING!</h1>
-                <button type="button" id="shop-now" class="btn btn-primary btn-lg"><a href="{% url "all-products" %}">SHOP NOW</a></button>
+                <h1 class="display-2">DON'T GHOST US!</h1>
+                <button type="button" id="shop-now" class="btn btn-primary btn-lg">
+                    <a href="{% url "all-products" %}">SHOP NOW</a>
+                </button>
             </div>
         </div>
     </div>
@@ -47,7 +49,9 @@
                     {% for game in games|slice:"0:3" %}
                         {% include 'games/single_game.html' with game=game %}
                     {% endfor %}
-                    <button type="button" id="seemore"><a href="{% url "games-index" %}"> See More Games... </a></button>
+
+                    <a class = "seemore" href="{% url "games-index" %}"> See More Games... </a>
+
             </div>
             <div class="recentproduct" id = "recent">
                 <div class="recenttext"><h1><b>Recently Added Consoles</b></h1></div>
@@ -55,7 +59,7 @@
                 {% for console in consoles|slice:"0:3" %}
                     {% include 'consoles/single_console.html' with console=console %}
                 {% endfor %}
-                <button type="button" id="seemore"><a href="{% url "consoles-index" %}"> See More Consoles... </a></button>
+                <a class = "seemore" href="{% url "consoles-index" %}"> See More Consoles... </a>
             </div>
             <!--- Recently viewed --->
             {% if user.is_authenticated %}

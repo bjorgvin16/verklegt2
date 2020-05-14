@@ -48,10 +48,10 @@
 }
 
 .carousel-caption h1 {
-    color: #282828;
-    font-size: 400%;
+    color: white;
+    font-size: 300%;
     text-transform: uppercase;
-    text-shadow: 1px 1px 8px #ffff;
+    text-shadow: 4px 4px 4px black;
     padding-bottom: .7em;
 }
 
@@ -223,30 +223,10 @@ footer {
     display: block;
 }
 
-#seemore {
-    box-shadow: inset 0px 1px 0px 0px #ffffff;
-    background: linear-gradient(to bottom, #d6d6d6 5%, #ffffff 100%);
-    background-color: #d6d6d6;
-    border-radius: 2px;
-    border: 1px solid #000000;
-    display: inline-block;
-    cursor: pointer;
-    color: #3d3d3d;
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-    font-size: 13px;
-    padding: 6px 16px;
+.seemore {
+    color: #2479ff;
     text-decoration: none;
-    text-shadow: 0px 1px 24px #ffffff;
     margin-top: 1em;
-}
-
-#seemore a {
-    color: #282828;
-}
-
-#seemore:hover{
-    background:linear-gradient(to bottom, #ffffff 5%, #d6d6d6 100%);
-    background-color:#ffffff;
 }
 
 .recenttext {
@@ -259,4 +239,8 @@ footer {
 
 .item {
     margin-bottom: 2%;
+}
+
+.media {
+    margin-bottom: 2rem;
 }
