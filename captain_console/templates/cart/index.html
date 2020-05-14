@@ -11,8 +11,16 @@
 
         <div class = "row padding">
             {% for cart in carts %}
-                {% include 'cart/order_summary.html' with product=cart.product %}
+                {% include 'cart/order_summary.html' with cart=cart%}
             {% endfor %}
+
+            <div>
+                <p>Total price is: {{ total_sum }} kr.</p>
+            </div>
+
+            <div id="final_checkout_confirmation_button">
+                <button href="checkout-confirm">Confirm Review?</button>
+            </div>
         </div>
     </div>
     <a href="{% url "checkout-contact" %}">Checkout</a>

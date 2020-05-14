@@ -6,6 +6,8 @@ from users.models import ProductView
 from helpers.views import buildContext
 from consoles.models import Console
 from games.models import Game
+from accessories.models import Accessory
+from .models import Product
 
 def index(request):
     context = buildContext()
@@ -16,6 +18,14 @@ def index(request):
     context["games"] = Game.objects.all().order_by("-dateAdded")
     context["accessories"] = Accessory.objects.all().order_by("-dateAdded")
     return render(request, 'frontpage/index.html', context)
+
+def get_all_products(request):
+    context = buildContext()
+    context["products"] = Product.objects.all().order_by("name")
+    context["games"] = Game.objects.all()
+    context["consoles"] = Console.objects.all()
+    context["accessories"] = Accessory.objects.all()
+    return render(request, 'frontpage/all_products.html', context)
 
 def product_list(request):
     object_list = Product.objects.all()
@@ -34,6 +44,6 @@ def product_list(request):
         return render(request, 'products/product_list.html', context) # need to redirect this
     if request.user.is_authenticated:
         context["views"] = ProductView.objects.filter(user=request.user)
-    context["consoles"] = Console.objects.all().order_by("-created_date")
+    context["consoles"] = Console.objects.all()
     context["game"] = Game.objects.all()
     return render(request, 'frontpage/index.html', context)
