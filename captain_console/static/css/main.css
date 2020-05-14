@@ -128,12 +128,17 @@ footer {
     margin-top: 2%;
 }
 
-.filterby {
-    float: right;
+#filterby {
+    background-color: white;
+    border: solid;
+    padding: 5px;
 }
 
-.container-fluid .filterby {
-    margin-bottom: 2%;
+#wholefilter{
+    margin-right: 30px;
+    margin-bottom: 20px;
+    position: relative;
+    float: right;
 }
 
 .image_div {
@@ -260,3 +265,14 @@ footer {
 .item {
     margin-bottom: 2%;
 }
+
+.subcategory {
+    font-family: 'Rubik Mono One', sans-serif;
+    float:left;
+    height: auto;
+    margin-left: 20px;
+    align-content: end;
+}
+
+
+

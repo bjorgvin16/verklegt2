@@ -4,7 +4,7 @@
     <div class = "container-fluid padding title">
         <div class = "row welcome text-center"></div>
             <div class = "col-12">
-            <h1>{{ manufacturer }}</h1>
+            <h1>Games</h1>
             </div>
         </div>
         <hr>
@@ -20,6 +20,17 @@
         <a class="w3-bar-item w3-button" href="{% url "games-highest_lowest" %}"><b>Price:</b> Highest-Lowest</a>
       </div>
     </div>-->
+
+    <div class="subcategory"><h3>{{ manufacturer }}</h3></div>
+        <div class="dropdown" id="wholefilter">
+            <button class="dropbtn" id="filterby"><b>Filter By:</b></button>
+            <div class="dropdown-content">
+                <a class="w3-bar-item w3-button" href="{% url "games-index" %}">A-Z</a>
+                <a class="w3-bar-item w3-button" href="{% url "games-filter_desc" %}">Z-A</a>
+                <a class="w3-bar-item w3-button" href="{% url "games-lowest_highest" %}"><b>Price:</b> Lowest-Highest</a>
+                <a class="w3-bar-item w3-button" href="{% url "games-highest_lowest" %}"><b>Price:</b> Highest-Lowest</a>
+            </div>
+        </div>
 
 
         <div class = "row padding">
