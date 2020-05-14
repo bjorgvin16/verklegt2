@@ -76,7 +76,7 @@ footer {
     margin: 0;
 }
 
- .title, #recentproduct {
+ .title {
      font-family: 'Rubik Mono One', sans-serif !important;
  }
 
@@ -241,4 +241,8 @@ footer {
 #seemore:hover{
     background:linear-gradient(to bottom, #ffffff 5%, #d6d6d6 100%);
     background-color:#ffffff;
+}
+
+.recenttext {
+    font-family: 'Rubik Mono One', sans-serif;
 }
