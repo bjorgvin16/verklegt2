@@ -21,7 +21,6 @@ def signup(request):
 
             return redirect('users-login')
 
-    create_order(request) #initializes the order process
     context = buildContext()
     context['form'] = form
     return render(request, 'signup/index.html', context)
