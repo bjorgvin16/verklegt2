@@ -2,6 +2,7 @@ from django.shortcuts import render
 from .forms import ContactInfoForm, PaymentInfoForm
 from django.contrib.auth.decorators import login_required
 from django_countries import Countries
+from cart.models import Cart
 
 @login_required
 def checkout(request):
@@ -23,7 +24,12 @@ def payment(request):
     }
     return render(request, 'checkout/payment.html', context)
 
-def review(request):
-    print('enter review pun here')
-    return render(request, 'checkout/review.html')
 
+def review(request):
+    carts = Cart.objects.filter(user=request.user)
+    if carts.exists():
+        #get all the items for this cart
+        context = {"carts": carts}
+        return render(request, 'checkout/review.html', context)
+    else:
+        return 0

@@ -47,6 +47,7 @@ def get_cart_items(request):
     else:
         return render(request, 'cart/empty.html')
 
+
 @login_required
 def get_total_cart_price(request):
     pass
@@ -74,7 +75,7 @@ def create_order(request):
     #should be made when user is created and then again after each checkout
     newrow = Order(user=request.user)
     newrow.save()
-    return render(request, 'checkout/checkout.html')
+    #return render(request, 'checkout/checkout.html')
 
 
 #############       CHECKOUT FUNCTIONS

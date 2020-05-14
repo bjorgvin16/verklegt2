@@ -13,6 +13,10 @@
             {% for cart in carts %}
                 {% include 'cart/order_summary.html' with product=cart.product %}
             {% endfor %}
+
+            <div>
+                <p>Total price is: {{ cart.total_price }}</p>
+            </div>
         </div>
     </div>
     <a href="{% url "checkout-contact" %}">Checkout</a>
