@@ -40,9 +40,10 @@ def add_item_to_cart(request, product_id):
 @login_required()
 def get_cart_items(request):
     carts = Cart.objects.filter(user=request.user)
+    total_price = get_total_cart_price(request)
     if carts.exists():
         #get all the items for this cart
-        context = {"carts": carts}
+        context = {"carts": carts, "total_price": total_price}
         return render(request, 'cart/index.html', context)
     else:
         return render(request, 'cart/empty.html')
@@ -50,13 +51,18 @@ def get_cart_items(request):
 
 @login_required
 def get_total_cart_price(request):
-    pass
+    total_sum = 0
+    product_list = get_products_for_order(request)
+    for cart in product_list:
+        total_sum += cart.product.price
+    print(total_sum)
+
+    return total_sum
 ############           ORDER FUNCTIONS
 
 @login_required
 def get_products_for_order(request):
     product_list = Cart.objects.filter(user=request.user)
-    print(product_list)
     return product_list
 
 @login_required

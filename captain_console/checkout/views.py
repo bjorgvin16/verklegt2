@@ -27,9 +27,17 @@ def payment(request):
 
 def review(request):
     carts = Cart.objects.filter(user=request.user)
+    total_sum = get_total_cart_price(request)
     if carts.exists():
         #get all the items for this cart
-        context = {"carts": carts}
+        context = {"carts": carts, "total_sum": total_sum}
         return render(request, 'checkout/review.html', context)
     else:
         return 0
+
+def get_total_cart_price(request):
+    total_sum = 0
+    product_list = Cart.objects.filter(user=request.user)
+    for cart in product_list:
+        total_sum += cart.product.price
+    return total_sum

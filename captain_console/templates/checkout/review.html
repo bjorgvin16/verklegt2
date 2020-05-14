@@ -7,6 +7,6 @@
         {% for cart in carts %}
                 {% include 'cart/order_summary.html' with product=cart.product %}
         {% endfor %}
-    <p>Total price is: </p>
+    <p>Total price is: {{ total_sum }} kr.</p>
 
 {% endblock %}
