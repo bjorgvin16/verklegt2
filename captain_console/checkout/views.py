@@ -3,6 +3,8 @@ from .forms import ContactInfoForm, PaymentInfoForm
 from django.contrib.auth.decorators import login_required
 from django_countries import Countries
 from cart.models import Cart
+from cart.views import add_products_to_order, create_order, clear_user_cart_data
+
 
 @login_required
 def checkout(request):
@@ -41,3 +43,16 @@ def get_total_cart_price(request):
     for cart in product_list:
         total_sum += cart.product.price
     return total_sum
+
+def confirm(request):
+    create_order(request)
+    add_products_to_order(request)
+    clear_user_cart_data(request)
+    pass
+
+
+def something(request):
+    #move everything into an order
+    #clear the cart
+    #process the payment
+    pass

@@ -17,8 +17,7 @@ def clear_user_cart_data(request):
     data_to_delete = Cart.objects.filter(user=request.user)
     for data in data_to_delete:
         data.delete()
-
-    return render(request, 'frontpage/index.html')
+    return render(request, 'cart/index.html')
 
 @login_required
 def delete_cart_item(request, cart_id):
@@ -82,21 +81,3 @@ def create_order(request):
     newrow = Order(user=request.user)
     newrow.save()
     #return render(request, 'checkout/checkout.html')
-
-
-#############       CHECKOUT FUNCTIONS
-
-"""
-def test(request):
-
-    #create the order for the user
-    create_order(request)
-
-    # add items to cart
-    for i in range(4):
-        add_item_to_cart(request, i)
-
-    #add products to order
-    order_id = Order.objects.get(user=request.user).id
-    add_products_to_order(request, order_id)
-"""
