@@ -1,5 +1,7 @@
 from django.shortcuts import render
-#from cart import Order
+
+from accessories.models import Accessory
+from frontpage.models import Product
 from users.models import ProductView
 from helpers.views import buildContext
 from consoles.models import Console
@@ -7,8 +9,12 @@ from games.models import Game
 
 def index(request):
     context = buildContext()
+    if request.user.is_authenticated:
+        context["productviews"] = ProductView.objects.filter(user=request.user).order_by("dateOfView")
+
     context["consoles"] = Console.objects.all().order_by("-dateAdded")
     context["games"] = Game.objects.all().order_by("-dateAdded")
+    context["accessories"] = Accessory.objects.all().order_by("-dateAdded")
     return render(request, 'frontpage/index.html', context)
 
 def product_list(request):

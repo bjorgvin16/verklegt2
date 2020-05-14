@@ -38,16 +38,17 @@
 
 <!--- Trending --->
 
-    <div class = "container-fluid padding">
-        <div class="col-12">
-            <div class="recentproduct" id="recentproductdiv">
-                <div class="recenttext"><h1><b>Recently Added Games</b></h1></div>
-                <hr>
-                {% for game in games|slice:"0:3" %}
-                    {% include 'games/single_game.html' with game=game %}
-                {% endfor %}
-                <button type="button" id="seemore"><a href="{% url "games-index" %}"> See More Games... </a></button>
-        </div>
+    <div class = "container frontpage">
+        <div class = "container-fluid padding">
+            <div class="col-12">
+                <div class="recentproduct" id="recentproductdiv">
+                    <div class="recenttext"><h1><b>Recently Added Games</b></h1></div>
+                    <hr>
+                    {% for game in games|slice:"0:3" %}
+                        {% include 'games/single_game.html' with game=game %}
+                    {% endfor %}
+                    <button type="button" id="seemore"><a href="{% url "games-index" %}"> See More Games... </a></button>
+            </div>
             <div class="recentproduct" id="recentproductdiv">
                 <div class="recenttext"><h1><b>Recently Added Consoles</b></h1></div>
                 <hr>
@@ -55,9 +56,41 @@
                     {% include 'consoles/single_console.html' with console=console %}
                 {% endfor %}
                 <button type="button" id="seemore"><a href="{% url "consoles-index" %}"> See More Consoles... </a></button>
+            </div>
+            <!--- Recently viewed --->
+            {% if user.is_authenticated %}
+                <div class="recentproduct" id="recentproductdiv">
+                    <div class="recenttext"><h1><b>Recently viewed</b></h1></div>
+                    <hr>
+                {% for productview in productviews %}
+
+                    {% for temp_game in games %}
+                        {% if productview.product.name == temp_game.name %}
+                            {% include 'games/single_game.html' with game=productview.product %}
+                        {% endif %}
+                    {% endfor %}
+
+                    {% for temp_console in consoles %}
+                        {% if productview.product.name == temp_console.name %}
+                            {% include 'consoles/single_console.html' with console=productview.product %}
+                        {% endif %}
+                    {% endfor %}
+
+                    {% for temp_accessory in accessories %}
+                        {% if productview.product.name == temp_accessory.name %}
+                            {% include 'accessories/single_accessory.html' with accessory=productview.product %}
+                        {% endif %}
+                    {% endfor %}
+
+                {% endfor %}
+                <button type="button" id="seemore"><a href="{% url "consoles-index" %}"> See More Consoles... </a></button>
+                </div>
+            {% endif %}
         </div>
     </div>
     </div>
+
+<!--- Recently viewed --->
 
 
 {% endblock %}
