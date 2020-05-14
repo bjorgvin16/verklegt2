@@ -81,3 +81,5 @@ def create_order(request):
     newrow = Order(user=request.user)
     newrow.save()
     #return render(request, 'checkout/checkout.html')
+
+
