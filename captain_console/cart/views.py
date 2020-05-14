@@ -25,9 +25,19 @@ def add_item_to_cart(request, product_id):
     return render(request, 'frontpage/index.html')
 
 @login_required
-def process_payment():
-    '''function for checkout basically'''
-    pass
+def add_products_to_order(request):
+    '''adding orders'''
+    order = Order.objects.filter(user=request.user)
+
+    if order.exists():
+        #then make a new one with order num += 1
+    else:
+        #create the first one for the user
+        for product in product_list:
+            newrow = Order()
+            newrow.save()
+
+
 
 @login_required()
 def get_cart_items(request):
