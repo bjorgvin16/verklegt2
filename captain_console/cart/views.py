@@ -25,9 +25,16 @@ def add_item_to_cart(request, product_id):
     return render(request, 'frontpage/index.html')
 
 @login_required
-def add_products_to_order(request):
+def get_order_items(request):
     '''adding orders'''
-    pass
+    orders = Order.objects.filter(user=request.user)
+    if orders.exists():
+        #get all products from order
+        context = {"orders": orders}
+        return render(request, 'cart/index.html', context) #change HTML!!!
+    else:
+        print("okay, cool")
+        #no products to order???
 
 
 @login_required()
