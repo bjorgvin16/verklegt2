@@ -54,7 +54,7 @@ $(document).ready(function() {
         e.preventDefault();
         $.ajax({
             url: 'checkout/contact',
-            type: 'GET',
+            type: 'POST',
             success: function(resp) {
 
             },

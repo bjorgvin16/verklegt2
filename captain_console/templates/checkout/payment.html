@@ -12,9 +12,13 @@
   <li><a href="#">Menu 3</a></li>
 </ul> comment
 -->
+    <form method="post" name="paymentform">
+        {% csrf_token %}
     <fieldset>
         {{ paymentform|crispy }}
+        <input type="submit" value="Submit" class="saveinfo">
     </fieldset>
+    </form>
     <a id="payment-prev" href="{% url "checkout-contact" %}">Back to Contact</a>
     <a id="payment-next" href="{% url "checkout-review" %}">Review</a>
 

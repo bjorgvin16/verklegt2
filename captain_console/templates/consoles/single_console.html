@@ -1,14 +1,15 @@
 <div class = "col-md-4 cards">
     <div class = "card">
         <a href="/consoles/{{ console.id }}" class = "btn btn-outline-secondary">
-        <img class="card-img-top website-img" src="{{ console.productimage_set.first.image }}" />
+            <img class="card-img-top website-img" src="{{ console.productimage_set.first.image }}" />
         </a>
         <div class = "card-body">
             <h4 class = "card-title">{{ console.name }}</h4>
             <p class = "card-text">{{ console.price }} kr.</p>
             <div class="content-section webpage">
-            <a href="/cart/add-to-cart/{{ console.id }}" class="addtocart" method="GET">Add to cart</a>
+                <input type="number" name = "quantity" value="1" min="1" max="{{ console.leftInStock }}" step="1"/>
+                <a href="/cart/add-to-cart/{{ console.id }}" class="addtocart" method="GET">Add to cart</a>
+            </div>
         </div>
     </div>
-</div>
 </div>
