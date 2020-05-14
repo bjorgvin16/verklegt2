@@ -1,5 +1,5 @@
 from django import forms
-from django_countries.fields import CountryField
+from django_countries import Countries
 from creditcards.forms import CardNumberField, CardExpiryField, SecurityCodeField
 
 class ContactInfoForm(forms.Form):
@@ -8,7 +8,7 @@ class ContactInfoForm(forms.Form):
     house_number = forms.IntegerField(label="House Number:")
     city = forms.CharField(max_length=255, label="City:")
     zip = forms.IntegerField(label="ZIP-code/Postal code:")
-    country = CountryField()
+    country = forms.ChoiceField(choices=Countries)
 
 class PaymentInfoForm(forms.Form):
     cardholder = forms.CharField(max_length=255, label="Cardholder full name:")
