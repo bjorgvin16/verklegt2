@@ -1,9 +1,10 @@
 from django.db import models
 from django.contrib.auth.models import User
+from django_countries.fields import CountryField
 
 from users.models import Profile
 from frontpage.models import Product
-import datetime
+from datetime import datetime
 
 
 class Cart(models.Model):
@@ -22,7 +23,7 @@ class Order(models.Model):
     houseNumber = models.IntegerField()
     zipCode = models.IntegerField()
     city = models.CharField(max_length=255)
-    country = models.ForeignKey(Country, on_delete=models.CASCADE)
+    country = CountryField()
 
 class OrderItem(models.Model):
     order = models.ForeignKey(User, on_delete=models.CASCADE)

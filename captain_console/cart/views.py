@@ -27,16 +27,7 @@ def add_item_to_cart(request, product_id):
 @login_required
 def add_products_to_order(request):
     '''adding orders'''
-    order = Order.objects.filter(user=request.user)
-
-    if order.exists():
-        #then make a new one with order num += 1
-    else:
-        #create the first one for the user
-        for product in product_list:
-            newrow = Order()
-            newrow.save()
-
+    pass
 
 
 @login_required()
