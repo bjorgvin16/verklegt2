@@ -39,23 +39,24 @@
 <!--- Trending --->
 
     <div class = "container-fluid padding">
-        <div class = "row padding">
-            <div class="recentproduct" id="recentproduct">
-                <h1><b>Recently Added Games</b></h1>
+        <div class="col-12">
+            <div class="recentproduct" id="recentproductdiv">
+                <div class="recenttext"><h1><b>Recently Added Games</b></h1></div>
                 <hr>
                 {% for game in games|slice:"0:3" %}
                     {% include 'games/single_game.html' with game=game %}
                 {% endfor %}
                 <button type="button" id="seemore"><a href="{% url "games-index" %}"> See More Games... </a></button>
-
-                <h1><b>Recently Added Consoles</b></h1>
+        </div>
+            <div class="recentproduct" id="recentproductdiv">
+                <div class="recenttext"><h1><b>Recently Added Consoles</b></h1></div>
                 <hr>
                 {% for console in consoles|slice:"0:3" %}
                     {% include 'consoles/single_console.html' with console=console %}
                 {% endfor %}
                 <button type="button" id="seemore"><a href="{% url "consoles-index" %}"> See More Consoles... </a></button>
-            </div>
         </div>
+    </div>
     </div>
 
 
