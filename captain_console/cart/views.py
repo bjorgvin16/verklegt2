@@ -53,6 +53,7 @@ def get_cart_items(request):
 @login_required
 def get_products_for_order(request):
     product_list = Cart.objects.filter(user=request.user)
+    print(product_list)
     return product_list
 
 @login_required
@@ -63,6 +64,8 @@ def add_products_to_order(request, order_id):
     for product in product_list:
         newrow = OrderItem(order=order, product=product)
         newrow.save()
+
+    return render(request, 'frontpage/index.html')
 
 @login_required
 def create_order(request):
@@ -77,11 +80,13 @@ def get_order_items(request):
     orders = Order.objects.filter(user=request.user)
     if orders.exists():
         #get all the items for this order for review
-        context = {"orders": carts}
+        context = {"orders": orders}
         return render(request, 'checkout/review.html', context)
+    else:
+        print("this shouldn't happen")
 
 @login_required
-def get_total_order_price(request, order_id):
+def get_total_order_price(request):
     total_sum = 0
     product_list = get_products_for_order()
     for product in product_list:
@@ -90,3 +95,6 @@ def get_total_order_price(request, order_id):
     print(total_sum)
 
     return total_sum
+
+
+#############       CHECKOUT FUNCTIONS
