@@ -47,7 +47,9 @@ def get_cart_items(request):
     else:
         return render(request, 'cart/empty.html')
 
-
+@login_required
+def get_total_cart_price(request):
+    pass
 ############           ORDER FUNCTIONS
 
 @login_required
@@ -75,26 +77,19 @@ def create_order(request):
     return render(request, 'checkout/checkout.html')
 
 
-@login_required
-def get_order_items(request):
-    orders = Order.objects.filter(user=request.user)
-    if orders.exists():
-        #get all the items for this order for review
-        context = {"orders": orders}
-        return render(request, 'checkout/review.html', context)
-    else:
-        print("this shouldn't happen")
-
-@login_required
-def get_total_order_price(request):
-    total_sum = 0
-    product_list = get_products_for_order()
-    for product in product_list:
-        total_sum += product.price
-
-    print(total_sum)
-
-    return total_sum
-
-
 #############       CHECKOUT FUNCTIONS
+
+"""
+def test(request):
+
+    #create the order for the user
+    create_order(request)
+
+    # add items to cart
+    for i in range(4):
+        add_item_to_cart(request, i)
+
+    #add products to order
+    order_id = Order.objects.get(user=request.user).id
+    add_products_to_order(request, order_id)
+"""
