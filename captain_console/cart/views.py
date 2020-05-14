@@ -32,13 +32,12 @@ def delete_cart_item(request, cart_id):
         return render(request, 'cart/empty.html')
 
 @login_required
-def add_item_to_cart(request, product_id, quantity):
-    # if request.method == 'POST'
-    product = get_object_or_404(Product, pk=product_id)
-    for i in range(quantity):
-        newrow = Cart(user=request.user, product=product)
+def add_item_to_cart(request, product_id):
+    if request.method == 'POST':
+        product = get_object_or_404(Product, pk=product_id)
+        newrow = Cart(user=request.user, product=product, quantity=request.POST["quantity"])
         newrow.save()
-    return render(request, 'frontpage/index.html')
+        return render(request, 'frontpage/index.html')
 
 @login_required()
 def get_cart_items(request):
