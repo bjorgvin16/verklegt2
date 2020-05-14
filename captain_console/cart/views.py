@@ -17,8 +17,7 @@ def clear_user_cart_data(request):
     data_to_delete = Cart.objects.filter(user=request.user)
     for data in data_to_delete:
         data.delete()
-
-    return render(request, 'frontpage/index.html')
+    return render(request, 'cart/index.html')
 
 @login_required
 def delete_cart_item(request, cart_id):
@@ -40,22 +39,29 @@ def add_item_to_cart(request, product_id):
 @login_required()
 def get_cart_items(request):
     carts = Cart.objects.filter(user=request.user)
+    total_price = get_total_cart_price(request)
     if carts.exists():
         #get all the items for this cart
-        context = {"carts": carts}
+        context = {"carts": carts, "total_price": total_price}
         return render(request, 'cart/index.html', context)
     else:
         return render(request, 'cart/empty.html')
 
+
 @login_required
 def get_total_cart_price(request):
-    pass
+    total_sum = 0
+    product_list = get_products_for_order(request)
+    for cart in product_list:
+        total_sum += cart.product.price
+    print(total_sum)
+
+    return total_sum
 ############           ORDER FUNCTIONS
 
 @login_required
 def get_products_for_order(request):
     product_list = Cart.objects.filter(user=request.user)
-    print(product_list)
     return product_list
 
 @login_required
@@ -74,22 +80,4 @@ def create_order(request):
     #should be made when user is created and then again after each checkout
     newrow = Order(user=request.user)
     newrow.save()
-    return render(request, 'checkout/checkout.html')
-
-
-#############       CHECKOUT FUNCTIONS
-
-"""
-def test(request):
-
-    #create the order for the user
-    create_order(request)
-
-    # add items to cart
-    for i in range(4):
-        add_item_to_cart(request, i)
-
-    #add products to order
-    order_id = Order.objects.get(user=request.user).id
-    add_products_to_order(request, order_id)
-"""
+    #return render(request, 'checkout/checkout.html')

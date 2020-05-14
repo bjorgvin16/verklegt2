@@ -1,9 +1,10 @@
 <div class = "col-md-4 cards">
     <div class = "card">
-
+        <img class="card-img-top website-img" src="{{ cart.product.productimage_set.first.image }}" />
         <div class = "card-body">
-            <h4>{{ product.name }}</h4>
-            <p>{{ product.price }} kr.</p>
+            <h4>{{ cart.product.name }}</h4>
+            <p>{{ cart.product.price }} kr.</p>
+            <a type="submit" href="/cart/delete-item/{{cart.id}}/">delete product</a>
         </div>
     </div>
 </div>
