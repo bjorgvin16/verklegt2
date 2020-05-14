@@ -6,16 +6,19 @@ from django_countries import Countries
 @login_required
 def checkout(request):
     '''let's go boys'''
+    if request.method == 'POST':
+        form = ContactInfoForm(request.POST)
+        print(form['country'].value())
     print('are you a product?')
     print("cause I'd like to check you out")
     context = {
         'contactform': ContactInfoForm,
-        'countries': Countries
     }
     return render(request, 'checkout/checkout.html', context)
 
 def payment(request):
     '''let's go boys'''
+
     print('are you a payment product?')
     print("cause I'd like to pay you out")
     context = {
