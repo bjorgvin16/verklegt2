@@ -8,7 +8,7 @@ $(document).ready(function() {
 
             },
             error: function (xhr, status, error) {
-                //TODO:this? idfk
+                //TODO:this?
                 console.error(error);
             }
         })
@@ -25,7 +25,7 @@ $(document).ready(function() {
 
             },
             error: function (xhr, status, error) {
-                //TODO:this? idfk
+                //TODO:this?
                 console.error(error);
             }
         })
@@ -42,7 +42,7 @@ $(document).ready(function() {
 
             },
             error: function (xhr, status, error) {
-                //TODO:this? idfk
+                //TODO:this?
                 console.error(error);
             }
         })
@@ -59,7 +59,7 @@ $(document).ready(function() {
 
             },
             error: function (xhr, status, error) {
-                //TODO:this? idfk
+                //TODO:this?
                 console.error(error);
             }
         })
