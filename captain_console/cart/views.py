@@ -35,7 +35,6 @@ def add_item_to_cart(request, product_id):
     newrow.save()
     return render(request, 'frontpage/index.html')
 
-
 @login_required()
 def get_cart_items(request):
     carts = Cart.objects.filter(user=request.user)
