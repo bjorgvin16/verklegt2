@@ -25,12 +25,14 @@ def add_item_to_cart(request, product_id):
     return render(request, 'frontpage/index.html')
 
 
-
-
-
 @login_required
-def clear_cart(request):
-    pass
+def clear_user_cart_data(request):
+    data_to_delete = Cart.objects.filter(user=request.user)
+    for data in data_to_delete:
+        data.delete()
+
+
+    return render(request, 'frontpage/index.html')
 
 
 @login_required
