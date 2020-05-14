@@ -37,7 +37,7 @@ def add_item_to_cart(request, product_id):
         product = get_object_or_404(Product, pk=product_id)
         newrow = Cart(user=request.user, product=product, quantity=request.POST["quantity"])
         newrow.save()
-        return render(request, 'frontpage/index.html')
+        return redirect('frontpage-index')
 
 @login_required()
 def get_cart_items(request):
