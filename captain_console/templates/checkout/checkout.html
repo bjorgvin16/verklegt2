@@ -12,18 +12,12 @@
   <li><a href="#">Menu 3</a></li>
 </ul>
 -->
-    <form method="post" action="{% url "checkout-payment" %}">
+    <form method="post" name="contactform">
     {% csrf_token %}
     <fieldset>
         {{ contactform|crispy }}
-        <select>
-            <option value="" disabled selected>Select a country...</option>
-            {% for country in countries %}
-                <option value="{{ country.code }}">{{ country.name }}</option>
-            {% endfor %}
-        </select>
-        <input type="submit" id="contact-next" value="Next">
+        <input type="submit" value="Submit" class="saveinfo">
     </fieldset>
     </form>
-
+    <a class="contact-next" href="{% url "checkout-payment" %}">Go to payment info</a>
 {% endblock %}

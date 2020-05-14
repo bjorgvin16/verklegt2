@@ -1,9 +1,26 @@
 $(document).ready(function() {
+    $('.saveinfo').on('click', function(e) {
+        e.preventDefault();
+        $.ajax({
+            url: '',
+            type: 'POST',
+            success: function(resp) {
+
+            },
+            error: function (xhr, status, error) {
+                //TODO:this?
+                console.error(error);
+            }
+        })
+    });
+});
+
+$(document).ready(function() {
     $('#contact-next').on('click', function(e) {
         e.preventDefault();
         $.ajax({
             url: 'checkout/payment',
-            type: 'POST',
+            type: 'GET',
             success: function(resp) {
 
             },
@@ -20,7 +37,7 @@ $(document).ready(function() {
         e.preventDefault();
         $.ajax({
             url: 'checkout/review',
-            type: 'POST',
+            type: 'GET',
             success: function(resp) {
 
             },
@@ -37,7 +54,7 @@ $(document).ready(function() {
         e.preventDefault();
         $.ajax({
             url: 'checkout/contact',
-            type: 'POST',
+            type: 'GET',
             success: function(resp) {
 
             },
