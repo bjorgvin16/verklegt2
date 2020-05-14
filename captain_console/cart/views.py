@@ -22,9 +22,14 @@ def clear_user_cart_data(request):
 @login_required
 def delete_cart_item(request, cart_id):
     '''deletes the item with the item id in the cart'''
-    row = Cart.objects.get(id=cart_id)
-    row.delete()
-    return render(request, 'cart/index.html')
+    carts = Cart.objects.filter(user=request.user)
+    if carts.exists():
+        row = Cart.objects.get(id=cart_id)
+        row.delete()
+    if carts.exists():
+        return render(request, 'cart/index.html')
+    else:
+        return render(request, 'cart/empty.html')
 
 @login_required
 def add_item_to_cart(request, product_id):
@@ -56,6 +61,7 @@ def get_total_cart_price(request):
     print(total_sum)
 
     return total_sum
+
 ############           ORDER FUNCTIONS
 
 @login_required
