@@ -3,7 +3,7 @@ from django.contrib.auth.models import User
 from django_countries.fields import CountryField
 from users.models import Profile
 from frontpage.models import Product
-from datetime import datetime
+from django.utils import timezone
 
 class Cart(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
@@ -12,7 +12,7 @@ class Cart(models.Model):
 class Order(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     quantity = models.IntegerField(default=1)
-    orderDate = models.DateField(default=datetime.today())
+    orderDate = models.DateTimeField(default=timezone.now)
     claimType = models.CharField(max_length=255)
     firstName = models.CharField(max_length=255)
     lastName = models.CharField(max_length=255)

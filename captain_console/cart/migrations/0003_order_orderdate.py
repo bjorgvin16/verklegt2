@@ -7,13 +7,13 @@ import django.utils.timezone
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('frontpage', '0004_delete_productview'),
+        ('cart', '0002_remove_order_orderdate'),
     ]
 
     operations = [
         migrations.AddField(
-            model_name='product',
-            name='dateAdded',
+            model_name='order',
+            name='orderDate',
             field=models.DateTimeField(default=django.utils.timezone.now),
         ),
     ]

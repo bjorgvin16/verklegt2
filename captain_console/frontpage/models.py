@@ -1,6 +1,8 @@
 from django.contrib.auth.models import User
 from django.db import models
 from datetime import datetime
+from django.utils import timezone
+
 
 class Manufacturer(models.Model):
     name = models.CharField(max_length=255)
@@ -15,7 +17,7 @@ class Product(models.Model):
     price = models.IntegerField()
     display = models.BooleanField()
     leftInStock = models.IntegerField()
-    dateAdded = models.DateField(default=datetime.today())
+    dateAdded = models.DateTimeField(default=timezone.now)
 
     def get_add_to_cart_url(self):
         return reverse("cart:add-to-cart", kwargs={
