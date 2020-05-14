@@ -12,7 +12,7 @@ from .models import Product
 def index(request):
     context = buildContext()
     if request.user.is_authenticated:
-        context["productviews"] = ProductView.objects.filter(user=request.user).order_by("dateOfView")
+        context["productviews"] = ProductView.objects.filter(user=request.user).order_by("-dateOfView")
 
     context["consoles"] = Console.objects.all().order_by("-dateAdded")
     context["games"] = Game.objects.all().order_by("-dateAdded")
