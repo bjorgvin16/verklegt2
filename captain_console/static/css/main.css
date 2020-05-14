@@ -48,22 +48,21 @@
 }
 
 .carousel-caption h1 {
-    color: white;
+    color: black;
     font-size: 300%;
     text-transform: uppercase;
-    text-shadow: 4px 4px 4px black;
+    color: black;
+    text-shadow: -1px -1px 0 white, 1px -1px 0 white, -1px 1px 0 white, 1px 1px 0 white;
     padding-bottom: .7em;
 }
 
-#shop-now {
-    background-color: #9EA8F9;
-    color: #282828;
-    text-decoration:none;
+.shop-now a {
+    font-size: 1.5em;
+    color: black;
 }
 
-#shop-now:hover {
-    background-color: mediumpurple;
-    text-decoration:none;
+.shop-now {
+    background-color: white;
 }
 
 .col-md-4 {
