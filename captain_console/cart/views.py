@@ -1,4 +1,4 @@
-from .models import Cart
+from .models import Cart, Order, OrderItem
 from frontpage.models import Product
 from django.shortcuts import redirect, render, get_object_or_404
 from django.utils import timezone
@@ -24,10 +24,38 @@ def add_item_to_cart(request, product_id):
     newrow.save()
     return render(request, 'frontpage/index.html')
 
+
 @login_required
-def process_payment():
-    '''function for checkout basically'''
-    pass
+def clear_user_cart_data(request):
+    data_to_delete = Cart.objects.filter(user=request.user)
+    for data in data_to_delete:
+        data.delete()
+
+
+    return render(request, 'frontpage/index.html')
+
+
+@login_required
+def get_products_for_order(request):
+    product_list = Cart.objects.filter(user=request.user)
+    return product_list
+
+@login_required
+def add_products_to_order(request, order_id):
+    product_list = get_products_for_order(order_id)
+    order = Order.objects.get(order_id)
+
+    for product in product_list:
+        newrow = OrderItem(order=order, product=product)
+        newrow.save()
+
+@login_required
+def create_order(request):
+    #should be made when user is created and then again after each checkout
+    newrow = Order(user=request.user)
+    newrow.save()
+    return render(request, 'checkout/checkout.html')
+
 
 @login_required()
 def get_cart_items(request):

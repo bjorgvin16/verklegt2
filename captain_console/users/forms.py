@@ -12,7 +12,6 @@ class CreateUserForm(UserCreationForm): #inherits the normal django user creatio
             'last_name',
             'username',
             'email',
-            'email',
             'password1',
             'password2'
         ]
