@@ -1,10 +1,39 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends "base.html" %}
 
-</body>
-</html>
+{% block content %}
+
+        <div class = "products container-fluid padding", id = "productstitle">
+        <div class = "row welcome text-center"></div>
+            <div class = "col-12">
+            <h1>All Products</h1>
+            </div>
+        </div>
+        <hr>
+
+        <div class = "container-fluid padding" id = "productsdiv">
+        <div class = "row padding">
+            {% for product in products %}
+
+                {% for temp_game in games %}
+                    {% if product.name == temp_game.name %}
+                        {% include 'games/single_game.html' with game=product %}
+                    {% endif %}
+                {% endfor %}
+
+                {% for temp_console in consoles %}
+                    {% if product.name == temp_console.name %}
+                        {% include 'consoles/single_console.html' with console=product %}
+                    {% endif %}
+                {% endfor %}
+
+                {% for temp_accessory in accessories %}
+                    {% if product.name == temp_accessory.name %}
+                        {% include 'accessories/single_accessory.html' with accessory=product %}
+                    {% endif %}
+                {% endfor %}
+
+            {% endfor %}
+        </div>
+    </div>
+
+{% endblock %}
