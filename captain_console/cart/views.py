@@ -27,13 +27,12 @@ def delete_cart_item(request, cart_id):
         row = Cart.objects.get(id=cart_id)
         row.delete()
     if carts.exists():
-        return render(request, 'cart/index.html')
+        return get_cart_items(request)
     else:
         return render(request, 'cart/empty.html')
 
 @login_required
 def add_item_to_cart(request, product_id):
-    print('I was here')
     # if request.method == 'POST'
     product = get_object_or_404(Product, pk=product_id)
     newrow = Cart(user=request.user, product=product)
@@ -46,6 +45,7 @@ def get_cart_items(request):
     total_price = get_total_cart_price(request)
     if carts.exists():
         #get all the items for this cart
+        print(total_price)
         context = {"carts": carts, "total_price": total_price}
         return render(request, 'cart/index.html', context)
     else:
