@@ -82,8 +82,7 @@ def get_total_cart_price(request):
     total_sum = 0
     product_list = Cart.objects.filter(user=request.user)
     for cart in product_list:
-        total_sum += cart.product.price
-    print(total_sum)
+        total_sum += (cart.product.price * cart.quantity)
 
     return total_sum
 
