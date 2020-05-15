@@ -1,9 +1,8 @@
 from helpers.views import findTypeFromId
-from .models import Cart, Order, OrderItem
+from .models import Cart
 from frontpage.models import Product
 from django.shortcuts import redirect, render, get_object_or_404
 from django.contrib.auth.decorators import login_required
-from helpers.views import buildContext
 
 #CART FUNCTIONS
 
@@ -85,21 +84,6 @@ def get_total_cart_price(request):
         total_sum += (cart.product.price * cart.quantity)
 
     return total_sum
-
-#ORDER FUNCTIONS
-
-
-@login_required
-def add_products_to_order(request, order_id):
-    product_list = Cart.objects.filter(user=request.user)
-    order = Order.objects.get(order_id)
-
-    for product in product_list:
-        newrow = OrderItem(order=order, product=product)
-        newrow.save()
-
-    return render(request, 'frontpage/index.html')
-
 
 
 

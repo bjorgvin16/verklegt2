@@ -13,9 +13,11 @@
             <!--{% include 'cart/single_cart_item.html' with cartitem=cartitem %}-->
         {% endfor %}
 
+    <!-- If forms have not been filled, display "not filled" text -->
     {% if not_filled == True %}
         <p>You have not completed filling out your contact information or payment information. Please complete that before reviewing your order</p>
 
+    <!-- If both forms have been filled, let user review data -->
     {% elif not_filled == False %}
         <p>Total price is: {{ total_sum }} kr.</p>
         <h4>{{ name }}</h4>
@@ -34,6 +36,8 @@
         <button type="button" class="btn btn-secondary">
             <a class = "checkout" href="{% url "checkout-payment" %}">Go Back</a>
         </button>
+
+    <!-- User cant confirm order if he cant review it -->
         {% if not_filled == False %}
             <button type="button" class="btn btn-success">
                 <a class = "checkout" href="{% url "checkout-confirm" %}">Review Step</a>

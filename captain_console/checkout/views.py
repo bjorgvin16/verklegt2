@@ -7,9 +7,13 @@ from django.utils import timezone
 
 @login_required
 def checkout(request):
-    '''let's go boys'''
+
+    # Checks if user has filled out contactform before
     if 'contactinfo' in request.session:
+
+        # Checks if user is making a post request (submitting the form)
         if request.method == 'POST':
+            # Then updates the form with the input data and saves it to the session
             form = ContactInfoForm(data=request.POST)
             request.session['contactinfo'] = {
                 'name': form['name'].value(),
@@ -20,6 +24,7 @@ def checkout(request):
                 'country': form['country'].value(),
             }
 
+        # If its a get request (navigating between forms) populate form with data from session
         else:
             form = ContactInfoForm(
                 data=request.session['contactinfo']
@@ -29,8 +34,11 @@ def checkout(request):
             'contactform': form,
         }
 
+    # If data is not in session
     else:
+        # and if request is a post request
         if request.method == 'POST':
+            # Save the data to the session and update the form
             form = ContactInfoForm(data=request.POST)
             request.session['contactinfo'] = {
                 'name': form['name'].value(),
@@ -40,6 +48,7 @@ def checkout(request):
                 'zip': form['zip'].value(),
                 'country': form['country'].value(),
             }
+        # If its a get request, fetch a blank form
         else:
             form = ContactInfoForm
 
@@ -50,9 +59,12 @@ def checkout(request):
     return render(request, 'checkout/checkout.html', context)
 
 def payment(request):
-    '''let's go boys'''
+
+    # If payment info exists in session
     if 'paymentinfo' in request.session:
+        # And request is a post request
         if request.method == 'POST':
+            # Update form and data in the session
             form = PaymentInfoForm(request.POST)
             request.session['paymentinfo'] = {
                 'cardholder': form['cardholder'].value(),
@@ -60,6 +72,7 @@ def payment(request):
                 'exp_date': form['exp_date'].value(),
                 'cvc_code': form['cvc_code'].value(),
             }
+        # If request is a get request (navigatin between forms), populate form with data from session
         else:
             form = PaymentInfoForm(
                 data=request.session['paymentinfo']
@@ -67,8 +80,10 @@ def payment(request):
         context = {
             'paymentform': form,
         }
+    # If data does not exist in session,
     else:
         if request.method == 'POST':
+            # But request is a post request, update form and session data
             form = PaymentInfoForm(request.POST)
             request.session['paymentinfo'] = {
                 'cardholder': form['cardholder'].value(),
@@ -76,6 +91,7 @@ def payment(request):
                 'exp_date': form['exp_date'].value(),
                 'cvc_code': form['cvc_code'].value(),
             }
+        # If request is a get request, fetch a blank form
         else:
             form = PaymentInfoForm
 
@@ -88,7 +104,7 @@ def payment(request):
 def review(request):
     carts = Cart.objects.filter(user=request.user)
     total_sum = get_total_cart_price(request)
-        #get all the items for this cart
+    # If data from both checkout forms exist in session, let user review
     if 'paymentinfo' in request.session and 'contactinfo' in request.session:
         context = {
             "carts": carts,
@@ -102,16 +118,14 @@ def review(request):
             "cardholder": request.session["paymentinfo"]["cardholder"],
             "card": request.session["paymentinfo"]["card_number"][-4:],
             "exp_date": request.session["paymentinfo"]["exp_date"],
-            "not_filled": False,
+            "not_filled": False, # Set not_filled to False
         }
     else:
+        # If one or neither forms exist in session, set not_filled
         context = {
             "not_filled": True,
         }
     return render(request, 'checkout/review.html', context)
-
-
-
 
 
 def get_total_cart_price(request):
