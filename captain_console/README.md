@@ -16,5 +16,3 @@ Aukavirkni fyrir utan verkefnalýsinguna sem má finna á vefsíðunni eru:
 - Orders, pantanir verða til við staðfestingu í checkout. Hægt er að skoða þær í gagnagrunninum
 - Ekki er hægt að staðfesta pöntun ef maður hefur ekki fyllt út allar upplýsingar
 
-Linkur á git repositoryið okkar:
-
