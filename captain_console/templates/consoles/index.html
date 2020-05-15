@@ -1,6 +1,6 @@
 {% extends "base.html" %}
-
 {% block content %}
+
     <div class = "container-fluid padding title">
             <div class = "col-12">
             <h1>Consoles</h1>
@@ -24,6 +24,5 @@
                 {% include 'consoles/single_console.html' with console=console %}
             {% endfor %}
         </div>
-    </div>
 
 {% endblock %}

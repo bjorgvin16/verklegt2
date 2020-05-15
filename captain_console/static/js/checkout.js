@@ -1,5 +1,5 @@
 $(document).ready(function() {
-    $('.saveinfo').on('click', function(e) {
+    $('.checkout').on('click', function(e) {
         e.preventDefault();
         $.ajax({
             url: '',
