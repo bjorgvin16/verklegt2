@@ -21,19 +21,19 @@ def index(request):
 
 def get_all_products(request):
     context = buildContext()
-    context["products"] = Product.objects.all().order_by("name")
-    context["games"] = Game.objects.all()
-    context["consoles"] = Console.objects.all()
-    context["accessories"] = Accessory.objects.all()
+    context["products"] = Product.objects.filter(display=True).order_by("name")
+    context["games"] = Game.objects.filter(display=True)
+    context["consoles"] = Console.objects.filter(display=True)
+    context["accessories"] = Accessory.objects.filter(display=True)
     return render(request, 'frontpage/all_products.html', context)
 
 def product_list(request):
-    object_list = Product.objects.all()
+    object_list = Product.objects.filter(display=True)
     filtered_orders = Order.objects.filter(owner=request.user.profile, is_ordered = True)
     current_order_products = []
     if filtered_orders.exists():
         user_order = filtered_orders[0]
-        user_order_items = user_order.items.all()
+        user_order_items = user_order.items.filter(display=True)
         current_order_products = [product.product for product in user_order_items]
 
         context = {
@@ -44,30 +44,30 @@ def product_list(request):
         return render(request, 'products/product_list.html', context) # need to redirect this
     if request.user.is_authenticated:
         context["views"] = ProductView.objects.filter(user=request.user)
-    context["consoles"] = Console.objects.all()
-    context["game"] = Game.objects.all()
+    context["consoles"] = Console.objects.filter(display=True)
+    context["game"] = Game.objects.filter(display=True)
     return render(request, 'frontpage/index.html', context)
 
 def order_by_desc(request):
     context = buildContext()
-    context["products"] = Product.objects.all().order_by("name")
-    context["games"] = Game.objects.all().order_by("-name")
-    context["consoles"] = Console.objects.all().order_by("-name")
-    context["accessories"] = Accessory.objects.all().order_by("-name")
+    context["products"] = Product.objects.filter(display=True).order_by("name")
+    context["games"] = Game.objects.filter(display=True).order_by("-name")
+    context["consoles"] = Console.objects.filter(display=True).order_by("-name")
+    context["accessories"] = Accessory.objects.filter(display=True).order_by("-name")
     return render(request, "frontpage/all_products.html", context)
 
 def order_by_highest_lowest(request):
     context = buildContext()
-    context["products"] = Product.objects.all().order_by("-price")
-    context["games"] = Game.objects.all().order_by("-price")
-    context["consoles"] = Console.objects.all().order_by("-price")
-    context["accessories"] = Accessory.objects.all().order_by("-price")
+    context["products"] = Product.objects.filter(display=True).order_by("-price")
+    context["games"] = Game.objects.filter(display=True).order_by("-price")
+    context["consoles"] = Console.objects.filter(display=True).order_by("-price")
+    context["accessories"] = Accessory.objects.filter(display=True).order_by("-price")
     return render(request, "frontpage/all_products.html", context)
 
 def order_by_lowest_highest(request):
     context = buildContext()
-    context["products"] = Product.objects.all().order_by("price")
-    context["games"] = Game.objects.all().order_by("price")
-    context["consoles"] = Console.objects.all().order_by("price")
-    context["accessories"] = Accessory.objects.all().order_by("price")
+    context["products"] = Product.objects.filter(display=True).order_by("price")
+    context["games"] = Game.objects.filter(display=True).order_by("price")
+    context["consoles"] = Console.objects.filter(display=True).order_by("price")
+    context["accessories"] = Accessory.objects.filter(display=True).order_by("price")
     return render(request, "frontpage/all_products.html", context)
