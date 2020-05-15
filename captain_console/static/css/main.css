@@ -117,8 +117,19 @@ footer {
 	top:1px;
 }
 
-.addtocart:link, .addtocart:visited, .addtocart:active {
+.addtocart:link, .addtocart:visited, .addtocart:active  {
     text-decoration: none;
+}
+
+.checkout, .checkout:link, .checkout:visited, .checkout:active {
+    color: white;
+}
+
+.btn-group {
+    float: right;
+}
+.saveinfo {
+    margin-bottom: 2em;
 }
 
 .webpage {
@@ -263,8 +274,6 @@ footer {
 .btn-success a {
     color: white;
 }
-
-
 
 .media {
     margin-bottom: 2rem;

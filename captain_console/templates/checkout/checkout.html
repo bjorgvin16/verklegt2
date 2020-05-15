@@ -7,20 +7,22 @@
             </div>
     </div>
     <hr>
-<!--
-<ul class="nav nav-pills nav-st">
-  <li class="active"><a href="#">Home</a></li>
-  <li><a href="#">Menu 1</a></li>
-  <li><a href="#">Menu 2</a></li>
-  <li><a href="#">Menu 3</a></li>
-</ul>
--->
-    <form method="post" name="contactform">
-    {% csrf_token %}
-    <fieldset>
-        {{ contactform|crispy }}
-        <input type="submit" value="Submit" class="saveinfo">
-    </fieldset>
-    </form>
-    <a class="contact-next" href="{% url "checkout-payment" %}">Go to payment info</a>
+
+    <div class = "saveinfo">
+        <form method="post" name="contactform">
+        {% csrf_token %}
+        <fieldset>
+            {{ contactform|crispy }}
+            <button class="btn btn-primary">
+                <a type="submit" class = "checkout">Submit</a>
+            </button>
+        </fieldset>
+        </form>
+    </div>
+
+
+    <ul class="pager">
+        <li class="next"><a href="{% url "checkout-payment" %}">Go to payment info</a></li>
+    </ul>
+
 {% endblock %}

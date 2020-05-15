@@ -27,8 +27,17 @@
         <h4>Ends with: **** **** **** {{ card }}</h4>
         <h4>{{ exp_date }}</h4>
 
-        <a href="{% url "checkout-confirm" %}">Confirm</a>
     {% endif %}
-    <a id="review-prev" href="{% url "checkout-payment" %}">Go back</a>
+
+    <div class="btn-group" role="group">
+        <button type="button" class="btn btn-secondary">
+            <a class = "checkout" href="{% url "checkout-payment" %}">Go Back</a>
+        </button>
+        {% if not_filled == False %}
+            <button type="button" class="btn btn-success">
+                <a class = "checkout" href="{% url "checkout-confirm" %}">Review Step</a>
+            </button>
+        {% endif %}
+    </div>
 
 {% endblock %}

@@ -15,12 +15,21 @@
 -->
     <form method="post" name="paymentform">
         {% csrf_token %}
-    <fieldset>
-        {{ paymentform|crispy }}
-        <input type="submit" value="Submit" class="saveinfo">
-    </fieldset>
+        <fieldset>
+            {{ paymentform|crispy }}
+            <button class="btn btn-primary saveinfo">
+                <a type="submit" class = "checkout">Submit</a>
+            </button>
+        </fieldset>
     </form>
-    <a id="payment-prev" href="{% url "checkout-contact" %}">Back to Contact</a>
-    <a id="payment-next" href="{% url "checkout-review" %}">Review</a>
+
+    <div class="btn-group" role="group">
+        <button type="button" class="btn btn-secondary">
+            <a class = "checkout" href="{% url "checkout-contact" %}">Previous Page</a>
+        </button>
+        <button type="button" class="btn btn-success">
+            <a class = "checkout" href="{% url "checkout-review" %}">Review Step</a>
+        </button>
+    </div>
 
 {% endblock %}
