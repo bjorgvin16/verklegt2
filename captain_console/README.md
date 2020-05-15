@@ -15,4 +15,5 @@ Aukavirkni fyrir utan verkefnalýsinguna sem má finna á vefsíðunni eru:
 - Left in Stock, ef vörur eru ekki til á lager er ekki hægt að bæta þeim í körfu
 - Orders, pantanir verða til við staðfestingu í checkout. Hægt er að skoða þær í gagnagrunninum
 - Ekki er hægt að staðfesta pöntun ef maður hefur ekki fyllt út allar upplýsingar
+- Email linkurinn í footer er linkur á alvöru email
 
