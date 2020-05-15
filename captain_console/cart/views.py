@@ -83,11 +83,11 @@ def add_item_to_cart(request, product_id):
 
 @login_required()
 def get_cart_items(request):
-    carts = Cart.objects.filter(user=request.user)
+    cart = Cart.objects.filter(user=request.user)
     total_price = get_total_cart_price(request)
-    if carts.exists():
+    if cart.exists():
         #get all the items for this cart
-        context = {"carts": carts, "total_price": total_price}
+        context = {"cart": cart, "total_price": total_price}
         return render(request, 'cart/index.html', context)
     else:
         return render(request, 'cart/empty.html')

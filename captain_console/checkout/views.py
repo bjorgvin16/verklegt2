@@ -89,8 +89,8 @@ def payment(request):
 def review(request):
     carts = Cart.objects.filter(user=request.user)
     total_sum = get_total_cart_price(request)
-    if carts.exists():
         #get all the items for this cart
+    if 'paymentinfo' in request.session and 'contactinfo' in request.session:
         context = {
             "carts": carts,
             "total_sum": total_sum,
@@ -103,10 +103,14 @@ def review(request):
             "cardholder": request.session["paymentinfo"]["cardholder"],
             "card": request.session["paymentinfo"]["card_number"][-4:],
             "exp_date": request.session["paymentinfo"]["exp_date"],
+            "not_filled": False,
         }
-        return render(request, 'checkout/review.html', context)
     else:
-        return 0
+        context = {
+            "not_filled": True,
+        }
+    return render(request, 'checkout/review.html', context)
+
 
 
 
