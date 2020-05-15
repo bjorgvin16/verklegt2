@@ -39,7 +39,7 @@
 
             <div class = "moredetails">
                 <h4>Details:</h4>
-                <p>Genre: {{ game.genre }}</p>
+                <p>Genres: {% for genre in genres %}<p>{{ genre }}{% endfor %}</p></p>
                 <p>Console: {{ game.gameConsole }}</p>
                 <p>Publisher: {{ game.manufacturer.name }}</p>
                 <p>Left in stock: {{ game.leftInStock }}</p>

@@ -1,16 +1,20 @@
 {% extends "base.html" %}
-
 {% block content %}
-<a id="review-prev" href="{% url "checkout-payment" %}">Go back</a>
 
-<h4>Wow so much order</h4>
+    <div class = "container-fluid padding">
+            <div>
+                <h2>Review</h2>
+            </div>
+    </div>
+    <hr>
+
         {% for cartitem in cart %}
             <p>{{ cartitem.product.name }}</p><p>........{{ cartitem.product.price }}</p>
             <!--{% include 'cart/single_cart_item.html' with cartitem=cartitem %}-->
         {% endfor %}
 
     {% if not_filled == True %}
-        <p>You have not conmpleted filling out your contact information or payment information. Please complete that before reviewing your order</p>
+        <p>You have not completed filling out your contact information or payment information. Please complete that before reviewing your order</p>
 
     {% elif not_filled == False %}
         <p>Total price is: {{ total_sum }} kr.</p>
@@ -25,5 +29,6 @@
 
         <a href="{% url "checkout-confirm" %}">Confirm</a>
     {% endif %}
+    <a id="review-prev" href="{% url "checkout-payment" %}">Go back</a>
 
 {% endblock %}

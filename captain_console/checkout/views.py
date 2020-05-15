@@ -126,7 +126,6 @@ def confirm(request):
     newrow = Order(
         user=request.user,
         orderDate = timezone.now(),
-        claimType = "veit ekki dude", #baila á það
         firstName = request.session["contactinfo"]["name"],
         lastName =request.session["contactinfo"]["name"],
         streetName =request.session["contactinfo"]["street_name"],
