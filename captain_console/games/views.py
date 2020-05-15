@@ -20,7 +20,6 @@ def get_game_by_id(request, id):
             newrow.save()
         else:
             productview.update(dateOfView=datetime.now())
-            print(datetime.now())
     context = buildContext()
     context["game"] = get_object_or_404(Game, pk=id)
 
