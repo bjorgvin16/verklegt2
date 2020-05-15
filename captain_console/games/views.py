@@ -23,11 +23,14 @@ def get_game_by_id(request, id):
             print(datetime.now())
     context = buildContext()
     context["game"] = get_object_or_404(Game, pk=id)
-    context["genres"] = Game.genre.through.objects.filter(game_id=id)
+
     genres = Game.genre.through.objects.filter(game_id=id)
+    genre_list = []
     for genre in genres:
         name = Genre.objects.get(id=genre.id)
-        print(name)
+        genre_list.append(name)
+    context["genres"] = genre_list
+
     return render(request, "games/game_details.html", context)
 
 def order_by_desc(request):
