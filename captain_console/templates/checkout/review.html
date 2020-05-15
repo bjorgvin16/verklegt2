@@ -3,7 +3,7 @@
 
     <div class = "container-fluid padding">
             <div>
-                <h2>Review</h2>
+                <h2><b>Review</b></h2>
             </div>
     </div>
     <hr>
@@ -20,11 +20,13 @@
     <!-- If both forms have been filled, let user review data -->
     {% elif not_filled == False %}
         <p>Total price is: {{ total_sum }} kr.</p>
+        <h3><b>Contact Information</b></h3>
         <h4><b>Full name: </b>{{ name }}</h4>
         <h4>Address: </b>{{ street }} {{ house_num }}</h4>
         <h4><b>Zip-code: </b>{{ zip }}</h4>
         <h4><b>City: </b>{{ city }}</h4>
         <h4><b>Country: </b>{{ country }}</h4>
+        <h3><b>Billing Information</b></h3>
         <h4><b>Cardholder name: </b>{{ cardholder }}</h4>
         <h4><b>Ends with:</b> **** **** **** {{ card }}</h4>
         <h4><b>Expiration date: </b>{{ exp_date }}</h4>
