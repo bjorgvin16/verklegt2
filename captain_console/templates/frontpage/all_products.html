@@ -10,6 +10,16 @@
             <hr>
         </div>
 
+        <div class="dropdown" id="wholefilter">
+            <button class="dropbtn" id="filterby"><b>Filter By:</b></button>
+            <div class="dropdown-content">
+                    <a class="w3-bar-item w3-button" href="{% url "all-products" %}">A-Z</a>
+                    <a class="w3-bar-item w3-button" href="{% url "products-filter_desc" %}">Z-A</a>
+                    <a class="w3-bar-item w3-button" href="{% url "products-lowest_highest" %}"><b>Price:</b> Lowest-Highest</a>
+                    <a class="w3-bar-item w3-button" href="{% url "products-highest_lowest" %}"><b>Price:</b> Highest-Lowest</a>
+            </div>
+        </div>
+
         <div class = "container-fluid padding" id = "productsdiv">
         <div class = "row padding">
             {% for product in products %}

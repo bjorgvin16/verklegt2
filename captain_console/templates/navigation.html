@@ -6,16 +6,30 @@
 
                     <div class="navbar-header" id = "logodiv">
                         <button class="navbar-toggle" data-target="#mobile_menu" data-toggle="collapse"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>
-                    <a class="navbar-brand" href="/"><img id = "logo" src="{% static "images/logo2.png" %}" alt="captain console logo"></a>
+                    <a class="navbar-brand" href="/">
+                        <img id = "logo" src="{% static "images/logo2.png" %}" alt="captain console logo">
+                    </a>
                     </div>
 
                     <div class="navbar-collapse collapse" id="left-menu">
                         <ul class="nav navbar-nav" id="left-menu">
                             <div class="dropdown">
-                                <button class="dropbtn"><li><a href="{% url "all-products" %}"><b>All Products</b></a></li></button>
+                                <button class="dropbtn">
+                                    <li>
+                                        <a href="{% url "all-products" %}">
+                                            <b>All Products</b>
+                                        </a>
+                                    </li>
+                                </button>
                             </div>
                             <div class="dropdown">
-                                <button class="dropbtn"><li><a href="{% url "games-index" %}"><b>Games</b></a></li></button>
+                                <button class="dropbtn">
+                                    <li>
+                                        <a href="{% url "all-products" %}">
+                                            <b>All Products</b>
+                                        </a>
+                                    </li>
+                                </button>
                                 <div class="dropdown-content">
                                     {% for manu in manufacturers %}
                                         <li><a href="/games/manufacturers/{{ manu.id }}"> {{ manu.name }}</a></li>
@@ -23,7 +37,13 @@
                                 </div>
                             </div>
                             <div class="dropdown">
-                                <button class="dropbtn"><li><a href="{% url "consoles-index" %}"><b>Consoles</b></a></li></button>
+                                <button class="dropbtn">
+                                    <li>
+                                        <a href="{% url "consoles-index" %}">
+                                            <b>Consoles</b>
+                                        </a>
+                                    </li>
+                                </button>
                                 <div class="dropdown-content">
                                     {% for manu in manufacturers %}
                                         <li><a href="/consoles/manufacturers/{{ manu.id }}"> {{ manu.name }}</a></li>

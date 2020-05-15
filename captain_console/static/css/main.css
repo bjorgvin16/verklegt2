@@ -246,7 +246,7 @@ footer {
 }
 
 .subcategory {
-    font-family: 'Rubik Mono One', sans-serif;
+    text-transform: uppercase;
     float:left;
     height: auto;
     margin-left: 20px;

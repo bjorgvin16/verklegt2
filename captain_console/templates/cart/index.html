@@ -12,9 +12,7 @@
             {% include 'cart/single_cart_item.html' with cart=cart%}
         {% endfor %}
 
-        <div>
-            <p>Total price is: {{ total_price }} kr.</p>
-        </div>
+        <h4>Total price: {{ total_price }} kr.</h4>
 
         <div id="final_checkout_confirmation_button">
             <button href="checkout-confirm">Confirm Review?</button>

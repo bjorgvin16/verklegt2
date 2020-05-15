@@ -47,3 +47,27 @@ def product_list(request):
     context["consoles"] = Console.objects.all()
     context["game"] = Game.objects.all()
     return render(request, 'frontpage/index.html', context)
+
+def order_by_desc(request):
+    context = buildContext()
+    context["products"] = Product.objects.all().order_by("name")
+    context["games"] = Game.objects.all().order_by("-name")
+    context["consoles"] = Console.objects.all().order_by("-name")
+    context["accessories"] = Accessory.objects.all().order_by("-name")
+    return render(request, "frontpage/all_products.html", context)
+
+def order_by_highest_lowest(request):
+    context = buildContext()
+    context["products"] = Product.objects.all().order_by("-price")
+    context["games"] = Game.objects.all().order_by("-price")
+    context["consoles"] = Console.objects.all().order_by("-price")
+    context["accessories"] = Accessory.objects.all().order_by("-price")
+    return render(request, "frontpage/all_products.html", context)
+
+def order_by_lowest_highest(request):
+    context = buildContext()
+    context["products"] = Product.objects.all().order_by("price")
+    context["games"] = Game.objects.all().order_by("price")
+    context["consoles"] = Console.objects.all().order_by("price")
+    context["accessories"] = Accessory.objects.all().order_by("price")
+    return render(request, "frontpage/all_products.html", context)
