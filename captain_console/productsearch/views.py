@@ -5,7 +5,6 @@ from accessories.models import Accessory
 from consoles.models import Console
 from helpers.views import buildContext
 
-# Create your views here.
 def index(request):
     context = buildContext()
 
