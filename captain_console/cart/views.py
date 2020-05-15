@@ -10,6 +10,13 @@ from helpers.views import buildContext
 @login_required
 def clear_user_cart_data(request):
     data_to_delete = Cart.objects.filter(user=request.user)
+    SoldOutProducts = data_to_delete.filter(display=False)
+
+    if SoldOutProducts.exists():
+        for product in SoldOutProducts:
+            product.display = True
+            product.save()
+
     for data in data_to_delete:
         data.delete()
     return render(request, 'cart/empty.html')
@@ -17,16 +24,25 @@ def clear_user_cart_data(request):
 @login_required
 def delete_cart_item(request, cart_id):
     '''deletes the item with the item id in the cart'''
-    cart = Cart.objects.filter(user=request.user)
-    if cart.exists():
-        row = Cart.objects.get(id=cart_id)
-        print(row.product.leftInStock)
-        quantity = row.quantity
-        row.product.leftInStock += quantity
-        row.product.save()
-        row.delete()
+    carts = Cart.objects.filter(user=request.user)
+    row = Cart.objects.get(id=cart_id)
+    product = row.product
 
-    if cart.exists():
+    #updates the quantity
+    quantity = row.quantity
+    row.product.leftInStock += quantity
+    row.product.save()
+
+    #actually deletes the cart item
+    row.delete()
+
+    #check if the product was sold out, and updating it
+    if product.display == False:
+        product.display = True
+        product.save()
+
+    #sending the user back to their cart or an empty cart
+    if carts.exists():
         return get_cart_items(request)
     else:
         return render(request, 'cart/empty.html')
@@ -50,6 +66,11 @@ def add_item_to_cart(request, product_id):
         #update the left in stock of the product
         product.leftInStock -= int(request.POST["quantity"])
         product.save()
+
+        if product.leftInStock == 0:
+            product.display = False
+            product.save()
+
 
         #redirects to the correct detail view depending on product type
         type = findTypeFromId(product_id)

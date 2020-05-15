@@ -2,7 +2,6 @@ from django.shortcuts import render
 from .forms import ContactInfoForm, PaymentInfoForm
 from django.contrib.auth.decorators import login_required
 from cart.models import Cart, Order, OrderItem
-import django_countries
 from django.utils import timezone
 
 
@@ -90,19 +89,25 @@ def review(request):
     carts = Cart.objects.filter(user=request.user)
     total_sum = get_total_cart_price(request)
         #get all the items for this cart
-    context = {
-        "carts": carts,
-        "total_sum": total_sum,
-        "name": request.session["contactinfo"]["name"],
-        "street": request.session["contactinfo"]["street_name"],
-        "house_num": request.session["contactinfo"]["house_number"],
-        "city": request.session["contactinfo"]["city"],
-        "zip": request.session["contactinfo"]["zip"],
-        "country": request.session["contactinfo"]["country"],
-        "cardholder": request.session["paymentinfo"]["cardholder"],
-        "card": request.session["paymentinfo"]["card_number"][-4:],
-        "exp_date": request.session["paymentinfo"]["exp_date"],
-    }
+    if 'paymentinfo' in request.session and 'contactinfo' in request.session:
+        context = {
+            "carts": carts,
+            "total_sum": total_sum,
+            "name": request.session["contactinfo"]["name"],
+            "street": request.session["contactinfo"]["street_name"],
+            "house_num": request.session["contactinfo"]["house_number"],
+            "city": request.session["contactinfo"]["city"],
+            "zip": request.session["contactinfo"]["zip"],
+            "country": request.session["contactinfo"]["country"],
+            "cardholder": request.session["paymentinfo"]["cardholder"],
+            "card": request.session["paymentinfo"]["card_number"][-4:],
+            "exp_date": request.session["paymentinfo"]["exp_date"],
+            "not_filled": False,
+        }
+    else:
+        context = {
+            "not_filled": True,
+        }
     return render(request, 'checkout/review.html', context)
 
 
@@ -132,7 +137,6 @@ def confirm(request):
         )
     newrow.save()
     order_id = newrow.id
-    print(order_id)
 
     #create an OrderItem with all the information for an order
     cart_list = Cart.objects.filter(user=request.user) # list of Carts
@@ -140,7 +144,6 @@ def confirm(request):
     for cart in cart_list:
         newrow = OrderItem(order=order, product=cart.product, quantity=cart.quantity) # how to do quantity big brain plz
         newrow.save()
-        print(newrow)
 
     #clear the cart
     for data in cart_list:
