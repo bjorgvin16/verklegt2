@@ -142,8 +142,8 @@ def confirm(request):
         print(newrow)
 
     #clear the cart
-        for data in cart_list:
-            data.delete()
+    for data in cart_list:
+        data.delete()
 
     #clear the user contact and payment data from sessions
     request.session.pop('contactinfo')

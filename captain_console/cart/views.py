@@ -35,12 +35,25 @@ def delete_cart_item(request, cart_id):
 def add_item_to_cart(request, product_id):
     if request.method == 'POST':
         product = get_object_or_404(Product, pk=product_id)
+        print(Cart.objects.filter(user=request.user, product=product))
+
+        #if the product is already in the user's cart
+        if Cart.objects.filter(user=request.user, product=product).exists():
+            print("yaas")
+            Cart.objects.get(user=request.user, product=product).quantity += int(request.POST["quantity"])
+            Cart.objects.get(user=request.user, product=product).save()
+        else:
+            print("noe")
+            # create new cartObject if product is not already in the cart
+            newrow = Cart(user=request.user, product=product, quantity=request.POST["quantity"])
+            newrow.save()
+
+        #update the left in stock of the product
         product.leftInStock -= int(request.POST["quantity"])
         product.save()
-        newrow = Cart(user=request.user, product=product, quantity=request.POST["quantity"])
-        newrow.save()
-        type = findTypeFromId(product_id)
 
+        #redirects to the correct detail view depending on product type
+        type = findTypeFromId(product_id)
         if type == "game":
             return redirect('/games/' + str(product_id))
         elif type == "console":
