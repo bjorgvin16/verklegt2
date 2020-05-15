@@ -20,7 +20,7 @@ $(document).ready(function() {
         e.preventDefault();
         $.ajax({
             url: 'checkout/payment',
-            type: 'GET',
+            type: 'POST',
             success: function(resp) {
 
             },
@@ -37,7 +37,7 @@ $(document).ready(function() {
         e.preventDefault();
         $.ajax({
             url: 'checkout/review',
-            type: 'GET',
+            type: 'POST',
             success: function(resp) {
 
             },

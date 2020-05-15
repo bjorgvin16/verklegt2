@@ -1,8 +1,8 @@
 from django.shortcuts import render
 from .forms import ContactInfoForm, PaymentInfoForm
 from django.contrib.auth.decorators import login_required
-from django_countries import Countries
 from cart.models import Cart
+import django_countries
 from cart.views import add_products_to_order, create_order, clear_user_cart_data
 
 
@@ -32,22 +32,23 @@ def checkout(request):
 
 def payment(request):
     '''let's go boys'''
+
     if request.method == 'POST':
         form = PaymentInfoForm(request.POST)
         request.session['paymentinfo'] = {
             'cardholder': form['cardholder'].value(),
             'card': form['card_number'].value(),
-            'exp-date': form['exp_date'].value(),
+            'exp_date': form['exp_date'].value(),
             'cvc': form['cvc_code'].value(),
         }
         context = {
             'paymentform': form,
         }
-
     else:
         context = {
             'paymentform': PaymentInfoForm,
         }
+
     return render(request, 'checkout/payment.html', context)
 
 
@@ -56,7 +57,19 @@ def review(request):
     total_sum = get_total_cart_price(request)
     if carts.exists():
         #get all the items for this cart
-        context = {"carts": carts, "total_sum": total_sum}
+        context = {
+            "carts": carts,
+            "total_sum": total_sum,
+            "name": request.session["contactinfo"]["name"],
+            "street": request.session["contactinfo"]["street"],
+            "house_num": request.session["contactinfo"]["house_num"],
+            "city": request.session["contactinfo"]["city"],
+            "zip": request.session["contactinfo"]["zip"],
+            "country": request.session["contactinfo"]["country"],
+            "cardholder": request.session["paymentinfo"]["cardholder"],
+            "card": request.session["paymentinfo"]["card"][-4:],
+            "exp_date": request.session["paymentinfo"]["exp_date"],
+        }
         return render(request, 'checkout/review.html', context)
     else:
         return 0
@@ -69,10 +82,7 @@ def get_total_cart_price(request):
     return total_sum
 
 def confirm(request):
-    create_order(request)
-    add_products_to_order(request)
-    clear_user_cart_data(request)
-    pass
+    return render(request, 'checkout/confirm.html')
 
 
 def something(request):
