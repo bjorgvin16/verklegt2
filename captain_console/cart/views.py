@@ -1,14 +1,8 @@
+from helpers.views import findTypeFromId
 from .models import Cart, Order, OrderItem
 from frontpage.models import Product
 from django.shortcuts import redirect, render, get_object_or_404
-from django.utils import timezone
 from django.contrib.auth.decorators import login_required
-from django.contrib import messages
-from checkout.forms import ContactInfoForm, PaymentInfoForm
-from django_countries import Countries
-import datetime
-
-
 
 #############       CART FUNCTIONS
 
@@ -38,7 +32,14 @@ def add_item_to_cart(request, product_id):
         product_type = product
         newrow = Cart(user=request.user, product=product, quantity=request.POST["quantity"])
         newrow.save()
-        return redirect('frontpage-index')
+        type = findTypeFromId(product_id)
+
+        if type == "game":
+            return redirect('/games/' + str(product_id))
+        elif type == "console":
+            return redirect('/consoles/' + str(product_id))
+        elif type == "accessory":
+            return redirect('/accessories/' + str(product_id))
 
 @login_required()
 def get_cart_items(request):

@@ -3,7 +3,7 @@ from django_countries import Countries
 from creditcards.forms import CardNumberField, CardExpiryField, SecurityCodeField
 
 class ContactInfoForm(forms.Form):
-    contact = forms.CharField(max_length=255, label="Full name:")
+    name = forms.CharField(max_length=255, label="Full name:")
     street_name = forms.CharField(max_length=255, label="Street Name:")
     house_number = forms.IntegerField(label="House Number:")
     city = forms.CharField(max_length=255, label="City:")
