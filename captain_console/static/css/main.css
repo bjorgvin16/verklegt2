@@ -278,3 +278,11 @@ footer {
 .media {
     margin-bottom: 2rem;
 }
+
+.empty {
+    margin-bottom: 27em;
+}
+
+p {
+    font-size: 1.1em;
+}
