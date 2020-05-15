@@ -47,7 +47,11 @@
         </div>
         <form method="POST" action="/cart/add-to-cart/{{ console.id }}/">
         {% csrf_token %}
-            <input type="number" name = "quantity" value="1" min="1" max="{{ console.leftInStock }}" step="1"/>
+            {% if console.leftInStock == 0%}
+                <p>Out of stock</p>
+            {% else %}
+                <input type="number" name = "quantity" value="1" min="1" max="{{ console.leftInStock }}" step="1"/>
+            {% endif %}
             <button class="addtocart" type = "submit">Add to cart</button>
         </form>
 

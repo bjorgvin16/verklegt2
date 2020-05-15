@@ -10,12 +10,6 @@ from helpers.views import buildContext
 @login_required
 def clear_user_cart_data(request):
     data_to_delete = Cart.objects.filter(user=request.user)
-    SoldOutProducts = data_to_delete.filter(display=False)
-
-    if SoldOutProducts.exists():
-        for product in SoldOutProducts:
-            product.display = True
-            product.save()
 
     for data in data_to_delete:
         data.delete()
@@ -35,11 +29,6 @@ def delete_cart_item(request, cart_id):
 
     #actually deletes the cart item
     row.delete()
-
-    #check if the product was sold out, and updating it
-    if product.display == False:
-        product.display = True
-        product.save()
 
     #sending the user back to their cart or an empty cart
     if carts.exists():
@@ -66,11 +55,6 @@ def add_item_to_cart(request, product_id):
         #update the left in stock of the product
         product.leftInStock -= int(request.POST["quantity"])
         product.save()
-
-        if product.leftInStock == 0:
-            product.display = False
-            product.save()
-
 
         #redirects to the correct detail view depending on product type
         type = findTypeFromId(product_id)

@@ -1,6 +1,6 @@
 from datetime import date
 from django.shortcuts import render, get_object_or_404
-from games.models import Game
+from games.models import Game, Genre
 from frontpage.models import Manufacturer
 from users.models import ProductView
 from helpers.views import buildContext
@@ -23,6 +23,11 @@ def get_game_by_id(request, id):
             print(datetime.now())
     context = buildContext()
     context["game"] = get_object_or_404(Game, pk=id)
+    context["genres"] = Game.genre.through.objects.filter(game_id=id)
+    genres = Game.genre.through.objects.filter(game_id=id)
+    for genre in genres:
+        name = Genre.objects.get(id=genre.id)
+        print(name)
     return render(request, "games/game_details.html", context)
 
 def order_by_desc(request):
