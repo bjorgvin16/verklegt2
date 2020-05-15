@@ -77,10 +77,6 @@ def add_products_to_order(request, order_id):
 
     return render(request, 'frontpage/index.html')
 
-@login_required
-def create_order(request):
-    newrow = Order(user=request.user)
-    newrow.save()
-    #return render(request, 'checkout/checkout.html')
+
 
 

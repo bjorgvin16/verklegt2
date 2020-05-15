@@ -6,7 +6,6 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from .models import Profile
 from helpers.views import buildContext
-from cart.views import create_order
 
 def signup(request):
     form = CreateUserForm()

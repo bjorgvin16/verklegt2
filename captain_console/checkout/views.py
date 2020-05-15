@@ -1,9 +1,9 @@
 from django.shortcuts import render
 from .forms import ContactInfoForm, PaymentInfoForm
 from django.contrib.auth.decorators import login_required
-from cart.models import Cart
+from cart.models import Cart, Order, OrderItem
 import django_countries
-from cart.views import add_products_to_order, create_order, clear_user_cart_data
+from django.utils import timezone
 
 
 @login_required
@@ -116,18 +116,36 @@ def get_total_cart_price(request):
     return total_sum
 
 def confirm(request):
-    # create the order
-    newrow = Order(user=request.user)
+    # create the order for the orderID - userID table
+    newrow = Order(
+        user=request.user,
+        orderDate = timezone.now(),
+        claimType = "veit ekki dude", #baila á það
+        firstName = request.session["contactinfo"]["name"],
+        lastName =request.session["contactinfo"]["name"],
+        streetName =request.session["contactinfo"]["street_name"],
+        houseNumber =request.session["contactinfo"]["house_number"],
+        zipCode =request.session["contactinfo"]["zip"],
+        city =request.session["contactinfo"]["city"],
+        country =request.session["contactinfo"]["country"]
+        )
     newrow.save()
+    order_id = newrow.id
+    print(order_id)
 
-    #
+    #create an OrderItem with all the information for an order
+    cart_list = Cart.objects.filter(user=request.user) # list of Carts
+    order = Order.objects.get(id=order_id)
+    for cart in cart_list:
+        newrow = OrderItem(order=order, product=cart.product, quantity=cart.quantity) # how to do quantity big brain plz
+        newrow.save()
+        print(newrow)
+
+    #clear the cart
+        for data in cart_list:
+            data.delete()
+
+    #clear the user contact and payment data from sessions
     request.session.pop('contactinfo')
     request.session.pop('paymentinfo')
     return render(request, 'checkout/confirm.html')
-
-
-def something(request):
-    #move everything into an order
-    #clear the cart
-    #process the payment
-    pass
