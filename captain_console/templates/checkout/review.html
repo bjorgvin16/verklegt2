@@ -8,14 +8,22 @@
             <p>{{ cartitem.product.name }}</p><p>........{{ cartitem.product.price }}</p>
             <!--{% include 'cart/single_cart_item.html' with cartitem=cartitem %}-->
         {% endfor %}
-    <p>Total price is: {{ total_sum }} kr.</p>
-    <h4>{{ name }}</h4>
-    <h4>{{ street }} {{ house_num }}</h4>
-    <h4>{{ zip }}</h4>
-    <h4>{{ city }}</h4>
-    <h4>{{ country }}</h4>
-    <h4>{{ cardholder }}</h4>
-    <h4>Ends with: **** **** **** {{ card }}</h4>
-    <h4>{{ exp_date }}</h4>
-    <a href="{% url "checkout-confirm" %}">Confirm</a>
+
+    {% if not_filled == True %}
+        <p>You have not conmpleted filling out your contact information or payment information. Please complete that before reviewing your order</p>
+
+    {% elif not_filled == False %}
+        <p>Total price is: {{ total_sum }} kr.</p>
+        <h4>{{ name }}</h4>
+        <h4>{{ street }} {{ house_num }}</h4>
+        <h4>{{ zip }}</h4>
+        <h4>{{ city }}</h4>
+        <h4>{{ country }}</h4>
+        <h4>{{ cardholder }}</h4>
+        <h4>Ends with: **** **** **** {{ card }}</h4>
+        <h4>{{ exp_date }}</h4>
+
+        <a href="{% url "checkout-confirm" %}">Confirm</a>
+    {% endif %}
+
 {% endblock %}

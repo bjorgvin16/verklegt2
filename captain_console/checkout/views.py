@@ -90,19 +90,25 @@ def review(request):
     carts = Cart.objects.filter(user=request.user)
     total_sum = get_total_cart_price(request)
         #get all the items for this cart
-    context = {
-        "carts": carts,
-        "total_sum": total_sum,
-        "name": request.session["contactinfo"]["name"],
-        "street": request.session["contactinfo"]["street_name"],
-        "house_num": request.session["contactinfo"]["house_number"],
-        "city": request.session["contactinfo"]["city"],
-        "zip": request.session["contactinfo"]["zip"],
-        "country": request.session["contactinfo"]["country"],
-        "cardholder": request.session["paymentinfo"]["cardholder"],
-        "card": request.session["paymentinfo"]["card_number"][-4:],
-        "exp_date": request.session["paymentinfo"]["exp_date"],
-    }
+    if 'paymentinfo' in request.session and 'contactinfo' in request.session:
+        context = {
+            "carts": carts,
+            "total_sum": total_sum,
+            "name": request.session["contactinfo"]["name"],
+            "street": request.session["contactinfo"]["street_name"],
+            "house_num": request.session["contactinfo"]["house_number"],
+            "city": request.session["contactinfo"]["city"],
+            "zip": request.session["contactinfo"]["zip"],
+            "country": request.session["contactinfo"]["country"],
+            "cardholder": request.session["paymentinfo"]["cardholder"],
+            "card": request.session["paymentinfo"]["card_number"][-4:],
+            "exp_date": request.session["paymentinfo"]["exp_date"],
+            "not_filled": False,
+        }
+    else:
+        context = {
+            "not_filled": True,
+        }
     return render(request, 'checkout/review.html', context)
 
 
