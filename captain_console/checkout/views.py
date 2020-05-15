@@ -3,7 +3,7 @@ from .forms import ContactInfoForm, PaymentInfoForm
 from django.contrib.auth.decorators import login_required
 from cart.models import Cart, Order, OrderItem
 from django.utils import timezone
-
+from django_countries import countries
 
 @login_required
 def checkout(request):
@@ -102,19 +102,22 @@ def payment(request):
 
 
 def review(request):
-    carts = Cart.objects.filter(user=request.user)
+    cart = Cart.objects.filter(user=request.user)
     total_sum = get_total_cart_price(request)
     # If data from both checkout forms exist in session, let user review
     if 'paymentinfo' in request.session and 'contactinfo' in request.session:
+
+        # Get name of country instead of country code
+        country = dict(countries)[request.session["contactinfo"]["country"]]
         context = {
-            "carts": carts,
+            "cart": cart,
             "total_sum": total_sum,
             "name": request.session["contactinfo"]["name"],
             "street": request.session["contactinfo"]["street_name"],
             "house_num": request.session["contactinfo"]["house_number"],
             "city": request.session["contactinfo"]["city"],
             "zip": request.session["contactinfo"]["zip"],
-            "country": request.session["contactinfo"]["country"],
+            "country": country,
             "cardholder": request.session["paymentinfo"]["cardholder"],
             "card": request.session["paymentinfo"]["card_number"][-4:],
             "exp_date": request.session["paymentinfo"]["exp_date"],
