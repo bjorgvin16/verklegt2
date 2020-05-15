@@ -17,7 +17,7 @@ class Product(models.Model):
     price = models.IntegerField()
     display = models.BooleanField()
     leftInStock = models.IntegerField()
-    dateAdded = models.DateTimeField(default=timezone.now)
+    dateAdded = models.DateField(default=timezone.now)
 
     def get_add_to_cart_url(self):
         return reverse("cart:add-to-cart", kwargs={
