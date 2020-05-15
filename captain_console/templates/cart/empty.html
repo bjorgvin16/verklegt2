@@ -1,8 +1,16 @@
 {% extends "base.html" %}
 {% block content %}
+
+    <div class = "container-fluid padding title">
+            <div class = "col-12">
+            <h1>Cart</h1>
+            </div>
+        </div>
+        <hr>
+
     <div class = "empty_cart">
-        <h2>Looks like you don't have anything in your cart</h2>
-        <button type="button" id="shop-now" class="btn btn-primary btn-lg"><a href="{% url "all-products" %}">SHOP NOW</a></button>
+        <h3>Looks like you don't have anything in your cart</h3>
+        <button type="button" id="shop-now"><a href="{% url "all-products" %}">CONTINUE SHOPPING</a></button>
     </div>
 {%  endblock %}
 
