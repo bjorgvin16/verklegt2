@@ -6,10 +6,7 @@
     </div>
 
     <hr>
-        <h3>The products you are buying are:</h3>
-        {% for cartitem in cart %}
-            <h4>{{ cartitem.product.name }}........{{ cartitem.product.price }} kr.</h4>
-        {% endfor %}
+
 
     <!-- If forms have not been filled, display "not filled" text -->
     {% if not_filled == True %}
@@ -17,6 +14,10 @@
 
     <!-- If both forms have been filled, let user review data -->
     {% elif not_filled == False %}
+        <h3>The products you are buying are:</h3>
+        {% for cartitem in cart %}
+            <h4>{{ cartitem.product.name }}........{{ cartitem.product.price }} kr.</h4>
+        {% endfor %}
         <h4>Total price is: {{ total_sum }} kr.</h4>
         <h3><b>Contact Information</b></h3>
         <h4><b>Full name: </b>{{ name }}</h4>
