@@ -26,7 +26,7 @@ def get_game_by_id(request, id):
     genres = Game.genre.through.objects.filter(game_id=id)
     genre_list = []
     for genre in genres:
-        name = Genre.objects.get(id=genre.id)
+        name = Genre.objects.get(id=genre.genre_id)
         genre_list.append(name)
     context["genres"] = genre_list
 
