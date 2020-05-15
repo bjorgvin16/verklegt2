@@ -67,31 +67,33 @@
             </div>
             <!--- Recently viewed --->
             {% if user.is_authenticated %}
-                <div class="recentproduct">
-                    <div class="recenttext"><h1><b>Recently viewed</b></h1></div>
-                    <hr>
-                    {% for productview in productviews|slice:"0:3" %}
+                {% if productviews %}
+                    <div class="recentproduct">
+                        <div class="recenttext"><h1><b>Recently viewed</b></h1></div>
+                        <hr>
+                        {% for productview in productviews|slice:"0:3" %}
 
-                        {% for temp_game in games %}
-                            {% if productview.product.name == temp_game.name %}
-                                {% include 'games/single_game.html' with game=productview.product %}
-                            {% endif %}
+                            {% for temp_game in games %}
+                                {% if productview.product.name == temp_game.name %}
+                                    {% include 'games/single_game.html' with game=productview.product %}
+                                {% endif %}
+                            {% endfor %}
+
+                            {% for temp_console in consoles %}
+                                {% if productview.product.name == temp_console.name %}
+                                    {% include 'consoles/single_console.html' with console=productview.product %}
+                                {% endif %}
+                            {% endfor %}
+
+                            {% for temp_accessory in accessories %}
+                                {% if productview.product.name == temp_accessory.name %}
+                                    {% include 'accessories/single_accessory.html' with accessory=productview.product %}
+                                {% endif %}
+                            {% endfor %}
+
                         {% endfor %}
-
-                        {% for temp_console in consoles %}
-                            {% if productview.product.name == temp_console.name %}
-                                {% include 'consoles/single_console.html' with console=productview.product %}
-                            {% endif %}
-                        {% endfor %}
-
-                        {% for temp_accessory in accessories %}
-                            {% if productview.product.name == temp_accessory.name %}
-                                {% include 'accessories/single_accessory.html' with accessory=productview.product %}
-                            {% endif %}
-                        {% endfor %}
-
-                    {% endfor %}
-                </div>
+                    </div>
+                {% endif %}
             {% endif %}
         </div>
     </div>

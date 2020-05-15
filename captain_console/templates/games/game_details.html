@@ -32,18 +32,22 @@
 
         <div class = "d-flex justify-content-between">
 
-            <div class = "description">
+            <div class = "description-games">
                 <h4>Description:</h4>
                 <p>{{ game.description }}</p>
             </div>
 
-            <div class = "moredetails">
+            <div class = "moredetails-games">
                 <h4>Details:</h4>
-                <p>Genres: {% for genre in genres %}<p>{{ genre }}{% endfor %}</p></p>
                 <p>Console: {{ game.gameConsole }}</p>
                 <p>Publisher: {{ game.manufacturer.name }}</p>
                 <p>Left in stock: {{ game.leftInStock }}</p>
                 <p>Release year: {{ game.releaseYear }}</p>
+            </div>
+
+            <div class = "moredetails-games">
+                <h4>Genres:</h4>
+                <p>{% for genre in genres %}<p>{{ genre }}{% endfor %}</p>
             </div>
 
         </div>

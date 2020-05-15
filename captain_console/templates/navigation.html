@@ -1,4 +1,4 @@
- {% load static %}
+{% load static %}
 <div class="navbar navbar-expand-md" id = "header">
     <div class="container-fluid">
         <div class="row">
@@ -67,16 +67,18 @@
 
                     <ul class="nav navbar-nav">
                         <li>
-                            <form action="{% url "productsearch-index" %}" class="navbar-form">
-                                <div class="form-group">
-                                    <div class="input-group">
-                                        <input type="search" name="search" id="" placeholder="Search Anything Here..." class="form-control">
-                                        <span class="input-group-addon btn" href="{% url "productsearch-index" %}">
-                                            <span class="glyphicon glyphicon-search"></span>
-                                        </span>
-                                    </div>
+
+                            <form action="{% url "productsearch-index" %}">
+                              <div class="input-group">
+                                <input type="text" name="search" class="form-control" placeholder="Search">
+                                <div class="input-group-btn">
+                                  <button class="btn btn-default" type="submit">
+                                    <i class="glyphicon glyphicon-search"></i>
+                                  </button>
                                 </div>
+                              </div>
                             </form>
+
                         </li>
                     </ul>
 

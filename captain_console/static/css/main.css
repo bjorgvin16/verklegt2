@@ -87,8 +87,8 @@ footer {
 
 .details {
     padding-top: 3%;
-    padding-left: 25%;
-    padding-right: 25%;
+    padding-left: 15%;
+    padding-right: 15%;
     font-size: 1.1em;
 }
 
@@ -200,6 +200,14 @@ footer {
 
 .description {
     width: 47%;
+}
+
+.description-games {
+    width: 30%;
+}
+
+.moredetails-games {
+    width: 20%;
 }
 
 .moredetails {
