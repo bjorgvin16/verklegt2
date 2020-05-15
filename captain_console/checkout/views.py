@@ -108,6 +108,9 @@ def review(request):
     else:
         return 0
 
+
+
+
 def get_total_cart_price(request):
     total_sum = 0
     product_list = Cart.objects.filter(user=request.user)

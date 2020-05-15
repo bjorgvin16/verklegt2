@@ -39,11 +39,10 @@ def add_item_to_cart(request, product_id):
 
         #if the product is already in the user's cart
         if Cart.objects.filter(user=request.user, product=product).exists():
-            print("yaas")
-            Cart.objects.get(user=request.user, product=product).quantity += int(request.POST["quantity"])
-            Cart.objects.get(user=request.user, product=product).save()
+            cart = Cart.objects.get(user=request.user, product=product)
+            cart.quantity += int(request.POST["quantity"])
+            cart.save()
         else:
-            print("noe")
             # create new cartObject if product is not already in the cart
             newrow = Cart(user=request.user, product=product, quantity=request.POST["quantity"])
             newrow.save()
