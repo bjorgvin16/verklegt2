@@ -7,4 +7,5 @@ urlpatterns = [
     #path('success/', views.success, name="cart-success"),
     path('delete-item/<int:cart_id>/', views.delete_cart_item, name="cart-delete_item"),
     path('create-order/', views.create_order, name="cart-create_order"),
+    path('clear-cart/', views.clear_user_cart_data, name="clear-cart")
 ]

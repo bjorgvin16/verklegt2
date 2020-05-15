@@ -11,7 +11,7 @@ def clear_user_cart_data(request):
     data_to_delete = Cart.objects.filter(user=request.user)
     for data in data_to_delete:
         data.delete()
-    return render(request, 'cart/index.html')
+    return render(request, 'cart/empty.html')
 
 @login_required
 def delete_cart_item(request, cart_id):
