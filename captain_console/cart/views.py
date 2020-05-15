@@ -39,7 +39,6 @@ def delete_cart_item(request, cart_id):
 def add_item_to_cart(request, product_id):
     if request.method == 'POST':
         product = get_object_or_404(Product, pk=product_id)
-        print(Cart.objects.filter(user=request.user, product=product))
 
         #if the product is already in the user's cart
         if Cart.objects.filter(user=request.user, product=product).exists():
