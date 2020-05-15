@@ -2,27 +2,24 @@
 {% block content %}
 
     <div class = "container-fluid padding title">
-        <div class = "row welcome text-center">
             <div class = "col-12">
             <h1>Cart</h1>
             </div>
         </div>
         <hr>
 
-        <div class = "row padding">
-            {% for cart in carts %}
-                {% include 'cart/order_summary.html' with cart=cart%}
-            {% endfor %}
+        {% for cart in carts %}
+            {% include 'cart/single_cart_item.html' with cart=cart%}
+        {% endfor %}
 
-            <div>
-                <p>Total price is: {{ total_price }} kr.</p>
-            </div>
-
-            <div id="final_checkout_confirmation_button">
-                <button href="checkout-confirm">Confirm Review?</button>
-            </div>
+        <div>
+            <p>Total price is: {{ total_price }} kr.</p>
         </div>
+
+        <div id="final_checkout_confirmation_button">
+            <button href="checkout-confirm">Confirm Review?</button>
+        </div>
+        <a href="{% url "checkout-contact" %}">Checkout</a>
     </div>
-    <a href="{% url "checkout-contact" %}">Checkout</a>
 
 {% endblock %}

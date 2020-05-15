@@ -12,6 +12,9 @@
                     <div class="navbar-collapse collapse" id="left-menu">
                         <ul class="nav navbar-nav" id="left-menu">
                             <div class="dropdown">
+                                <button class="dropbtn"><li><a href="{% url "all-products" %}"><b>All Products</b></a></li></button>
+                            </div>
+                            <div class="dropdown">
                                 <button class="dropbtn"><li><a href="{% url "games-index" %}"><b>Games</b></a></li></button>
                                 <div class="dropdown-content">
                                     {% for manu in manufacturers %}

@@ -6,7 +6,7 @@
 <h4>Wow so much order</h4>
         {% for cart in carts %}
             <p>{{ cart.product.name }}</p><p>........{{ cart.product.price }}</p>
-            <!--{% include 'cart/order_summary.html' with cart=cart %}-->
+            <!--{% include 'cart/single_cart_item.html' with cart=cart %}-->
         {% endfor %}
     <p>Total price is: {{ total_sum }} kr.</p>
     <h4>{{ name }}</h4>

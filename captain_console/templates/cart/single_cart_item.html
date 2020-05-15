@@ -1,0 +1,14 @@
+<div class="card flex-row flex-wrap">
+    <div class="card-header border-0">
+        <img class = "website-img" src="{{ cart.product.productimage_set.first.image }}" alt="">
+    </div>
+    <div class="card-block px-2">
+        <h4 class="card-title">{{ cart.product.name }}</h4>
+        <p class="card-text">Quantity: {{ cart.quantity }}</p>
+        <p class="card-text">Price: {{ cart.product.price }} kr.</p>
+        <a type="submit" href="/cart/delete-item/{{cart.id}}/" class="btn btn-danger">Remove</a>
+    </div>
+    <div class="w-100"></div>
+    <div class="card-footer w-100 text-muted">
+    </div>
+</div>
