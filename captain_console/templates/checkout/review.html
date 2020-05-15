@@ -6,10 +6,9 @@
     </div>
 
     <hr>
-
+        <h3>The products you are buying are:</h3>
         {% for cartitem in cart %}
-            <p>{{ cartitem.product.name }}........{{ cartitem.product.price }}</p>
-            <!--{% include 'cart/single_cart_item.html' with cartitem=cartitem %}-->
+            <h4>{{ cartitem.product.name }}........{{ cartitem.product.price }} kr.</h4>
         {% endfor %}
 
     <!-- If forms have not been filled, display "not filled" text -->
@@ -18,7 +17,7 @@
 
     <!-- If both forms have been filled, let user review data -->
     {% elif not_filled == False %}
-        <p>Total price is: {{ total_sum }} kr.</p>
+        <h4>Total price is: {{ total_sum }} kr.</h4>
         <h3><b>Contact Information</b></h3>
         <h4><b>Full name: </b>{{ name }}</h4>
         <h4>Address: </b>{{ street }} {{ house_num }}</h4>
