@@ -4,9 +4,9 @@
 <a id="review-prev" href="{% url "checkout-payment" %}">Go back</a>
 
 <h4>Wow so much order</h4>
-        {% for cart in carts %}
-            <p>{{ cart.product.name }}</p><p>........{{ cart.product.price }}</p>
-            <!--{% include 'cart/single_cart_item.html' with cart=cart %}-->
+        {% for cartitem in cart %}
+            <p>{{ cartitem.product.name }}</p><p>........{{ cartitem.product.price }}</p>
+            <!--{% include 'cart/single_cart_item.html' with cartitem=cartitem %}-->
         {% endfor %}
     <p>Total price is: {{ total_sum }} kr.</p>
     <h4>{{ name }}</h4>

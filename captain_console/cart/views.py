@@ -17,8 +17,8 @@ def clear_user_cart_data(request):
 @login_required
 def delete_cart_item(request, cart_id):
     '''deletes the item with the item id in the cart'''
-    carts = Cart.objects.filter(user=request.user)
-    if carts.exists():
+    cart = Cart.objects.filter(user=request.user)
+    if cart.exists():
         row = Cart.objects.get(id=cart_id)
         print(row.product.leftInStock)
         quantity = row.quantity
@@ -26,7 +26,7 @@ def delete_cart_item(request, cart_id):
         row.product.save()
         row.delete()
 
-    if carts.exists():
+    if cart.exists():
         return get_cart_items(request)
     else:
         return render(request, 'cart/empty.html')
@@ -62,11 +62,11 @@ def add_item_to_cart(request, product_id):
 
 @login_required()
 def get_cart_items(request):
-    carts = Cart.objects.filter(user=request.user)
+    cart = Cart.objects.filter(user=request.user)
     total_price = get_total_cart_price(request)
-    if carts.exists():
+    if cart.exists():
         #get all the items for this cart
-        context = {"carts": carts, "total_price": total_price}
+        context = {"cart": cart, "total_price": total_price}
         return render(request, 'cart/index.html', context)
     else:
         return render(request, 'cart/empty.html')
