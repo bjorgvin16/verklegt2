@@ -18,6 +18,12 @@ from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
 
+
+# for a custom 404 and 500 page
+handler404 = 'captain_console.views.handler404'
+handler500 = 'captain_console.views.handler500'
+
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('games/', include('games.urls')),
