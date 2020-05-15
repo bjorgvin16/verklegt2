@@ -6,13 +6,9 @@
         <div class = "card-body">
             <h4 class = "card-title">{{ accessory.name }}</h4>
             <p class = "card-text">{{ accessory.price }} kr.</p>
-            <div class="content-section webpage">
-            <form method="POST" action="/cart/add-to-cart/{{ accessory.id }}/">
-            {% csrf_token %}
-                <input type="number" name = "quantity" value="1" min="1" max="{{ accessory.leftInStock }}" step="1"/>
-                <button class="addtocart" type = "submit">Add to cart</button>
+            <form action="/accessories/{{ accessory.id }}">
+                <button type="submit" class="btn btn-primary">See more</button>
             </form>
-            </div>
         </div>
     </div>
 </div>
