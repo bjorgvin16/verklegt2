@@ -20,7 +20,6 @@ def get_console_by_id(request, id):
             newrow.save()
         else:
             productview.update(dateOfView=datetime.now())
-            print(datetime.now())
     context = buildContext()
     context["accessory"] = get_object_or_404(Accessory, pk=id)
     return render(request, "accessories/accessory_details.html", context)

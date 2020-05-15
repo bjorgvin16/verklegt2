@@ -16,12 +16,15 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from django.conf import settings
+from django.conf.urls import (handler400, handler403, handler404, handler500)
 from django.conf.urls.static import static
 
 
-# for a custom 404 and 500 page
-handler404 = 'captain_console.views.handler404'
-handler500 = 'captain_console.views.handler500'
+# for a custom error pages
+handler400 = 'captain_console.views.bad_request'
+handler403 = 'captain_console.views.permission_denied'
+handler404 = 'captain_console.views.page_not_found'
+handler500 = 'captain_console.views.server_error'
 
 
 urlpatterns = [

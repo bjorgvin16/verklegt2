@@ -54,9 +54,12 @@
 
         <form method="POST" action="/cart/add-to-cart/{{ game.id }}/">
         {% csrf_token %}
-            <input type="number" name = "quantity" value="1" min="1" max="{{ game.leftInStock }}" step="1"/>
-            <button class="addtocart" type = "submit">Add to cart</button>
-        </form>
+            {% if game.leftInStock == 0%}
+                <p><b>Out of stock :(</b></p>
+            {% else %}
+                <input type="number" name = "quantity" value="1" min="1" max="{{ game.leftInStock }}" step="1"/>
+                <button class="addtocart" type = "submit">Add to cart</button>
+            {% endif %}
     </div>
 
 {% endblock %}
