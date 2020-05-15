@@ -8,8 +8,8 @@
         </div>
         <hr>
 
-        {% for cart in carts %}
-            {% include 'cart/single_cart_item.html' with cart=cart%}
+        {% for cartitem in cart %}
+            {% include 'cart/single_cart_item.html' with cart=cartitem %}
         {% endfor %}
 
         <h4>Total price: {{ total_price }} kr.</h4>
