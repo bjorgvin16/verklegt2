@@ -1,103 +1,113 @@
  {% load static %}
 <div class="navbar navbar-expand-md" id = "header">
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-lg-12">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-12">
 
-                    <div class="navbar-header" id = "logodiv">
-                        <button class="navbar-toggle" data-target="#mobile_menu" data-toggle="collapse"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>
-                    <a class="navbar-brand" href="/">
-                        <img id = "logo" src="{% static "images/logo2.png" %}" alt="captain console logo">
-                    </a>
-                    </div>
+                <div class="navbar-header" id = "logodiv">
+                    <button class="navbar-toggle" data-target="#mobile_menu" data-toggle="collapse"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>
+                <a class="navbar-brand" href="/">
+                    <img id = "logo" src="{% static "images/logo2.png" %}" alt="captain console logo">
+                </a>
+                </div>
 
-                    <div class="navbar-collapse collapse" id="left-menu">
-                        <ul class="nav navbar-nav" id="left-menu">
-                            <div class="dropdown">
-                                <button class="dropbtn">
+                <div class="navbar-collapse collapse" id="left-menu">
+                    <ul class="nav navbar-nav" id="left-menu">
+                        <div class="dropdown">
+                            <button class="dropbtn">
+                                <li>
+                                    <a href="{% url "all-products" %}">
+                                        <b>All Products</b>
+                                    </a>
+                                </li>
+                            </button>
+                        </div>
+                        <div class="dropdown">
+                            <button class="dropbtn">
+                                <li>
+                                    <a href="{% url "games-index" %}">
+                                        <b>Games</b>
+                                    </a>
+                                </li>
+                            </button>
+                            <div class="dropdown-content">
+                                {% for manu in manufacturers %}
                                     <li>
-                                        <a href="{% url "all-products" %}">
-                                            <b>All Products</b>
-                                        </a>
+                                        <a href="/games/manufacturers/{{ manu.id }}"> {{ manu.name }}</a>
                                     </li>
-                                </button>
+                                {% endfor %}
                             </div>
-                            <div class="dropdown">
-                                <button class="dropbtn">
+                        </div>
+                        <div class="dropdown">
+                            <button class="dropbtn">
+                                <li>
+                                    <a href="{% url "consoles-index" %}">
+                                        <b>Consoles</b>
+                                    </a>
+                                </li>
+                            </button>
+                            <div class="dropdown-content">
+                                {% for manu in manufacturers %}
                                     <li>
-                                        <a href="{% url "all-products" %}">
-                                            <b>Games</b>
-                                        </a>
+                                        <a href="/consoles/manufacturers/{{ manu.id }}"> {{ manu.name }}</a>
                                     </li>
-                                </button>
+                                {% endfor %}
+                            </div>
+                        </div>
+                        <div class="dropdown">
+                            <button class="dropbtn">
+                                <li>
+                                    <a href="{% url "accessories-index" %}">
+                                        <b>Accessories</b>
+                                    </a>
+                                </li>
+                            </button>
+                        </div>
+                    </ul>
+
+                    <ul class="nav navbar-nav">
+                        <li>
+                            <form action="{% url "productsearch-index" %}" class="navbar-form">
+                                <div class="form-group">
+                                    <div class="input-group">
+                                        <input type="search" name="search" id="" placeholder="Search Anything Here..." class="form-control">
+                                        <span class="input-group-addon btn" href="{% url "productsearch-index" %}">
+                                            <span class="glyphicon glyphicon-search"></span>
+                                        </span>
+                                    </div>
+                                </div>
+                            </form>
+                        </li>
+                    </ul>
+
+                    <ul class="nav navbar-nav navbar-right" id="right-menu">
+                        <li>
+                            <a href="{% url "cart-index" %}" id = "cart">
+                                <span class="glyphicon glyphicon-shopping-cart"></span>
+                            </a>
+                        </li>
+
+                        {% if user.is_authenticated %}
+                            <div class="dropdown">
+                            <button class="dropbtn"><span class="glyphicon glyphicon-user"></span><b> My Profile</b></button>
                                 <div class="dropdown-content">
-                                    {% for manu in manufacturers %}
-                                        <li><a href="/games/manufacturers/{{ manu.id }}"> {{ manu.name }}</a></li>
-                                    {% endfor %}
+                                    <li><a href={% url 'users-profile' %}>View Profile</a></li>
+                                    <li><a href="{% url "users-logout" %}">Log out</a></li>
                                 </div>
                             </div>
+
+                        {% else %}
                             <div class="dropdown">
-                                <button class="dropbtn">
-                                    <li>
-                                        <a href="{% url "consoles-index" %}">
-                                            <b>Consoles</b>
-                                        </a>
-                                    </li>
-                                </button>
+                            <button class="dropbtn"> <span class="glyphicon glyphicon-log-in"></span><b> Login / Sign Up</b></button>
                                 <div class="dropdown-content">
-                                    {% for manu in manufacturers %}
-                                        <li><a href="/consoles/manufacturers/{{ manu.id }}"> {{ manu.name }}</a></li>
-                                    {% endfor %}
+                                    <li><a href={% url 'users-login' %}>Login</a></li>
+                                    <li><a href="{% url "users-signup" %}">Sign Up</a></li>
                                 </div>
                             </div>
-                            <div class="dropdown">
-                                <button class="dropbtn"><li><a href="{% url "accessories-index" %}"><b>Accessories</b></a></li></button>
-                            </div>
-                        </ul>
-
-                        <ul class="nav navbar-nav">
-                            <li>
-                                <form action="{% url "productsearch-index" %}" class="navbar-form">
-                                    <div class="form-group">
-                                        <div class="input-group">
-                                            <input type="search" name="search" id="" placeholder="Search Anything Here..." class="form-control">
-                                            <span class="input-group-addon btn" href="{% url "productsearch-index" %}">
-                                                <span class="glyphicon glyphicon-search"></span>
-                                            </span>
-                                        </div>
-                                    </div>
-                                </form>
-                            </li>
-                        </ul>
-
-                        <ul class="nav navbar-nav navbar-right" id="right-menu">
-                            <li>
-                                <a href="{% url "cart-index" %}" id = "cart">
-                                    <span class="glyphicon glyphicon-shopping-cart"></span>
-                                </a>
-                            </li>
-
-                            {% if user.is_authenticated %}
-                                <div class="dropdown">
-                                <button class="dropbtn"><span class="glyphicon glyphicon-user"></span><b> My Profile</b></button>
-                                    <div class="dropdown-content">
-                                        <li><a href={% url 'users-profile' %}>View Profile</a></li>
-                                        <li><a href="{% url "users-logout" %}">Log out</a></li>
-                                    </div>
-                                </div>
-
-                            {% else %}
-                                <div class="dropdown">
-                                <button class="dropbtn"> <span class="glyphicon glyphicon-log-in"></span><b> Login / Sign Up</b></button>
-                                    <div class="dropdown-content">
-                                        <li><a href={% url 'users-login' %}>Login</a></li>
-                                        <li><a href="{% url "users-signup" %}">Sign Up</a></li>
-                                    </div>
-                                </div>
-                            {% endif %}
-                        </ul>
-                    </div>
+                        {% endif %}
+                    </ul>
                 </div>
             </div>
         </div>
     </div>
+</div>

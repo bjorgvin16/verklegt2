@@ -58,7 +58,7 @@
 
 .shop-now a {
     font-size: 1.5em;
-    color: black;
+    color: #282828;
 }
 
 .shop-now {
@@ -162,6 +162,10 @@ footer {
 
 .glyphicon-shopping-cart:hover {
     text-shadow: 1px 1px 2px #282828;
+}
+
+#cart {
+    background-color: #9EA8F9;
 }
 
 .dropdown {
