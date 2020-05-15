@@ -6,13 +6,9 @@
         <div class = "card-body">
             <h4 class = "card-title">{{ console.name }}</h4>
             <p class = "card-text">{{ console.price }} kr.</p>
-            <div class="content-section webpage">
-            <form method="POST" action="/cart/add-to-cart/{{ console.id }}/">
-            {% csrf_token %}
-                <input type="number" name = "quantity" value="1" min="1" max="{{ console.leftInStock }}" step="1"/>
-                <button class="addtocart" type = "submit">Add to cart</button>
+            <form action="/consoles/{{ console.id }}">
+                <button type="submit" class="btn btn-primary">See more</button>
             </form>
-            </div>
         </div>
     </div>
 </div>

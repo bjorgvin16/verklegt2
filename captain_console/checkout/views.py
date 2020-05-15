@@ -116,6 +116,11 @@ def get_total_cart_price(request):
     return total_sum
 
 def confirm(request):
+    # create the order
+    newrow = Order(user=request.user)
+    newrow.save()
+
+    #
     request.session.pop('contactinfo')
     request.session.pop('paymentinfo')
     return render(request, 'checkout/confirm.html')
