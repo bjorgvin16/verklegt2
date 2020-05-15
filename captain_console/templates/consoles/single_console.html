@@ -5,7 +5,11 @@
         </a>
         <div class = "card-body">
             <h4 class = "card-title">{{ console.name }}</h4>
-            <p class = "card-text">{{ console.price }} kr.</p>
+            {% if console.leftInStock == 0%}
+                <p class = "card-text" id="sold-out-p">Sold out!</p>
+            {% else %}
+                <p class = "card-text">{{ console.price }} kr.</p>
+            {% endif %}
             <form action="/consoles/{{ console.id }}">
                 <button type="submit" class="btn btn-primary">See more</button>
             </form>
