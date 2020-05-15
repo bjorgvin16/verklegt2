@@ -9,5 +9,13 @@
             <!--{% include 'cart/single_cart_item.html' with cart=cart %}-->
         {% endfor %}
     <p>Total price is: {{ total_sum }} kr.</p>
-
+    <h4>{{ name }}</h4>
+    <h4>{{ street }} {{ house_num }}</h4>
+    <h4>{{ zip }}</h4>
+    <h4>{{ city }}</h4>
+    <h4>{{ country }}</h4>
+    <h4>{{ cardholder }}</h4>
+    <h4>Ends with: **** **** **** {{ card }}</h4>
+    <h4>{{ exp_date }}</h4>
+    <a href="{% url "checkout-confirm" %}">Confirm</a>
 {% endblock %}

@@ -23,7 +23,7 @@ $(document).ready(function(){
 
 $(document).ready(function() {
     $('.add-to-cart').on('click', function(e) {
-        var id = {{product_id}}
+        //var id = {{product_id}}
         e.preventDefault();
         $.ajax({
             url: 'cart/add-to-cart/' + id, // tharf alvurur id herna
