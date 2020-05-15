@@ -294,3 +294,9 @@ footer {
 p {
     font-size: 1.1em;
 }
+
+.search {
+    padding-top: 13px;
+    padding-bottom: 10px;
+    padding-left: 2em;
+}
