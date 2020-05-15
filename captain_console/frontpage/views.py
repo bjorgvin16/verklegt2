@@ -1,7 +1,4 @@
 from django.shortcuts import render
-
-from accessories.models import Accessory
-from frontpage.models import Product
 from users.models import ProductView
 from helpers.views import buildContext
 from consoles.models import Console
