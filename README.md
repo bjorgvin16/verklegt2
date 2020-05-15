@@ -9,7 +9,7 @@
 # - Psycopg2 - (pip install psycopg2)
 # - Credit card support - (pip install django-credit-cards)
 
-# Aukavirkni fyrir utan verkefnalýsinguna sem má finna á vefsíðunni eru:
+# Aukavirkni, fyrir utan verkefnalýsinguna, sem má finna á vefsíðunni er m.a.:
 # - Recently added products á forsíðunni
 # - Clear cart, eyða öllum vörum í körfunni
 # - Left in Stock, ef vörur eru ekki til á lager er ekki hægt að bæta þeim í körfu
