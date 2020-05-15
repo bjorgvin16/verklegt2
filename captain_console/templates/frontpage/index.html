@@ -54,7 +54,7 @@
                         {% include 'games/single_game.html' with game=game %}
                     {% endfor %}
 
-                    <a class = "seemore" href="{% url "games-index" %}"> See More Games... </a>
+                    <a class = "seemore" href="{% url "games-index" %}"> Go To All Games... </a>
 
             </div>
             <div class="recentproduct" id = "recent">
@@ -63,7 +63,7 @@
                 {% for console in consoles|slice:"0:3" %}
                     {% include 'consoles/single_console.html' with console=console %}
                 {% endfor %}
-                <a class = "seemore" href="{% url "consoles-index" %}"> See More Consoles... </a>
+                <a class = "seemore" href="{% url "consoles-index" %}"> Go To All Consoles... </a>
             </div>
             <!--- Recently viewed --->
             {% if user.is_authenticated %}

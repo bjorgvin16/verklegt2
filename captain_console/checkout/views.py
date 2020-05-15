@@ -2,7 +2,6 @@ from django.shortcuts import render
 from .forms import ContactInfoForm, PaymentInfoForm
 from django.contrib.auth.decorators import login_required
 from cart.models import Cart, Order, OrderItem
-import django_countries
 from django.utils import timezone
 
 
@@ -138,7 +137,6 @@ def confirm(request):
         )
     newrow.save()
     order_id = newrow.id
-    print(order_id)
 
     #create an OrderItem with all the information for an order
     cart_list = Cart.objects.filter(user=request.user) # list of Carts
@@ -146,7 +144,6 @@ def confirm(request):
     for cart in cart_list:
         newrow = OrderItem(order=order, product=cart.product, quantity=cart.quantity) # how to do quantity big brain plz
         newrow.save()
-        print(newrow)
 
     #clear the cart
     for data in cart_list:

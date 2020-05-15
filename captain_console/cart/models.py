@@ -13,7 +13,6 @@ class Cart(models.Model):
 class Order(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     orderDate = models.DateTimeField(default=timezone.now)
-    claimType = models.CharField(max_length=255)
     firstName = models.CharField(max_length=255)
     lastName = models.CharField(max_length=255)
     streetName = models.CharField(max_length=255)
