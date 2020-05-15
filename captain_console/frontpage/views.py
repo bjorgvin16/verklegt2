@@ -46,5 +46,4 @@ def order_by_lowest_highest(request):
     context["games"] = Game.objects.filter(display=True).order_by("price")
     context["consoles"] = Console.objects.filter(display=True).order_by("price")
     context["accessories"] = Accessory.objects.filter(display=True).order_by("price")
-    #return render(request, "frontpage/all_products.html", context)
-    return 0
+    return render(request, "frontpage/all_products.html", context)
