@@ -9,7 +9,7 @@
     <hr>
 
         {% for cartitem in cart %}
-            <p>{{ cartitem.product.name }}</p><p>........{{ cartitem.product.price }}</p>
+            <p>{{ cartitem.product.name }}........{{ cartitem.product.price }}</p>
             <!--{% include 'cart/single_cart_item.html' with cartitem=cartitem %}-->
         {% endfor %}
 
@@ -40,7 +40,7 @@
     <!-- User cant confirm order if he cant review it -->
         {% if not_filled == False %}
             <button type="button" class="btn btn-success">
-                <a class = "checkout" href="{% url "checkout-confirm" %}">Review Step</a>
+                <a class = "checkout" href="{% url "checkout-confirm" %}">Confirm order</a>
             </button>
         {% endif %}
     </div>

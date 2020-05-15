@@ -102,12 +102,12 @@ def payment(request):
 
 
 def review(request):
-    carts = Cart.objects.filter(user=request.user)
+    cart = Cart.objects.filter(user=request.user)
     total_sum = get_total_cart_price(request)
     # If data from both checkout forms exist in session, let user review
     if 'paymentinfo' in request.session and 'contactinfo' in request.session:
         context = {
-            "carts": carts,
+            "cart": cart,
             "total_sum": total_sum,
             "name": request.session["contactinfo"]["name"],
             "street": request.session["contactinfo"]["street_name"],
