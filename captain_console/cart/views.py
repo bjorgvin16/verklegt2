@@ -33,11 +33,11 @@ def delete_cart_item(request, cart_id):
 
 @login_required
 def add_item_to_cart(request, product_id):
-    # if request.method == 'POST'
-    product = get_object_or_404(Product, pk=product_id)
-    newrow = Cart(user=request.user, product=product)
-    newrow.save()
-    return render(request, 'frontpage/index.html')
+    if request.method == 'POST':
+        product = get_object_or_404(Product, pk=product_id)
+        newrow = Cart(user=request.user, product=product, quantity=request.POST["quantity"])
+        newrow.save()
+        return redirect('frontpage-index')
 
 @login_required()
 def get_cart_items(request):
@@ -45,7 +45,6 @@ def get_cart_items(request):
     total_price = get_total_cart_price(request)
     if carts.exists():
         #get all the items for this cart
-        print(total_price)
         context = {"carts": carts, "total_price": total_price}
         return render(request, 'cart/index.html', context)
     else:
@@ -55,7 +54,7 @@ def get_cart_items(request):
 @login_required
 def get_total_cart_price(request):
     total_sum = 0
-    product_list = get_products_for_order(request)
+    product_list = Cart.objects.filter(user=request.user)
     for cart in product_list:
         total_sum += cart.product.price
     print(total_sum)
@@ -64,14 +63,10 @@ def get_total_cart_price(request):
 
 ############           ORDER FUNCTIONS
 
-@login_required
-def get_products_for_order(request):
-    product_list = Cart.objects.filter(user=request.user)
-    return product_list
 
 @login_required
 def add_products_to_order(request, order_id):
-    product_list = get_products_for_order(order_id)
+    product_list = Cart.objects.filter(user=request.user)
     order = Order.objects.get(order_id)
 
     for product in product_list:
@@ -82,7 +77,8 @@ def add_products_to_order(request, order_id):
 
 @login_required
 def create_order(request):
-    #should be made when user is created and then again after each checkout
     newrow = Order(user=request.user)
     newrow.save()
     #return render(request, 'checkout/checkout.html')
+
+

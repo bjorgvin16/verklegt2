@@ -8,11 +8,10 @@ from django.utils import timezone
 class Cart(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     product = models.ForeignKey(Product, on_delete=models.CASCADE)
-
+    quantity = models.IntegerField(default=1)
 
 class Order(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
-    quantity = models.IntegerField(default=1)
     orderDate = models.DateTimeField(default=timezone.now)
     claimType = models.CharField(max_length=255)
     firstName = models.CharField(max_length=255)

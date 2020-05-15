@@ -45,7 +45,12 @@
 
         </div>
 
-        <a href="/cart/add-to-cart/{{ accessory.id }}" class="addtocart">Add to cart</a>
+        <form method="POST" action="/cart/add-to-cart/{{ accessory.id }}/">
+        {% csrf_token %}
+            <input type="number" name = "quantity" value="1" min="1" max="{{ accessory.leftInStock }}" step="1"/>
+            <button class="addtocart" type = "submit">Add to cart</button>
+        </form>
+
     </div>
 
 {% endblock %}
