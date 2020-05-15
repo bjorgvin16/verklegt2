@@ -4,7 +4,7 @@ from frontpage.models import Product
 from django.shortcuts import redirect, render, get_object_or_404
 from django.contrib.auth.decorators import login_required
 
-#############       CART FUNCTIONS
+#CART FUNCTIONS
 
 @login_required
 def clear_user_cart_data(request):
@@ -19,7 +19,12 @@ def delete_cart_item(request, cart_id):
     carts = Cart.objects.filter(user=request.user)
     if carts.exists():
         row = Cart.objects.get(id=cart_id)
+        print(row.product.leftInStock)
+        quantity = row.quantity
+        row.product.leftInStock += quantity
+        row.product.save()
         row.delete()
+
     if carts.exists():
         return get_cart_items(request)
     else:
@@ -29,7 +34,8 @@ def delete_cart_item(request, cart_id):
 def add_item_to_cart(request, product_id):
     if request.method == 'POST':
         product = get_object_or_404(Product, pk=product_id)
-        product_type = product
+        product.leftInStock -= int(request.POST["quantity"])
+        product.save()
         newrow = Cart(user=request.user, product=product, quantity=request.POST["quantity"])
         newrow.save()
         type = findTypeFromId(product_id)
@@ -63,7 +69,7 @@ def get_total_cart_price(request):
 
     return total_sum
 
-############           ORDER FUNCTIONS
+#ORDER FUNCTIONS
 
 
 @login_required

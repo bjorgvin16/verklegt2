@@ -32,7 +32,9 @@
                                 </button>
                                 <div class="dropdown-content">
                                     {% for manu in manufacturers %}
-                                        <li><a href="/games/manufacturers/{{ manu.id }}"> {{ manu.name }}</a></li>
+                                        <li>
+                                            <a href="/games/manufacturers/{{ manu.id }}"> {{ manu.name }}</a>
+                                        </li>
                                     {% endfor %}
                                 </div>
                             </div>
@@ -46,12 +48,20 @@
                                 </button>
                                 <div class="dropdown-content">
                                     {% for manu in manufacturers %}
-                                        <li><a href="/consoles/manufacturers/{{ manu.id }}"> {{ manu.name }}</a></li>
+                                        <li>
+                                            <a href="/consoles/manufacturers/{{ manu.id }}"> {{ manu.name }}</a>
+                                        </li>
                                     {% endfor %}
                                 </div>
                             </div>
                             <div class="dropdown">
-                                <button class="dropbtn"><li><a href="{% url "accessories-index" %}"><b>Accessories</b></a></li></button>
+                                <button class="dropbtn">
+                                    <li>
+                                        <a href="{% url "accessories-index" %}">
+                                            <b>Accessories</b>
+                                        </a>
+                                    </li>
+                                </button>
                             </div>
                         </ul>
 
